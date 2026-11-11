@@ -31,6 +31,7 @@ export function SessionTimer() {
   useEffect(() => {
     const events = ["keydown", "pointerdown", "input", "scroll"] as const;
     events.forEach((e) => window.addEventListener(e, activity, { passive: true, capture: true }));
+    document.documentElement.dataset.sessionTimer = "ready"; // semnal pentru teste: ascultătorii sunt atașați
     return () => events.forEach((e) => window.removeEventListener(e, activity, { capture: true }));
   }, [activity]);
 

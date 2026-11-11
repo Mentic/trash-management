@@ -105,6 +105,7 @@ async function session(browser, user, pw) {
   const p2 = await ana.context().newPage();
   await p2.clock.install();
   await p2.goto(`${B}/registry/new`);
+  await p2.waitForSelector("html[data-session-timer=ready]", { state: "attached" }); // după hidratare
   await p2.clock.fastForward("20:00");
   await p2.fill("#subject", "Text scris în formular");
   await p2.clock.fastForward("10:00");
