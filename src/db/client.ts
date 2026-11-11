@@ -2,8 +2,8 @@ import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
 import * as schema from "./schema";
 
-const url = process.env.DATABASE_URL;
-if (!url) throw new Error("DATABASE_URL lipsește (vezi .env.example)");
+// postgres-js se conectează abia la prima interogare, deci build-ul (fără .env) nu are nevoie de bază.
+const url = process.env.DATABASE_URL ?? "postgres://lipseste-DATABASE_URL@127.0.0.1:1/adi";
 
 const g = globalThis as unknown as { pg?: ReturnType<typeof postgres> };
 const client = g.pg ?? postgres(url, { max: 10 });

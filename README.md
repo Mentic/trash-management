@@ -7,7 +7,8 @@ documentul „Registratură și evidența deșeurilor — cerințe tehnice și s
 
 | Gata | Urmează (plan, sec. 14) |
 | --- | --- |
-| Schema PostgreSQL (21 tabele, jurnal append-only, contor de registru) | Autentificare parolă + 2FA în aplicație (S01–S08) |
+| Autentificare: parolă, înrolare 2FA cu cod QR, coduri de recuperare, anti-replay, blocare 5 min, jurnal de securitate (S01–S05, S08) | Expirarea sesiunii cu avertizare (S07), ecranul Jurnal |
+| Schema PostgreSQL (21 tabele, jurnal append-only, contor de registru) | |
 | Reguli de domeniu: V1–V6, AFM, termene, stări document, TOTP, CSV, mutarea datelor | Loader set demo + resetare (sec. 10) |
 | Teste unitare pe setul demo (oracolul AFM, rezultatele importurilor) | Registratură R1–R8, deșeuri D1–D7, Playwright |
 | Docker Compose (app, Postgres 17, Caddy), CI, deploy manual | Ecranele din sec. 8 |
@@ -19,10 +20,14 @@ git clone https://github.com/ionutvacariu/trash-management && cd trash-managemen
 git checkout claude/etapa1-schelet
 sh scripts/init-env.sh
 docker compose -f compose.yml -f compose.local.yml up -d --build
-docker compose exec app node migrator/migrate.mjs
 ```
 
 Aplicația: http://localhost:3000 · verificare: http://localhost:3000/api/health
+
+La pornire, aplicația aplică migrările și, dacă baza e goală, încarcă conturile demo (Ana, Mihai, Elena — neînrolate în 2FA)
+și datele de referință. Prima autentificare a fiecărui cont afișează codul QR.
+
+Pentru a reîncepe de la zero (inclusiv înrolările 2FA): `docker compose -f compose.yml -f compose.local.yml down -v`, apoi `up -d`.
 
 Oprire: `docker compose -f compose.yml -f compose.local.yml down` (datele rămân în volume; `down -v` le șterge).
 
