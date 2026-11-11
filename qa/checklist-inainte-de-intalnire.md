@@ -3,7 +3,7 @@
 ## Cu 2–3 zile înainte
 
 - [ ] Rulați toate testele din [teste-manuale.md](teste-manuale.md) pe laptopul de prezentare; zero probleme „blochează demo”.
-- [ ] Testele automate: `pnpm test` și `node tests/e2e/demo-scenarios.cjs` pe un set proaspăt resetat — toate trec.
+- [ ] CI verde pe ultimul commit (joburile `test` și `e2e` în tab-ul Actions din GitHub).
 - [ ] Exportul CSV deschis în Excel cu setări regionale România (diacritice, coloane).
 - [ ] Imprimarea fișei pe A4 verificată.
 - [ ] Trei repetiții cronometrate ale [scriptului](demo-showcase.md), sub 15 minute.

@@ -55,10 +55,13 @@ pnpm typecheck && pnpm test
 pnpm seed:validate
 ```
 
-Scenariile de acceptare, pe o bază proaspăt resetată (necesită Playwright):
+Scenariile de acceptare (L1–L5, R1–R8, D1–D5, D7, S08, N08) pe build-ul de producție, fiecare pe o bază proaspătă.
+Rulează automat în CI (jobul `e2e`); local, cu un PostgreSQL în care există rolul `app_rw`:
 
 ```bash
-BASE_URL=http://localhost:3000 node tests/e2e/demo-scenarios.cjs
+pnpm exec playwright install chromium
+pnpm build
+PG_ADMIN_BASE=postgres://app_admin:PAROLA@localhost:5432 APP_RW_PASSWORD=PAROLA_RW pnpm test:e2e
 ```
 
 ## Structură

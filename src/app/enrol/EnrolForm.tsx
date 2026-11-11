@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { useActionState, useState } from "react";
 import { confirmEnrolment, type FormState } from "@/server/actions/auth";
 
@@ -17,7 +16,8 @@ export function EnrolForm({ secret }: { secret: string }) {
         <div className="no-print flex flex-wrap gap-2">
           <button type="button" onClick={() => window.print()} className="rounded border px-3 py-1">Imprimă</button>
           <a className="rounded border px-3 py-1" download="coduri-recuperare-adi-demo.txt" href={`data:text/plain;charset=utf-8,${encodeURIComponent(text)}`}>Descarcă</a>
-          <Link href="/registry" className="rounded bg-[var(--accent)] px-3 py-1 text-white">Am salvat codurile — continuă</Link>
+          {/* Navigare completă: antetul (meniu, Deconectare) se redesenează cu sesiunea activă. */}
+          <a href="/registry" className="rounded bg-[var(--accent)] px-3 py-1 text-white">Am salvat codurile — continuă</a>
         </div>
       </div>
     );
