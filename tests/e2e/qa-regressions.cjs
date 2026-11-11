@@ -1,4 +1,4 @@
-// Regresii pentru raportul QA din 11.11.2026 (qa/raport-probleme-2026-11-11.docx): QA01–QA04, QA09–QA11.
+// Regresii pentru raportul QA din 11.11.2026 (qa/raport-probleme-2026-11-11.docx): QA01–QA04, QA06–QA07, QA09–QA11.
 // Rulat de scripts/e2e.mjs pe o bază proaspătă.
 const { chromium } = require("playwright");
 const OTPAuth = require("otpauth");
@@ -8,6 +8,7 @@ const path = require("node:path");
 const B = process.env.BASE_URL ?? "http://localhost:3000";
 const code = (s) => new OTPAuth.TOTP({ secret: OTPAuth.Secret.fromBase32(s), digits: 6, period: 30, algorithm: "SHA1" }).generate();
 let step = 0;
+const yes = (p) => p.click("[role=alertdialog] button:has-text('Da, continuă')");
 const assert = (c, msg) => { if (!c) throw new Error(`EȘUAT: ${msg}`); console.log(`✓ ${String(++step).padStart(2)} ${msg}`); };
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), "qa-"));
 const file = (name, content) => { const p = path.join(tmp, name); fs.writeFileSync(p, content); return p; };
@@ -54,7 +55,7 @@ async function session(browser, user, pw) {
   await ana.fill("#correspondentName", "AFM");
   await ana.fill("#subject", "Ieșire QA03");
   await ana.setInputFiles("#files", file("qa-old.txt", "anexa veche"));
-  await ana.click("text=Confirmă și atribuie număr");
+  await ana.click("text=Confirmă și atribuie număr"); await yes(ana);
   await ana.waitForURL(/ok=confirmed/);
   await ana.fill("#proofRef", "");
   await ana.setInputFiles("#proofFile", file("qa-proof.txt", "dovada"));
@@ -95,10 +96,29 @@ async function session(browser, user, pw) {
 
   // QA11: contoarele importului nu depind de filtru
   await mihai.goto(importUrl);
-  await mihai.click("button:has-text('Validează rândurile curate')");
+  await mihai.click("button:has-text('Validează rândurile curate')"); await yes(mihai);
   await mihai.waitForURL(/ok=validated/);
   await mihai.goto(`${importUrl}?filter=flagged`);
   assert((await mihai.textContent("main")).includes("1 validate"), "QA11: cu filtrul „Doar semnalate”, sumarul arată totuși rândurile validate");
+
+  // QA06 + QA07: cronometrul de inactivitate (ceas simulat în browser)
+  const p2 = await ana.context().newPage();
+  await p2.clock.install();
+  await p2.goto(`${B}/registry/new`);
+  await p2.clock.fastForward("20:00");
+  await p2.fill("#subject", "Text scris în formular");
+  await p2.clock.fastForward("10:00");
+  assert(!(await p2.locator("text=Sesiunea expiră în curând").isVisible()), "QA06: tastarea în formular amână avertizarea de expirare");
+  await p2.clock.fastForward("18:30"); // 10 + 18,5 = 28,5 min de la ultima tastare
+  await p2.waitForSelector("text=Sesiunea expiră în curând");
+  await p2.clock.runFor(200); // ceasul simulat: lasă Radix să mute focusul în dialog
+  const focusIn = () => p2.evaluate(() => !!document.activeElement?.closest("[role=alertdialog]"));
+  let inside = await focusIn();
+  for (let i = 0; i < 4; i++) { await p2.keyboard.press("Tab"); await p2.clock.runFor(50); inside = inside && (await focusIn()); }
+  assert(inside, "QA07: focusul rămâne în dialogul de expirare (Tab nu iese)");
+  await p2.click("button:has-text('Prelungește sesiunea')");
+  await p2.waitForSelector("text=Sesiunea expiră în curând", { state: "hidden" });
+  await p2.close();
 
   await browser.close();
   fs.rmSync(tmp, { recursive: true, force: true });

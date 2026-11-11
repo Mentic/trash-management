@@ -37,7 +37,7 @@ export default async function RegistryPage({ searchParams }: { searchParams: Pro
         <ul className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
           {work.map((w) => (
             <li key={w.label}>
-              <Link href={w.href} className={`block rounded border p-3 hover:shadow ${w.count === 0 ? "border-gray-200 text-gray-500" : TONE[w.tone]}`}>
+              <Link href={w.href} className={`block rounded-xl border p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${w.count === 0 ? "border-slate-200 bg-white text-slate-500" : TONE[w.tone]}`}>
                 <span className="block text-2xl font-semibold">{w.count}</span>
                 <span className="block text-sm font-medium">{w.label}</span>
                 <span className="block text-xs">{w.hint}</span>
@@ -47,7 +47,7 @@ export default async function RegistryPage({ searchParams }: { searchParams: Pro
         </ul>
       </section>
 
-      <form role="search" className="mb-4 grid grid-cols-2 gap-2 rounded border p-3 md:grid-cols-7" aria-label="Căutare și filtre">
+      <form role="search" className="mb-4 grid grid-cols-2 gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm md:grid-cols-7" aria-label="Căutare și filtre">
         <div className="col-span-2">
           <label htmlFor="q" className="text-xs font-medium">Căutare (nr. intern, nr. extern, obiect, corespondent)</label>
           <input id="q" name="q" defaultValue={f.q} className={input} placeholder="ex. 438/2026" />

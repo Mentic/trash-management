@@ -2,14 +2,16 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-export const btn = "inline-flex items-center gap-1 rounded border px-3 py-1.5 text-sm hover:bg-gray-50 disabled:opacity-60";
-export const btnPrimary = "inline-flex items-center gap-1 rounded bg-[var(--accent)] px-3 py-1.5 text-sm text-white hover:opacity-90 disabled:opacity-60";
-export const input = "w-full rounded border px-2 py-1";
+import { buttonVariants } from "./ui/button";
+
+export const btn = buttonVariants({ variant: "outline", size: "sm" });
+export const btnPrimary = buttonVariants({ size: "sm" });
+export const input = "w-full rounded-lg border px-3 py-1.5 text-sm shadow-xs";
 
 export function PageTitle({ children, actions }: { children: ReactNode; actions?: ReactNode }) {
   return (
     <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-      <h1 className="text-xl font-semibold">{children}</h1>
+      <h1 className="text-2xl font-semibold tracking-tight text-slate-900">{children}</h1>
       {actions && <div className="flex flex-wrap gap-2">{actions}</div>}
     </div>
   );
@@ -36,7 +38,7 @@ export type Tone = keyof typeof TONES;
 
 export function Badge({ tone = "gray", icon, children }: { tone?: Tone; icon?: string; children: ReactNode }) {
   return (
-    <span className={`inline-flex items-center gap-1 whitespace-nowrap rounded border px-1.5 py-0.5 text-xs font-medium ${TONES[tone]}`}>
+    <span className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full border px-2 py-0.5 text-xs font-medium ${TONES[tone]}`}>
       {icon && <span aria-hidden="true">{icon}</span>}
       {children}
     </span>
@@ -45,8 +47,8 @@ export function Badge({ tone = "gray", icon, children }: { tone?: Tone; icon?: s
 
 export function Card({ title, children, className = "" }: { title?: string; children: ReactNode; className?: string }) {
   return (
-    <section className={`rounded border p-4 ${className}`} aria-label={title}>
-      {title && <h2 className="mb-2 font-semibold">{title}</h2>}
+    <section className={`rounded-xl border border-slate-200 bg-white p-5 shadow-sm ${className}`} aria-label={title}>
+      {title && <h2 className="mb-3 text-base font-semibold text-slate-900">{title}</h2>}
       {children}
     </section>
   );
@@ -54,18 +56,18 @@ export function Card({ title, children, className = "" }: { title?: string; chil
 
 export function Stat({ label, value, tone }: { label: string; value: ReactNode; tone?: Tone }) {
   return (
-    <div className={`rounded border p-3 ${tone ? TONES[tone] : ""}`}>
-      <div className="text-xs">{label}</div>
-      <div className="text-lg font-semibold">{value}</div>
+    <div data-stat={label} className={`rounded-xl border p-4 shadow-sm ${tone ? TONES[tone] : "border-slate-200 bg-white"}`}>
+      <div className="text-xs font-medium">{label}</div>
+      <div data-value className="mt-1 text-2xl font-semibold tabular-nums">{value}</div>
     </div>
   );
 }
 
-export const th = "border-b px-2 py-1.5 text-left text-xs font-semibold uppercase tracking-wide text-gray-700";
-export const td = "border-b px-2 py-1.5 align-top text-sm";
+export const th = "border-b border-slate-200 bg-slate-50 px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-slate-600";
+export const td = "border-b border-slate-100 px-3 py-2 align-top text-sm";
 
 export function Notice({ tone = "blue", children }: { tone?: Tone; children: ReactNode }) {
-  return <div role="status" className={`mb-4 rounded border px-3 py-2 text-sm ${TONES[tone]}`}>{children}</div>;
+  return <div role="status" className={`mb-4 rounded-xl border px-4 py-3 text-sm ${TONES[tone]}`}>{children}</div>;
 }
 
 export function Crumbs({ items }: { items: { href?: string; label: string }[] }) {

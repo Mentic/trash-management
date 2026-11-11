@@ -4,6 +4,7 @@ import { createDocument } from "@/server/actions/registry";
 import type { ActionResult } from "@/components/ActionForm";
 import { Field, input, btn, btnPrimary } from "@/components/ui";
 import { FileInput } from "@/components/FileInput";
+import { useConfirm } from "@/components/useConfirm";
 import { INTAKE_LABEL, REQUEST_TYPE_LABEL } from "@/lib/labels";
 import { CORRESPONDENT_LABEL, DIRECTION_HELP, REQUEST_TYPES_BY_DIRECTION } from "@/lib/directions";
 import { computeDeadline, DEMO_DEADLINES } from "@/domain/deadlines";
@@ -13,6 +14,10 @@ const fmt = (iso: string | null) => (iso ? iso.split("-").reverse().join(".") : 
 
 export function NewDocumentForm({ today }: { today: string }) {
   const [state, action, pending] = useActionState<ActionResult, FormData>(createDocument, undefined);
+  const { onSubmit, dialog } = useConfirm(
+    (b) => (b?.getAttribute("value") === "confirm" ? "Numărul de înregistrare se atribuie definitiv și nu se mai poate schimba." : undefined),
+    { title: "Confirmați înregistrarea?" },
+  );
   const [direction, setDirection] = useState<Direction>("incoming");
   const [type, setType] = useState<RequestType>("petition");
   const [redirected, setRedirected] = useState(false);
@@ -26,7 +31,8 @@ export function NewDocumentForm({ today }: { today: string }) {
   };
 
   return (
-    <form action={action} className="grid max-w-3xl gap-4 md:grid-cols-2">
+    <form action={action} onSubmit={onSubmit} className="grid max-w-3xl gap-4 md:grid-cols-2">
+      {dialog}
       {state?.error && <div role="alert" className="rounded border border-red-400 bg-red-50 p-2 text-sm md:col-span-2">{state.error}</div>}
 
       <fieldset className="md:col-span-2">
@@ -94,8 +100,7 @@ export function NewDocumentForm({ today }: { today: string }) {
         <FileInput id="files" name="files" label="Anexe (PDF, JPG, PNG, DOCX, XLSX, CSV; maximum 10 MB fiecare)" multiple />
       </div>
       <div className="flex gap-2 md:col-span-2">
-        <button name="intent" value="confirm" disabled={pending} className={btnPrimary}
-          onClick={(e) => { if (!window.confirm("Confirmați înregistrarea? Numărul se atribuie definitiv.")) e.preventDefault(); }}>
+        <button name="intent" value="confirm" disabled={pending} className={btnPrimary}>
           Confirmă și atribuie număr
         </button>
         <button name="intent" value="draft" disabled={pending} className={btn}>Salvează ciorna</button>

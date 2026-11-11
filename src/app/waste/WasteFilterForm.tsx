@@ -8,7 +8,7 @@ export function WasteFilterForm({ f, years, uatList, year, action, showUat = tru
   f: WasteFilters; years: number[]; uatList: { id: string; name: string }[]; year: number; action: string; showUat?: boolean;
 }) {
   return (
-    <form className="mb-4 grid grid-cols-2 gap-2 rounded border p-3 md:grid-cols-7" aria-label="Filtre">
+    <form className="mb-4 grid grid-cols-2 gap-3 rounded-xl border border-slate-200 bg-white p-4 shadow-sm md:grid-cols-7" aria-label="Filtre">
       <div><label htmlFor="year" className="text-xs font-medium">An</label>
         <select id="year" name="year" defaultValue={String(year)} className={input}>{years.map((y) => <option key={y}>{y}</option>)}</select></div>
       {showUat && <div className="col-span-2"><label htmlFor="uat" className="text-xs font-medium">UAT</label>

@@ -1,5 +1,7 @@
 // Bara de pași a circuitului și „Pasul următor” pe fișa documentului (sec. 5.1).
+import { CheckCircle2 } from "lucide-react";
 import type { Direction, DocStatus, Role } from "@/domain/codes";
+import { ToastOnMount } from "./Toast";
 
 const STEPS: Record<Direction, { key: DocStatus; label: string }[]> = {
   incoming: [
@@ -63,5 +65,10 @@ export function nextStep(o: { status: DocStatus; direction: Direction; role: Rol
 
 export function SuccessBanner({ text }: { text: string | null }) {
   if (!text) return null;
-  return <div role="status" className="mb-4 rounded border border-green-500 bg-green-50 px-3 py-2 text-sm font-medium text-green-900"><span aria-hidden="true">✓ </span>{text}</div>;
+  return (
+    <div role="status" className="mb-4 flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-sm font-medium text-green-900 shadow-sm">
+      <CheckCircle2 className="size-5 shrink-0 text-green-700" aria-hidden />{text}
+      <ToastOnMount text={text} />
+    </div>
+  );
 }

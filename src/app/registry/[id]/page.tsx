@@ -35,7 +35,7 @@ function ReasonAction({ label, action, id, version, confirm, extra }: {
 }) {
   const fid = `${label.replace(/\W/g, "")}-${id.slice(0, 4)}`;
   return (
-    <details className="rounded border p-2">
+    <details className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
       <summary className="cursor-pointer text-sm font-medium">{label}</summary>
       <ActionForm action={action} confirm={confirm} submit={label} className="mt-2 space-y-2">
         <Hidden id={id} version={version} />
@@ -233,7 +233,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
             </>
           )}
           {ok("assign") && (
-            <ActionForm action={assignDocument} submit={doc.assigneeId ? "Reasignează" : "Repartizează"} className="space-y-2 rounded border p-2">
+            <ActionForm action={assignDocument} submit={doc.assigneeId ? "Reasignează" : "Repartizează"} className="space-y-2 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
               <Hidden id={doc.id} version={v} />
               <label htmlFor="assigneeId" className="block text-sm font-medium">Responsabil (obligatoriu)</label>
               <select id="assigneeId" name="assigneeId" className={input} defaultValue={doc.assigneeId ?? ""} required>
@@ -252,7 +252,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
             <ActionForm action={registerOutgoing} submit="Înregistrează ieșirea" confirm="Se atribuie un număr nou de ieșire, legat de această intrare. Continuați?"><Hidden id={doc.id} version={v} /></ActionForm>
           )}
           {ok("recordDispatch") && (
-            <ActionForm action={recordDispatch} submit="Consemnează expedierea" className="space-y-2 rounded border p-2">
+            <ActionForm action={recordDispatch} submit="Consemnează expedierea" className="space-y-2 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
               <Hidden id={doc.id} version={v} />
               <label htmlFor="channel" className="block text-sm font-medium">Canal (obligatoriu)</label>
               <select id="channel" name="channel" className={input} required defaultValue="email">
@@ -266,7 +266,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
             </ActionForm>
           )}
           {canFile && (
-            <ActionForm action={fileDocument} submit={fileIsPrimary ? "Clasează la dosar" : "Clasează fără răspuns"} submitClass={fileIsPrimary ? undefined : btn} className="space-y-2 rounded border p-2">
+            <ActionForm action={fileDocument} submit={fileIsPrimary ? "Clasează la dosar" : "Clasează fără răspuns"} submitClass={fileIsPrimary ? undefined : btn} className="space-y-2 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
               <Hidden id={doc.id} version={v} />
               <label htmlFor="dossierId" className="block text-sm font-medium">Dosar (obligatoriu)</label>
               <select id="dossierId" name="dossierId" className={input} defaultValue={doc.dossierId ?? ""} required>

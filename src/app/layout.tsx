@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import "@fontsource-variable/inter";
 import "./globals.css";
+import { LogOut, Recycle, TriangleAlert } from "lucide-react";
+import { Toaster } from "@/components/Toast";
 import { getSession } from "@/server/auth/session";
 import { can, type Permission } from "@/server/auth/rbac";
 import { logout } from "@/server/actions/auth";
@@ -29,31 +32,52 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const user = s?.session.stage === "active" ? s.user : null;
   return (
     <html lang="ro">
-      <body>
+      <body className="min-h-screen">
         <a href="#main" className="skip-link">Sari la conținut</a>
         {isDemo && (
-          <div role="note" className="px-4 py-1.5 text-sm font-semibold" style={{ background: "var(--demo-bg)", color: "var(--demo)" }}>
-            DEMO — date fictive
+          <div role="note" className="flex items-center justify-center gap-2 px-4 py-1.5 text-xs font-semibold" style={{ background: "var(--demo-bg)", color: "var(--demo)" }}>
+            <TriangleAlert className="size-3.5" aria-hidden />DEMO — date fictive
           </div>
         )}
-        <header className="no-print border-b px-4 py-2">
-          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2">
-            <p className="font-semibold">ADI Eco Buzău 2009 — Registratură și evidența deșeurilor</p>
+        <header className="no-print sticky top-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur">
+          <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-3">
+            <div className="flex items-center gap-3">
+              <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-teal-600 to-emerald-700 text-white shadow-sm" aria-hidden>
+                <Recycle className="size-5" />
+              </span>
+              <div className="leading-tight">
+                <p className="text-sm font-semibold text-slate-900">ADI Eco Buzău 2009</p>
+                <p className="text-xs text-slate-500">Registratură și evidența deșeurilor</p>
+              </div>
+            </div>
             {user && (
               <div className="flex items-center gap-3 text-sm">
-                <span>{user.displayName} · {ROLE_LABEL[user.role]}</span>
-                <form action={logout}><button className="rounded border px-2 py-1">Deconectare</button></form>
+                <span className="flex items-center gap-2">
+                  <span className="flex size-8 items-center justify-center rounded-full bg-teal-100 text-xs font-semibold text-teal-900" aria-hidden>
+                    {user.displayName.slice(0, 1)}
+                  </span>
+                  <span className="leading-tight">
+                    <span className="block font-medium">{user.displayName}</span>
+                    <span className="block text-xs text-slate-500">{ROLE_LABEL[user.role]}</span>
+                  </span>
+                </span>
+                <form action={logout}>
+                  <button className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium hover:bg-slate-50">
+                    <LogOut className="size-4" aria-hidden />Deconectare
+                  </button>
+                </form>
               </div>
             )}
           </div>
           {user && (
-            <nav aria-label="Navigare principală" className="mx-auto mt-2 flex max-w-7xl flex-wrap gap-1">
+            <nav aria-label="Navigare principală" className="mx-auto flex max-w-7xl flex-wrap gap-1 px-4 pb-2">
               <NavLinks items={NAV.filter((n) => can(user.role, n.perm)).map(({ href, label }) => ({ href, label }))} />
             </nav>
           )}
         </header>
-        <main id="main" className="mx-auto max-w-7xl p-4">{children}</main>
+        <main id="main" className="mx-auto max-w-7xl px-4 py-6">{children}</main>
         {user && <SessionTimer />}
+        <Toaster />
       </body>
     </html>
   );
