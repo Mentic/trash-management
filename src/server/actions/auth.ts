@@ -9,6 +9,7 @@ import { registerFailure, verifyTotp } from "@/domain/totp";
 import { audit } from "@/server/audit";
 import { decryptSecret, encryptSecret, newRecoveryCode, normalizeRecoveryCode } from "@/server/auth/crypto";
 import { hashSecret, verifySecret } from "@/server/auth/password";
+import { homeFor } from "@/server/auth/rbac";
 import { clientIp, endSession, getSession, IDLE_MINUTES, promoteToActive, startSession } from "@/server/auth/session";
 
 export type FormState = { error?: string; recoveryCodes?: string[] } | undefined;
@@ -120,7 +121,7 @@ export async function verifyMfa(_: FormState, form: FormData): Promise<FormState
   if (result.kind === "locked") return { error: lockedMessage(result.until) };
   if (result.kind === "fail") return { error: await failCode(s.user.id, result.failed, ip) };
   await promoteToActive(s.user.id);
-  redirect("/registry");
+  redirect(homeFor(s.user.role));
 }
 
 export async function logout() {

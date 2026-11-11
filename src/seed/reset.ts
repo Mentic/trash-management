@@ -10,6 +10,7 @@ import { todayIso } from "@/lib/format";
 import { clearStorage } from "@/storage/files";
 import { loadFull } from "./full";
 import { loadReference } from "./reference";
+import { ensureTenants } from "./tenants";
 
 const TABLES = [
   "audit_events", "attachments", "dispatches", "waste_flags", "waste_row_route_uats", "waste_rows", "import_rejections",
@@ -41,6 +42,7 @@ export async function seedAll(opts: { truncate: boolean; keepMfa?: boolean; acto
     await clearStorage();
     await loadReference(db);
     await loadFull(db, shift);
+    await ensureTenants(db);
 
     for (const k of kept) {
       if (!k.totp_secret_enc) continue;

@@ -94,6 +94,16 @@ Pregătire: Kit demo → Resetează datele demo (bifat „Păstrează înrolări
 | D8.2 | Importați o cursă din 2025 fără UAT, apoi încercați „Atribuie UAT” → Comuna Berca | Refuzat: „Anul 2025 este aprobat pentru Comuna Berca…”; estimarea AFM rămâne 14.923 lei | D07 | |
 | D9 | Ana: meniul nu are Situație pe UAT / Import; adresa `/waste/summary` tastată direct | Pagina nu există pentru Ana | Matrice acces | |
 
+## 3b. Portalurile primăriilor (extensie multi-tenant)
+
+| ID | Pași | Rezultat așteptat | Referință | Rezultat |
+| --- | --- | --- | --- | --- |
+| T1 | Pagina de autentificare → stema Berca | `/p/berca`: stema, „Primăria Comunei Berca”, culoarea primăriei pe buton și pe banda tradițională | docs/multi-tenant.md | |
+| T2 | Click pe contul demo al primăriei → 2FA | Portalul: antetul primăriei, cantități lunare, estimare AFM, corespondența cu ADI; nimic despre alte primării | izolare | |
+| T3 | Ca primărie, deschideți `/registry`, `/waste/summary`, `/portal?uat=nehoiu` | Redirect la portal / 404 / tot Berca | izolare | |
+| T4 | Elena → Primării → Berca → Personalizează: culoare `#ffeeaa` | Refuzat: contrast insuficient | A04 | |
+| T5 | Alegeți „Verde de brad”, alt text, încărcați o stemă PNG | Portalul și pagina de autentificare Berca au noua culoare, textul și stema | personalizare | |
+
 ## 4. Accesibilitate (A02–A04, A07–A09) — Etapa 1
 
 | ID | Pași | Rezultat așteptat | BRD | Rezultat |

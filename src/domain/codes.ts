@@ -64,7 +64,8 @@ export const SEED_INTAKE_CHANNEL: Record<string, IntakeChannel> = {
 export const DISPATCH_CHANNELS = ["email", "post", "courier", "hand_delivery"] as const;
 export type DispatchChannel = (typeof DISPATCH_CHANNELS)[number];
 
-export const ROLES = ["registrar", "officer", "director"] as const;
+// „mayor” = utilizator al unei primării (tenant), cu acces doar la portalul propriei UAT — extensie peste BRD (vezi docs/multi-tenant.md).
+export const ROLES = ["registrar", "officer", "director", "mayor"] as const;
 export type Role = (typeof ROLES)[number];
 export const SEED_ROLE: Record<string, Role> = { registrator: "registrar", responsabil: "officer", director: "director" };
 

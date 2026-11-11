@@ -13,7 +13,7 @@ export function NavLinks({ items }: { items: { href: string; label: string }[] }
         const on = n.href === active;
         return (
           <Link key={n.href} href={n.href} aria-current={on ? "page" : undefined}
-            className={cn("rounded-full px-3 py-1.5 text-[13px] transition-colors",
+            className={cn("whitespace-nowrap rounded-full px-3 py-1.5 text-[13px] transition-colors",
               on ? "bg-[var(--ink)] font-medium text-white" : "text-[var(--ink-2)] hover:text-[var(--ink)]")}>
             {n.label}
           </Link>

@@ -17,18 +17,25 @@ const MATRIX = {
   "afm.read": ["officer", "director"],
   "journal.read": ["director"],
   "demo.reset": ["registrar", "officer", "director"],
+  // Multi-tenant: portalul primăriei. Primăria își vede doar propria UAT; personalul ADI îl poate previzualiza.
+  "portal.read": ["mayor", "registrar", "officer", "director"],
+  "portal.preview": ["registrar", "officer", "director"],
+  "tenants.manage": ["director"],
 } as const satisfies Record<string, readonly Role[]>;
 
 export type Permission = keyof typeof MATRIX;
 export const can = (role: Role, perm: Permission) => (MATRIX[perm] as readonly Role[]).includes(role);
 
-export type CurrentUser = { id: string; username: string; displayName: string; role: Role };
+export type CurrentUser = { id: string; username: string; displayName: string; role: Role; uatId?: string | null };
+
+/** Pagina de start după autentificare, pe rol. */
+export const homeFor = (role: Role) => (role === "mayor" ? "/portal" : "/registry");
 
 /** Utilizatorul autentificat complet (parolă + 2FA) sau redirect la login. */
 export async function requireUser(perm?: Permission): Promise<CurrentUser> {
   const s = await getSession();
   if (!s || s.session.stage !== "active") redirect("/login");
-  const u = { id: s.user.id, username: s.user.username, displayName: s.user.displayName, role: s.user.role };
+  const u = { id: s.user.id, username: s.user.username, displayName: s.user.displayName, role: s.user.role, uatId: s.user.uatId };
   if (perm && !can(u.role, perm)) notFound();
   return u;
 }

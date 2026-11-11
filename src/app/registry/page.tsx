@@ -1,5 +1,6 @@
 // R01, R04, R07, R08 — registrul: listă filtrată pe rol, căutare, filtre, export CSV.
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { requireUser, can } from "@/server/auth/rbac";
 import { allDossiers, listDocuments, officers, workItems, type RegistryFilters } from "@/server/queries/registry";
 import { PageTitle, btn, btnPrimary, input, th, td } from "@/components/ui";
@@ -12,6 +13,8 @@ export const dynamic = "force-dynamic";
 
 
 export default async function RegistryPage({ searchParams }: { searchParams: Promise<RegistryFilters> }) {
+  const me = await requireUser();
+  if (me.role === "mayor") redirect("/portal"); // multi-tenant: primăria are doar portalul
   const user = await requireUser("registry.read");
   const f = await searchParams;
   const [{ rows, total, page, pages }, offs, dos, work] = await Promise.all([listDocuments(user, f), officers(), allDossiers(), workItems(user)]);

@@ -35,7 +35,7 @@ export function LoginForm({ demoAccounts }: { demoAccounts?: Account[] }) {
       </form>
       {demoAccounts && (
         <section aria-labelledby="demo-accounts" className="mt-10">
-          <h2 id="demo-accounts" className="mb-2 px-1 text-[13px] text-[var(--ink-2)]">Conturi demo — intrați cu un click</h2>
+          <h2 id="demo-accounts" className="mb-2 px-1 font-sans text-[13px] font-normal text-[var(--ink-2)]">Conturi demo — intrați cu un click</h2>
           <ul className="divide-y divide-[var(--hairline)] overflow-hidden rounded-2xl bg-white ring-1 ring-[var(--hairline)]">
             {demoAccounts.map((a) => (
               <li key={a.user}>

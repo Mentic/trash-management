@@ -2,7 +2,7 @@
 // indexul de căutare sunt în migrarea SQL scrisă de mână `0001_guards.sql`.
 import { sql } from "drizzle-orm";
 import {
-  bigint, bigserial, boolean, char, check, customType, date, index, inet, integer, jsonb, numeric,
+  type AnyPgColumn, bigint, bigserial, boolean, char, check, customType, date, index, inet, integer, jsonb, numeric,
   pgEnum, pgTable, primaryKey, smallint, text, timestamp, uniqueIndex, uuid, varchar,
 } from "drizzle-orm/pg-core";
 import {
@@ -41,6 +41,8 @@ export const users = pgTable("users", {
   totpLastStep: bigint("totp_last_step", { mode: "number" }),
   failedMfaCount: smallint("failed_mfa_count").notNull().default(0),
   lockedUntil: ts("locked_until"),
+  // Multi-tenant: un utilizator „mayor” aparține unei primării (UAT); NULL = personal ADI.
+  uatId: uuid("uat_id").references((): AnyPgColumn => uats.id),
   createdAt: createdAt(),
   version: version(),
 });
@@ -126,6 +128,7 @@ export const documents = pgTable(
     dossierId: uuid("dossier_id").references(() => dossiers.id),
     filedAt: ts("filed_at"),
     linkedDocumentId: uuid("linked_document_id"),
+    uatId: uuid("uat_id").references((): AnyPgColumn => uats.id), // primăria corespondentă (portal)
     replyDraft: text("reply_draft"),
     cancelReason: text("cancel_reason"),
     createdBy: uuid("created_by").notNull().references(() => users.id),
@@ -168,6 +171,12 @@ export const uats = pgTable("uats", {
   population: integer("population").notNull(),
   organizedService: boolean("organized_service").notNull(), // I11
   contractedQtyKg: integer("contracted_qty_kg").notNull(), // I16
+  // Tenant (portalul primăriei): adresă, culoare, motto, stemă încărcată (sau stilizată, generată).
+  slug: text("slug").unique(),
+  brandColor: text("brand_color"),
+  motto: text("motto"),
+  emblemStorageKey: text("emblem_storage_key"),
+  emblemMime: text("emblem_mime"),
   version: version(),
 });
 

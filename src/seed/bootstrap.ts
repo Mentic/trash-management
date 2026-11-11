@@ -6,6 +6,7 @@ import { migrate } from "drizzle-orm/postgres-js/migrator";
 import postgres from "postgres";
 import { documents, users } from "@/db/schema";
 import { seedAll } from "./reset";
+import { ensureTenants } from "./tenants";
 
 export async function bootstrap() {
   const url = process.env.DATABASE_ADMIN_URL;
@@ -25,6 +26,7 @@ export async function bootstrap() {
       const shift = await seedAll({ truncate: (u?.n ?? 0) > 0, keepMfa: true });
       console.log(`[bootstrap] set demo încărcat (ancora mutată la ${shift.target})`);
     }
+    await ensureTenants(db); // multi-tenant: completează primăriile și pe bazele mai vechi
   } finally {
     await client.end();
   }

@@ -1,5 +1,6 @@
 // R08, N04 — exportul conține exact lista filtrată (aceeași interogare și același scope ca ecranul).
 import { getSession } from "@/server/auth/session";
+import { can } from "@/server/auth/rbac";
 import { listDocuments } from "@/server/queries/registry";
 import { toRomanianCsv } from "@/domain/csv";
 import { DIRECTION_LABEL, DOC_STATUS_LABEL, REQUEST_TYPE_LABEL } from "@/lib/labels";
@@ -10,6 +11,7 @@ export const dynamic = "force-dynamic";
 export async function GET(req: Request) {
   const s = await getSession();
   if (!s || s.session.stage !== "active") return new Response("Neautentificat", { status: 401 });
+  if (!can(s.user.role, "registry.export")) return new Response("Nu există", { status: 404 }); // ex. cont de primărie
   const user = { id: s.user.id, username: s.user.username, displayName: s.user.displayName, role: s.user.role };
   const f = Object.fromEntries(new URL(req.url).searchParams);
   const { rows } = await listDocuments(user, f, { all: true });

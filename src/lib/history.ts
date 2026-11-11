@@ -33,6 +33,7 @@ export const HISTORY_LABEL: Record<string, string> = {
   "waste.row.reactivated": "Rând reactivat",
   "waste.rows.validated": "Rânduri validate",
   "demo.reset": "Date demo resetate",
+  "tenant.updated": "Identitatea primăriei modificată",
 };
 
 const FIELD: Record<string, string> = {
@@ -42,7 +43,7 @@ const FIELD: Record<string, string> = {
   fisier: "Fișier", intrare: "Intrare", total: "Total", respinse: "Respinse", semnalate: "Semnalate", curate: "Curate",
   randuri: "Rânduri", reportedKg: "Raportat (kg)", ticketKg: "Tichet (kg)", uat: "UAT", status: "Stare",
   anchorShiftedTo: "Ancora mutată la", keepMfa: "Înrolări 2FA păstrate", dayShift: "Zile mutate", monthShift: "Luni mutate",
-  code: "Indicativ", title: "Denumire", retention: "Termen de păstrare",
+  culoare: "Culoare", stema: "Stemă", code: "Indicativ", title: "Denumire", retention: "Termen de păstrare",
 };
 
 /** „Cheie: valoare” lizibil pentru jurnal. */

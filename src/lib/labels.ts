@@ -1,7 +1,7 @@
 import type { Destination, DispatchChannel, Fraction, IntakeChannel, RequestType, Role, WasteRowStatus } from "@/domain/codes";
 export { DOC_STATUS_LABEL } from "@/domain/codes";
 
-export const ROLE_LABEL: Record<Role, string> = { registrar: "Registrator", officer: "Responsabil ADI", director: "Director" };
+export const ROLE_LABEL: Record<Role, string> = { registrar: "Registrator", officer: "Responsabil ADI", director: "Director", mayor: "Primărie" };
 export const DIRECTION_LABEL = { incoming: "Intrare", outgoing: "Ieșire", internal: "Intern" } as const;
 export const REQUEST_TYPE_LABEL: Record<RequestType, string> = {
   petition: "Petiție", public_info: "Informații de interes public", institution_letter: "Adresă instituție",

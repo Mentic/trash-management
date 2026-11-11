@@ -7,7 +7,9 @@ description: Sistemul vizual (sobru, în spiritul Apple Human Interface Guidelin
 
 Aplicația e un instrument de lucru pentru un ADI (registrator, responsabil, director), prezentat clientului ca demo de 15 minute. Ținta: **fiecare ecran spune ce s-a întâmplat și ce urmează**, arată profesionist pe proiector și rămâne accesibil (WCAG 2.1 AA, cerințele A01–A11 din `docs/brd/BRD_v2.2.md`).
 
-**Direcția vizuală: control și simplitate (Apple HIG).** Neutre (alb, gri `#f5f5f7`), **un singur accent** (albastru `#0066cc`), separatoare fine în loc de chenare, fără umbre decorative, fără gradiente, fără culori de fundal pentru carduri. Ierarhia vine din mărimea și greutatea textului și din spațiu, nu din culoare. Culoarea apare doar pentru: acțiunea principală și linkuri (accent), probleme (roșu), atenție (ambră), finalizat (verde) — și atunci ca punct + text, nu ca fundal. Înainte de a adăuga un element, întreabă-te ce poți scoate.
+**Direcția vizuală: control și simplitate (Apple HIG), cu o notă tradițională românească.** Titlurile `h1`/`h2` sunt cu serif (Noto Serif — are ș, ț cu virgulă), fundalul e alb cald ca hârtia, iar sub antet stă o bandă îngustă cu motiv de ie (`FolkBand`: romburi și cruciulițe) în culoarea accentului. Nota tradițională stă în aceste trei elemente și în stema primăriei — nu în ornamente adăugate prin pagină.
+
+**Multi-tenant:** într-un portal de primărie, accentul (`--accent`) devine culoarea primăriei (din `uats.brand_color`, paleta din `src/domain/tenants.ts`, toate ≥ 4,5:1 cu alb), iar antetul arată stema (`Emblem`) și numele primăriei. Componentele nu folosesc culori fixe, așa că preiau automat identitatea tenantului. Neutre (alb, gri `#f5f5f7`), **un singur accent** (albastru `#0066cc`), separatoare fine în loc de chenare, fără umbre decorative, fără gradiente, fără culori de fundal pentru carduri. Ierarhia vine din mărimea și greutatea textului și din spațiu, nu din culoare. Culoarea apare doar pentru: acțiunea principală și linkuri (accent), probleme (roșu), atenție (ambră), finalizat (verde) — și atunci ca punct + text, nu ca fundal. Înainte de a adăuga un element, întreabă-te ce poți scoate.
 
 ## Principii (în ordinea priorității)
 
@@ -23,13 +25,13 @@ Aplicația e un instrument de lucru pentru un ADI (registrator, responsabil, dir
 | Token | Valoare | Utilizare |
 | --- | --- | --- |
 | `--ink` / `--ink-2` | `#1d1d1f` / `#6e6e73` | text principal / secundar (etichete, ajutor, metadate) |
-| `--paper` | `#f5f5f7` | fundalul paginii |
+| `--paper` | `#f7f5f0` | fundalul paginii (alb cald) |
 | `--surface` | `#ffffff` | liste, formulare, carduri |
-| `--hairline` / `--line` | `#e5e5ea` / `#d2d2d7` | separatoare / contur câmpuri |
-| `--accent` / `--accent-hover` | `#0066cc` / `#0058b0` | singurul accent: acțiune principală, linkuri, focus, pagina activă |
+| `--hairline` / `--line` | `#e8e4da` / `#d6d1c4` | separatoare / contur câmpuri (ton cald) |
+| `--accent` / `--accent-hover` | `#1f4e8c` / `#183f72` (albastru de cobalt; într-un portal: culoarea primăriei) | singurul accent: acțiune principală, linkuri, focus, banda tradițională |
 | `--red` / `--amber` / `--green` | `#c4271b` / `#8a5a00` / `#1d7a35` | probleme / atenție / finalizat — doar ca text sau punct |
 
-Tipografie (Inter, local, aproape de SF Pro): titlu pagină `text-[28px] font-semibold`; titlu card `text-[17px] font-semibold`; text `15px`; tabele `14px`; etichete și metadate `13px` în `--ink-2`; cifre `tabular-nums`. Fără majuscule în antetele de tabel.
+Tipografie: Inter (text) și Noto Serif (titluri `h1`/`h2`), ambele locale; titlu pagină `text-[28px] font-semibold`; titlu card `text-[17px] font-semibold`; text `15px`; tabele `14px`; etichete și metadate `13px` în `--ink-2`; cifre `tabular-nums`. Fără majuscule în antetele de tabel.
 
 Forme: carduri `rounded-2xl bg-white ring-1 ring-[var(--hairline)] p-6` (fără umbră); butoane `rounded-full`; câmpuri `rounded-[10px]`, înălțime ≥ 38 px; spațiu generos (`py-10` pe pagină, `mb-6`/`mb-8` între secțiuni). Navigarea: text, pagina activă = pastilă închisă la culoare. Marcajul demo: pastilă gri discretă lângă nume, în antet.
 
@@ -45,7 +47,8 @@ Forme: carduri `rounded-2xl bg-white ring-1 ring-[var(--hairline)] p-6` (fără 
 | `DocStatusBadge`, `RowStatusBadge`, `Deadline` | `src/components/badges.tsx` | stări cu text + pictogramă, nu doar culoare (A04) |
 | `Stepper`, `nextStep`, `SuccessBanner` | `src/components/flow.tsx` | progres = o propoziție „Etapa 4 din 8” + bară subțire; feedback discret |
 | `FileInput` | `src/components/FileInput.tsx` | buton în română, limite 10 MB / 50 MB verificate înainte de trimitere |
-| `NavLinks` | `src/components/NavLinks.tsx` | meniu cu iconițe, `aria-current="page"` |
+| `NavLinks` | `src/components/NavLinks.tsx` | meniu text pe rând propriu, `aria-current="page"` |
+| `FolkBand`, `Emblem`, `BrandBody` | `src/components/` | banda tradițională, stema primăriei, aplicarea culorii primăriei pe toată pagina |
 | `SessionTimer` | `src/components/SessionTimer.tsx` | avertizare S07; activitatea = tastare/click/derulare |
 
 **Componentă shadcn nouă:** registrul shadcn poate fi indisponibil în mediul de lucru; scrie componenta manual în `src/components/ui/<nume>.tsx` după modelul shadcn (primitive din `radix-ui`, clase cu `cn()` din `src/lib/utils.ts`, variante cu `cva`). Fixează versiunile exact în `package.json`.

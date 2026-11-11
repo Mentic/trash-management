@@ -2,6 +2,7 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { getSession } from "@/server/auth/session";
+import { can } from "@/server/auth/rbac";
 import { computeShift, shiftPeriod, shiftWeighing, type WasteShiftMode } from "@/domain/seedShift";
 import { todayIso } from "@/lib/format";
 
@@ -11,6 +12,7 @@ const ALLOWED = new Set(["import_2026-10_scenariu_erori.csv", "import_2026-10_re
 export async function GET(_: Request, { params }: { params: Promise<{ name: string }> }) {
   const s = await getSession();
   if (!s || s.session.stage !== "active") return new Response("Neautentificat", { status: 401 });
+  if (!can(s.user.role, "demo.reset")) return new Response("Nu există", { status: 404 });
   const { name } = await params;
   if (!ALLOWED.has(name)) return new Response("Nu există", { status: 404 });
   let text = (await readFile(path.join(process.cwd(), "seed", name), "utf-8")).replace(/^﻿/, "");

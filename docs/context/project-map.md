@@ -7,6 +7,7 @@ Este o fotografie a codului; verifică fișierele curente înainte de a te baza 
 
 Prototip de prezentare pentru ADI Eco Buzău 2009: registratură și evidența deșeurilor. Etapa 1 este **completă**:
 2FA → circuitul documentului → import CSV cu erori → trasabilitate pe UAT/tichet → estimare AFM, cu set demo și resetare.
+Extensie peste BRD: **multi-tenant** — portal per primărie (vezi `docs/multi-tenant.md`).
 Etapele 2–3 nu sunt implementate (aprobarea/redeschiderea anuală din UI, închiderea anului, dovezi la rânduri, reset 2FA,
 PAYT, indicatorul de reciclare, găzduire de producție). Datele sunt fictive; UAT-urile reale, SIRUTA demo 900001–900007.
 
@@ -29,9 +30,10 @@ Node ≥ 22 (Docker: Node 24), pnpm 10.28.0. Docker Compose (app, Postgres, Cadd
 | `src/db/` | Schema Drizzle, migrări (inclusiv jurnal append-only), contor atomic |
 | `src/seed/` | Bootstrap (migrări + set demo la pornire), loader complet, resetare |
 | `src/components/` | UI: `ui/` (shadcn), `ActionForm`, `useConfirm`, `flow` (pași, „Pasul următor”, mesaje), `FileInput`, `SessionTimer`, `NavLinks` |
+| `src/server/queries/tenant.ts`, `src/app/portal`, `src/app/p/[slug]`, `src/app/tenants` | Multi-tenant: rezolvarea tenantului (izolare), portalul, autentificarea primăriei, personalizarea |
 | `src/lib/` | Formate românești, etichete, mesaje de confirmare, sensuri, istoric |
 | `seed/` | Setul demo, generator, validator, rezultate așteptate |
-| `tests/unit/`, `tests/e2e/` | Vitest; Playwright: `auth-smoke`, `demo-scenarios` (29 verificări), `qa-regressions` (11) |
+| `tests/unit/`, `tests/e2e/` | Vitest; Playwright: `auth-smoke`, `demo-scenarios` (29), `qa-regressions` (11), `tenants` (20) |
 | `scripts/e2e.mjs` | Rulează suitele e2e pe build-ul de producție, fiecare pe o bază nouă |
 | `qa/` | Teste manuale, scriptul demo, checklist, raportul QA și răspunsul |
 | `.claude/skills/ux/` | Skill-ul de UX: sistemul vizual și regulile de interfață |

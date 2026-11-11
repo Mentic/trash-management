@@ -21,6 +21,14 @@
 | 13 | Elena | Export CSV → deschis în Excel | „Se deschide direct în Excel, cu diacritice.” | 5 |
 | 13–15 | Elena | Date UAT și calcule, 2025, Comuna Berca: formula, intrările, **14.923 lei**, termenul de 25 ianuarie | „Estimarea contribuției la Fondul pentru mediu, cu formula la vedere — datele susțin declarația UAT-ului. Valorile sunt fictive.” Apoi: ce urmează (Etapa 2 după semnare, întrebările I01–I17). | 5 |
 
+## Opțional: extensibilitate (2 minute, după minutul 15 sau la întrebări)
+
+| Cine | Ce faceți | Ce spuneți |
+| --- | --- | --- |
+| — | Pagina de autentificare → „Portalurile primăriilor membre” → Berca | „Fiecare primărie are portalul ei: stema, culorile, datele ei.” |
+| Primăria Berca | Click pe cont → 2FA → portal: cantități lunare, estimarea AFM, corespondența cu ADI | „Primăria vede doar ce o privește; ADI vede tot.” |
+| Elena | Primării → Berca → Personalizează: altă culoare, textul, încărcarea stemei oficiale | „Se adaptează fiecărei primării fără programare.” |
+
 ## Mesaje cheie
 
 - **Prototip**, nu produs terminat: arată direcția și ritmul; detaliile (nomenclator, termene, toleranțe) se configurează după răspunsurile lor (ipotezele I01–I17).
