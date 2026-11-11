@@ -1,7 +1,14 @@
 // Sec. 5.4 — pipeline-ul de import V1–V6 (D05, D06), funcție pură.
 // Ordinea: V1 (respins) → V6 (respins) → V2 → V3, V4/V5 (semnalate).
 import { CSV_DESTINATION, CSV_FRACTION, type Destination, type Fraction } from "../codes";
-import { parseTonnesToKg } from "../quantity";
+import { MAX_KG_PER_RIDE, parseTonnesToKg } from "../quantity";
+
+/** QA04: „2026-10-32 10:00” sau „25:00” au formatul corect, dar nu există. */
+export function isRealDateTime(v: string): boolean {
+  const [y, m, d, h, min] = v.split(/[- :]/).map(Number) as [number, number, number, number, number];
+  if (h > 23 || min > 59 || m < 1 || m > 12 || d < 1) return false;
+  return d <= new Date(Date.UTC(y, m, 0)).getUTCDate();
+}
 
 export const CSV_HEADER = [
   "perioada", "data_cantaririi", "nr_tichet", "nr_auto", "operator_cui", "uat_siruta", "ruta_comuna",
@@ -71,6 +78,8 @@ function checkFormat(raw: RawRow, lineNo: number): { row?: ParsedRow; reasons: s
   const weighedAt = v("data_cantaririi");
   if (weighedAt && !/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(weighedAt))
     reasons.push("data_cantaririi: format AAAA-LL-ZZ HH:MM");
+  else if (weighedAt && !isRealDateTime(weighedAt))
+    reasons.push("data_cantaririi: dată sau oră inexistentă");
   else if (weighedAt && period && !weighedAt.startsWith(period))
     reasons.push("data_cantaririi: în afara perioadei raportate");
   if (v("nr_tichet").length > 30) reasons.push("nr_tichet: maximum 30 de caractere");
@@ -89,9 +98,13 @@ function checkFormat(raw: RawRow, lineNo: number): { row?: ParsedRow; reasons: s
   const reportedKg = parseTonnesToKg(v("cantitate_raportata_t"));
   if (v("cantitate_raportata_t") && (reportedKg === null || reportedKg <= 0))
     reasons.push("cantitate_raportata_t: număr > 0, cel mult 3 zecimale, virgulă zecimală");
+  else if (reportedKg !== null && reportedKg > MAX_KG_PER_RIDE)
+    reasons.push("cantitate_raportata_t: peste 1.000 t pe o cursă (valoare nerealistă)");
   const ticketKg = v("cantitate_tichet_t") ? parseTonnesToKg(v("cantitate_tichet_t")) : null;
   if (v("cantitate_tichet_t") && ticketKg === null)
     reasons.push("cantitate_tichet_t: cel mult 3 zecimale, virgulă zecimală");
+  else if (ticketKg !== null && ticketKg > MAX_KG_PER_RIDE)
+    reasons.push("cantitate_tichet_t: peste 1.000 t pe o cursă (valoare nerealistă)");
 
   if (reasons.length) return { reasons };
   return {

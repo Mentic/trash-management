@@ -61,6 +61,21 @@ describe("reguli individuale", () => {
   it("V1 refuză o cântărire în afara perioadei", () => {
     expect(one({ data_cantaririi: "2026-11-01 07:00" }).kind).toBe("rejected");
   });
+  it("QA04: data sau ora inexistentă este respinsă V1", () => {
+    for (const d of ["2026-10-32 10:00", "2026-02-30 08:00", "2026-10-01 24:00", "2026-10-01 10:60"]) {
+      const o = one({ data_cantaririi: d });
+      expect(o.kind, d).toBe("rejected");
+      if (o.kind === "rejected") expect(o.reasons.join()).toContain("inexistentă");
+    }
+    expect(one({ data_cantaririi: "2026-10-31 23:59" }).kind).toBe("accepted");
+  });
+  it("QA09: cantitate uriașă respinsă V1, nu eroare internă", () => {
+    for (const q of ["1000000000000000000000000000000000000", "1000,001"]) {
+      const o = one({ cantitate_raportata_t: q, cantitate_tichet_t: "" });
+      expect(o.kind, q).toBe("rejected");
+    }
+    expect(one({ cantitate_raportata_t: "1000,000", cantitate_tichet_t: "" }).kind).toBe("accepted");
+  });
   it("V3: 20 kg nu se semnalează, 21 kg da", () => {
     const flags = (t: string) => {
       const o = one({ cantitate_raportata_t: "1,000", cantitate_tichet_t: t });

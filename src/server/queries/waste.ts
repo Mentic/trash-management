@@ -64,7 +64,12 @@ export async function afmInputs(year: number, eligible: readonly string[]) {
     uatId: wasteRows.uatId,
     qmun: kg,
     qval: sql<number>`coalesce(sum(${wasteRows.reportedKg}) filter (where ${inArray(wasteRows.destinationType, eligible as never)}), 0)::bigint`.mapWith(Number),
-  }).from(wasteRows).where(and(eq(wasteRows.year, year), inArray(wasteRows.status, [...VALIDATED]), isNotNull(wasteRows.uatId))).groupBy(wasteRows.uatId);
+  }).from(wasteRows).where(and(
+    eq(wasteRows.year, year), isNotNull(wasteRows.uatId),
+    // QA01: pentru o UAT cu anul aprobat contează doar rândurile aprobate (totalul fixat la aprobare).
+    sql`(${wasteRows.status} = 'approved' or (${wasteRows.status} = 'validated' and not exists (
+      select 1 from annual_approvals a where a.uat_id = ${wasteRows.uatId} and a.year = ${wasteRows.year} and a.reopened_at is null)))`,
+  )).groupBy(wasteRows.uatId);
   const approved = await db.select({ uatId: annualApprovals.uatId }).from(annualApprovals).where(and(eq(annualApprovals.year, year), isNull(annualApprovals.reopenedAt)));
   const [params] = await db.select().from(annualParameters).where(eq(annualParameters.year, year));
   return { rows, approved: new Set(approved.map((a) => a.uatId)), params };

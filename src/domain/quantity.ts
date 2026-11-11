@@ -2,6 +2,9 @@
 
 const TONNES_RE = /^\d+(,\d{1,3})?$/;
 
+/** QA09: o cursă de peste 1.000 t este nerealistă; limita ține și valoarea în coloana integer (kg). */
+export const MAX_KG_PER_RIDE = 1_000_000;
+
 /** „7,240” → 7240 kg. Întoarce null dacă formatul nu respectă dicționarul (I10). */
 export function parseTonnesToKg(value: string): number | null {
   const v = value.trim();

@@ -1,7 +1,7 @@
 // D05, D06 — raportul de import și rezolvarea semnalărilor (D2–D4).
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { and, asc, eq, isNull } from "drizzle-orm";
+import { and, asc, eq, isNull, sql } from "drizzle-orm";
 import { db } from "@/db/client";
 import { documents, importRejections, imports, uats, wasteFlags, wasteRows } from "@/db/schema";
 import { requireUser } from "@/server/auth/rbac";
@@ -32,16 +32,18 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
   if (!/^[0-9a-f-]{36}$/.test(id)) notFound();
   const [row] = await db.select({ i: imports, number: documents.number, year: documents.year, docId: documents.id }).from(imports).leftJoin(documents, eq(documents.id, imports.documentId)).where(eq(imports.id, id));
   if (!row) notFound();
-  const [rejected, flags, rows, uatList] = await Promise.all([
+  const [rejected, flags, rows, uatList, byStatus] = await Promise.all([
     db.select().from(importRejections).where(eq(importRejections.importId, id)).orderBy(asc(importRejections.lineNo)),
     db.select({ f: wasteFlags }).from(wasteFlags).innerJoin(wasteRows, eq(wasteRows.id, wasteFlags.rowId)).where(and(eq(wasteRows.importId, id), isNull(wasteFlags.resolvedAt))),
     rowsList(and(eq(wasteRows.importId, id), filter === "flagged" ? eq(wasteRows.status, "flagged") : undefined), 10_000),
     db.select().from(uats).orderBy(asc(uats.name)),
+    // QA11: totalurile importului, independent de filtrul „Doar semnalate”.
+    db.select({ status: wasteRows.status, n: sql<number>`count(*)::int` }).from(wasteRows).where(eq(wasteRows.importId, id)).groupBy(wasteRows.status),
   ]);
   const flagsByRow = new Map<string, { rule: string; details: Record<string, unknown> }[]>();
   for (const { f } of flags) flagsByRow.set(f.rowId, [...(flagsByRow.get(f.rowId) ?? []), { rule: f.rule, details: f.details as Record<string, unknown> }]);
   const count = (rule: string) => flags.filter((x) => x.f.rule === rule).length;
-  const statusCount = (s: string) => rows.filter((r) => r.status === s).length;
+  const statusCount = (s: string) => byStatus.find((b) => b.status === s)?.n ?? 0;
   const sorted = [...rows].sort((a, b) => Number(flagsByRow.has(b.id)) - Number(flagsByRow.has(a.id)) || a.lineNo - b.lineNo);
 
   return (
@@ -68,7 +70,7 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
           ? `Rezolvați cele ${statusCount("flagged")} rânduri semnalate (sus în tabel): excludeți duplicatul, corectați diferența după tichet sau atribuiți UAT-ul cu dovadă. Apoi validați rândurile curate.`
           : statusCount("imported") > 0 ? "Validați rândurile curate cu butonul „Validează rândurile curate”." : "Importul este verificat. Totalurile apar în Situație pe UAT."}</p>
       </div>
-      <p className="mb-4 text-sm">Stare acum: {statusCount("validated")} validate · {statusCount("imported")} importate · {statusCount("flagged")} semnalate · {statusCount("excluded")} excluse.</p>
+      <p className="mb-4 text-sm">Stare acum (întregul import): {statusCount("validated")} validate · {statusCount("imported")} importate · {statusCount("flagged")} semnalate · {statusCount("excluded")} excluse.</p>
 
       {rejected.length > 0 && (
         <section className="mb-6">

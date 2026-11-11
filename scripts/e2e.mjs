@@ -1,6 +1,7 @@
 // Teste end-to-end pe build-ul de producție (standalone), fiecare pe o bază proaspătă:
 //   1. tests/e2e/auth-smoke.cjs      — L1–L5 (conturi neînrolate)
 //   2. tests/e2e/demo-scenarios.cjs  — L1–L2, R1–R8, D1–D5, D7, S08, N08
+//   3. tests/e2e/qa-regressions.cjs  — raportul QA din 11.11.2026
 // Doar Node (fără psql/curl/openssl), ca să ruleze și în imaginea oficială Playwright din CI.
 // Necesită: `pnpm build`, PostgreSQL accesibil, PG_ADMIN_BASE (ex. postgres://app_admin:parola@localhost:5432)
 // și APP_RW_PASSWORD (rolul app_rw se creează dacă lipsește). Opțional: PORT (implicit 3100).
@@ -82,6 +83,7 @@ async function suite(db, test) {
 try {
   await suite("adi_e2e_auth", "tests/e2e/auth-smoke.cjs");
   await suite("adi_e2e_demo", "tests/e2e/demo-scenarios.cjs");
+  await suite("adi_e2e_qa", "tests/e2e/qa-regressions.cjs");
   console.log("E2E: toate testele au trecut.");
 } catch (e) {
   console.error(e.message);

@@ -8,10 +8,11 @@ import { Card, Crumbs, PageTitle, btn, input, th, td } from "@/components/ui";
 import { DocStatusBadge, Deadline } from "@/components/badges";
 import { ActionForm } from "@/components/ActionForm";
 import {
-  addAttachments, approveReply, assignDocument, cancelDocument, confirmDraft, correctMetadata, deleteDraft, extendDeadline,
+  addAttachments, approveReply, updateDraft, assignDocument, cancelDocument, confirmDraft, correctMetadata, deleteDraft, extendDeadline,
   fileDocument, recordDispatch, registerOutgoing, returnReply, saveReply,
 } from "@/server/actions/registry";
 import { DIRECTION_LABEL, DISPATCH_LABEL, INTAKE_LABEL, REQUEST_TYPE_LABEL } from "@/lib/labels";
+import { CORRESPONDENT_LABEL, REQUEST_TYPES_BY_DIRECTION } from "@/lib/directions";
 import { fmtDate, fmtDateTime, todayIso } from "@/lib/format";
 import { HISTORY_LABEL, fieldLabel } from "@/lib/history";
 import { Stepper, SuccessBanner, nextStep } from "@/components/flow";
@@ -86,6 +87,50 @@ export default async function DocumentPage({ params, searchParams }: { params: P
 
       <div className="grid gap-4 lg:grid-cols-3">
         <div className="space-y-4 lg:col-span-2">
+          {doc.status === "draft" && user.role === "registrar" && (
+            <Card title="Editare ciornă">
+              <ActionForm action={updateDraft} submit="Salvează ciorna" className="grid gap-3 md:grid-cols-2">
+                <Hidden id={doc.id} version={v} />
+                <div>
+                  <label htmlFor="d-type" className="block text-sm font-medium">Tip document (obligatoriu)</label>
+                  <select id="d-type" name="requestType" className={input} defaultValue={doc.requestType}>
+                    {REQUEST_TYPES_BY_DIRECTION[doc.direction].map((k) => <option key={k} value={k}>{REQUEST_TYPE_LABEL[k]}</option>)}
+                  </select>
+                </div>
+                {doc.direction === "incoming" && (
+                  <div>
+                    <label htmlFor="d-intake" className="block text-sm font-medium">Canal de primire</label>
+                    <select id="d-intake" name="intakeChannel" className={input} defaultValue={doc.intakeChannel ?? ""}>
+                      <option value="">—</option>{Object.entries(INTAKE_LABEL).map(([k, l]) => <option key={k} value={k}>{l}</option>)}
+                    </select>
+                  </div>
+                )}
+                {doc.direction !== "internal" && (
+                  <>
+                    <div>
+                      <label htmlFor="d-corr" className="block text-sm font-medium">{CORRESPONDENT_LABEL[doc.direction]} (obligatoriu)</label>
+                      <input id="d-corr" name="correspondentName" className={input} defaultValue={doc.correspondentName} required />
+                    </div>
+                    <div>
+                      <label htmlFor="d-addr" className="block text-sm font-medium">Adresa corespondentului</label>
+                      <input id="d-addr" name="correspondentAddress" className={input} defaultValue={doc.correspondentAddress ?? ""} />
+                    </div>
+                  </>
+                )}
+                {doc.direction === "incoming" && (
+                  <div>
+                    <label htmlFor="d-ext" className="block text-sm font-medium">Numărul expeditorului</label>
+                    <input id="d-ext" name="externalRef" className={input} defaultValue={doc.externalRef ?? ""} />
+                  </div>
+                )}
+                <div className="md:col-span-2">
+                  <label htmlFor="d-subject" className="block text-sm font-medium">Obiect (obligatoriu)</label>
+                  <textarea id="d-subject" name="subject" rows={2} className={input} defaultValue={doc.subject} required />
+                </div>
+                <div className="md:col-span-2"><FileInput id="d-files" name="files" label="Adăugați anexe" multiple /></div>
+              </ActionForm>
+            </Card>
+          )}
           <Card title="Date">
             <dl className="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1 text-sm">
               <dt className="font-medium">Data înregistrării</dt><dd>{fmtDateTime(doc.registeredAt)}</dd>
@@ -137,7 +182,13 @@ export default async function DocumentPage({ params, searchParams }: { params: P
           {sent.length > 0 && (
             <Card title="Expediere">
               {sent.map((s) => (
-                <p key={s.id} className="text-sm">{DISPATCH_LABEL[s.channel]} · {fmtDate(s.dispatchedOn)} · dovadă: {s.proofRef ?? "fișier atașat"}</p>
+                <p key={s.id} className="text-sm">{DISPATCH_LABEL[s.channel]} · {fmtDate(s.dispatchedOn)} · dovadă:{" "}
+                  {s.proofRef}{s.proofRef && s.proofAttachmentId && " + "}
+                  {s.proofAttachmentId && (() => {
+                    const f = files.find((x) => x.id === s.proofAttachmentId);
+                    return f ? <a className="underline" href={`/api/attachments/${f.id}`}>{f.fileName}</a> : "fișier atașat";
+                  })()}
+                </p>
               ))}
             </Card>
           )}

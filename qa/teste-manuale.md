@@ -4,6 +4,8 @@ Versiune testată: ______ (commit) · Data: ______ · Tester: ______ · Browser:
 
 Coloana **Rezultat**: ✅ trece · ❌ nu trece (notați la final ce s-a întâmplat) · ⏭ nu s-a rulat.
 
+**Ordinea contează (QA12):** rulați secțiunile 1–3 în ordine pe un set proaspăt, ca numerele să fie 121, 122, 123/2026. Testele R9–R11, R1.4 și D8, care creează documente suplimentare, se rulează **după** secțiunea 3 sau după o nouă resetare; acolo se verifică numărul afișat, nu o valoare fixă.
+
 Pregătire: Kit demo → Resetează datele demo (bifat „Păstrează înrolările 2FA” doar dacă testul nu privește înrolarea). Pentru L1, resetați fără bifă sau rulați `docker compose -f compose.yml -f compose.local.yml down -v` și `up -d`.
 
 ## 1. Autentificare și 2FA (S01–S08, A08)
@@ -59,9 +61,10 @@ Pregătire: Kit demo → Resetează datele demo (bifat „Păstrează înrolări
 | R7.2 | Cu un filtru activ → „Export CSV” → deschideți fișierul în **Excel cu setări românești** | Se deschide direct pe coloane, diacriticele (ș, ț, ă) corecte, exact rândurile filtrate | R08, N04 | |
 | R8 | Fișa 121/2026 → „Corectează metadatele”: schimbați Obiectul, motiv obligatoriu | Istoricul arată valoarea veche tăiată → valoarea nouă, autorul, data și motivul | R02 | |
 | R8.1 | Fișa unui document cu anexă → descărcați anexa | Se descarcă PDF-ul; nu există nicio opțiune de a modifica sau șterge o anexă | R02 | |
-| R9 | Ana: un document nou de test → „Anulează înregistrarea” cu motiv | Stare Anulat; numărul rămâne în registru; următorul document primește numărul următor (nu se reutilizează) | R06 | |
-| R10 | Elena: pe o petiție deschisă → „Prelungește termenul” cu 16 zile | Refuzat: „Petițiile se pot prelungi cu cel mult 15 zile în total” | R04 | |
-| R11 | Ana: Salvează ciorna (fără confirmare) | Apare în registru ca „Ciornă”, fără număr; Mihai și Elena nu o văd | R06 | |
+| R9 (după secțiunea 3) | Ana: un document nou de test → „Anulează înregistrarea” cu motiv | Stare Anulat; numărul rămâne în registru; următorul document primește numărul următor (nu se reutilizează) | R06 | |
+| R10 (după secțiunea 3) | Elena: pe o petiție deschisă → „Prelungește termenul” cu 16 zile | Refuzat: „Petițiile se pot prelungi cu cel mult 15 zile în total” | R04 | |
+| R11 (după secțiunea 3) | Ana: Salvează ciorna (fără confirmare), cu o anexă | Apare în registru ca „Ciornă”, fără număr; Mihai și Elena nu o văd și nici anexa ei prin link direct (404) | R06, R07 | |
+| R11.1 | Ana: deschide ciorna → „Editare ciornă” → schimbă obiectul → Salvează ciorna | Modificarea se păstrează; apoi „Confirmă și atribuie număr” funcționează | R06 | |
 | R12 | Fișa 121/2026 → „Imprimă fișa” → Print → PDF A4 | O pagină A4, fără meniu și butoane, cu marcajul DEMO | N06 | |
 | R13 | Nomenclator | 5 dosare cu indicativ, denumire, termen de păstrare și numărul de documente | R03 | |
 
@@ -82,11 +85,13 @@ Pregătire: Kit demo → Resetează datele demo (bifat „Păstrează înrolări
 | D5 | Elena: Situație pe UAT (2026) | Totaluri doar din curse validate; Nevalidate / Neatribuite / Excluse apar separat, în afara totalurilor | D08 | |
 | D5.1 | Click pe totalul Comuna Berca → octombrie 2026 → un tichet | Pagina tichetului: toate câmpurile, cantitate raportat vs tichet, link spre intrarea 123/2026 | D08 | |
 | D5.2 | „Neatribuite” | Apare T-2026-002534, rută comună Berca–Cislău fără dovadă | D06 | |
-| D5.3 | Filtre UAT = Berca, Fracție = reziduale → Export CSV → Excel românesc | Fișierul conține doar rezultatul filtrat, cu „DEMO — date fictive” pe primul rând | D08, N04 | |
+| D5.3 | Filtre UAT = Berca, Fracție = reziduale → Export CSV → Excel românesc | Fișierul conține doar rezultatul filtrat; „DEMO — date fictive” este primul rând după antet | D08, N04 | |
 | D7 | Date UAT și calcule, an 2025 | Card Comuna Berca: formula, p = 45 %, Q_mun 877,829 t, Q_val 96,561 t, Q_ob 395,023 t, **C = 14.923 lei**, „Termen 25 ianuarie 2026”, „DEMO — date fictive”, „an aprobat” | D03 | |
 | D7.1 | Tabelul pentru celelalte UAT-uri | Râmnicu Sărat 93.793 · Nehoiu 33.518 · Pogoanele 22.758 · Vadu Pașii 13.868 · Cislău 8.216 · Breaza 3.745 lei | D03 | |
 | D7.2 | Anul 2026 | Valorile sunt marcate provizoriu (*) | D03 | |
 | D8 | Mihai: importă `import_2026-10_test_V5_V6.csv` (legat de 123/2026) | T-2025-999001 respins (V6, an aprobat), T-2026-002552 semnalat (UAT necunoscut), 2 curate | V5, V6 | |
+| D8.1 | Importați un CSV cu data `2026-10-32 10:00` și unul cu o cantitate uriașă (`99999999,000`) | Ambele rânduri sunt respinse V1 cu motiv („dată sau oră inexistentă”, „valoare nerealistă”), fără eroare | V1 | |
+| D8.2 | Importați o cursă din 2025 fără UAT, apoi încercați „Atribuie UAT” → Comuna Berca | Refuzat: „Anul 2025 este aprobat pentru Comuna Berca…”; estimarea AFM rămâne 14.923 lei | D07 | |
 | D9 | Ana: meniul nu are Situație pe UAT / Import; adresa `/waste/summary` tastată direct | Pagina nu există pentru Ana | Matrice acces | |
 
 ## 4. Accesibilitate (A02–A04, A07–A09) — Etapa 1

@@ -9,7 +9,7 @@ import { registerFailure, verifyTotp } from "@/domain/totp";
 import { audit } from "@/server/audit";
 import { decryptSecret, encryptSecret, newRecoveryCode, normalizeRecoveryCode } from "@/server/auth/crypto";
 import { hashSecret, verifySecret } from "@/server/auth/password";
-import { clientIp, endSession, getSession, promoteToActive, startSession } from "@/server/auth/session";
+import { clientIp, endSession, getSession, IDLE_MINUTES, promoteToActive, startSession } from "@/server/auth/session";
 
 export type FormState = { error?: string; recoveryCodes?: string[] } | undefined;
 
@@ -76,7 +76,10 @@ export async function confirmEnrolment(_: FormState, form: FormData): Promise<Fo
   });
   // Aceeași sesiune devine activă fără cookie nou: schimbarea cookie-ului ar reîmprospăta pagina și
   // codurile de recuperare (afișate o singură dată) s-ar pierde. Sesiunea a fost creată după parolă.
-  await db.update(sessions).set({ stage: "active", pendingTotpSecretEnc: null }).where(eq(sessions.id, s.session.id));
+  // QA05: sesiunea activă primește durata completă de inactivitate (30 min), nu cele 10 min ale etapei provizorii.
+  const now = new Date();
+  await db.update(sessions).set({ stage: "active", pendingTotpSecretEnc: null, lastSeenAt: now, expiresAt: new Date(now.getTime() + IDLE_MINUTES * 60_000) })
+    .where(eq(sessions.id, s.session.id));
   return { recoveryCodes: codes };
 }
 

@@ -4,7 +4,7 @@ import { alias } from "drizzle-orm/pg-core";
 import { notFound } from "next/navigation";
 import { db } from "@/db/client";
 import { attachments, auditEvents, dispatches, documents, dossiers, users } from "@/db/schema";
-import { can, type CurrentUser } from "@/server/auth/rbac";
+import { can, canSeeDocument, type CurrentUser } from "@/server/auth/rbac";
 
 const assignee = alias(users, "assignee");
 
@@ -18,8 +18,7 @@ export async function getDocument(user: CurrentUser, id: string) {
     .leftJoin(dossiers, eq(dossiers.id, documents.dossierId))
     .where(eq(documents.id, id));
   if (!row) notFound();
-  if (!can(user.role, "registry.read_all") && row.doc.assigneeId !== user.id) notFound();
-  if (row.doc.status === "draft" && !can(user.role, "document.create")) notFound();
+  if (!canSeeDocument(user, row.doc)) notFound();
 
   const linked = row.doc.linkedDocumentId
     ? (await db.select().from(documents).where(eq(documents.id, row.doc.linkedDocumentId)))[0] ?? null
@@ -35,6 +34,6 @@ export async function getDocument(user: CurrentUser, id: string) {
       .where(eq(auditEvents.entityId, row.doc.id))
       .orderBy(asc(auditEvents.occurredAt), asc(auditEvents.id)),
   ]);
-  const linkedVisible = linked && (can(user.role, "registry.read_all") || linked.assigneeId === user.id) ? linked : null;
+  const linkedVisible = linked && canSeeDocument(user, linked) ? linked : null;
   return { ...row, linked: linkedVisible, files, sent, history };
 }

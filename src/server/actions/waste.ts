@@ -2,13 +2,14 @@
 // D05–D07 — acțiunile responsabilului pe import și pe rânduri (sec. 5.5, 7). Doar Mihai (officer).
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
-import { and, eq, inArray, isNull } from "drizzle-orm";
+import { and, eq, inArray, isNull, sql } from "drizzle-orm";
 import { db, type Tx } from "@/db/client";
 import { uats, wasteFlags, wasteRows } from "@/db/schema";
 import { parseTonnesToKg } from "@/domain/quantity";
 import { audit } from "@/server/audit";
 import { requireUser, type CurrentUser } from "@/server/auth/rbac";
-import { ImportError, recheckRow, runImport } from "@/server/waste/importer";
+import { approvedYearFor, ImportError, recheckRow, runImport } from "@/server/waste/importer";
+import { MAX_KG_PER_RIDE } from "@/domain/quantity";
 import type { ActionResult } from "@/components/ActionForm";
 
 const str = (fd: FormData, k: string) => String(fd.get(k) ?? "").trim();
@@ -76,6 +77,8 @@ export async function correctRow(_: ActionResult, fd: FormData) {
     const rep = parseTonnesToKg(str(fd, "reportedT"));
     const tic = str(fd, "ticketT") ? parseTonnesToKg(str(fd, "ticketT")) : null;
     if (rep === null || rep <= 0) throw new UserError("Cantitatea raportată: număr > 0 cu virgulă și cel mult 3 zecimale (ex. 0,537).");
+    if (rep > MAX_KG_PER_RIDE || (tic ?? 0) > MAX_KG_PER_RIDE) throw new UserError("Peste 1.000 t pe o cursă: valoare nerealistă.");
+    if (await approvedYearFor(tx, row.uatId, row.year)) throw new UserError(`Anul ${row.year} este aprobat pentru această UAT; corecția cere redeschiderea anului (D07).`);
     if (str(fd, "ticketT") && tic === null) throw new UserError("Cantitatea de pe tichet: cel mult 3 zecimale, cu virgulă.");
     await tx.update(wasteRows).set({ reportedKg: rep, ticketKg: tic }).where(eq(wasteRows.id, row.id));
     await recheckAndSet(tx, user, row, reason, "waste.row.corrected",
@@ -89,6 +92,8 @@ export async function assignRowUat(_: ActionResult, fd: FormData) {
     if (!evidence) throw new UserError("Rutele comune se atribuie doar pe bază de dovadă sau de regulă aprobată de director (I09).");
     const [u] = await tx.select().from(uats).where(eq(uats.id, str(fd, "uatId")));
     if (!u) throw new UserError("Alegeți UAT-ul.");
+    if (await approvedYearFor(tx, u.id, row.year))
+      throw new UserError(`Anul ${row.year} este aprobat pentru ${u.name}; cursa nu se mai poate atribui fără redeschiderea anului (D07).`);
     await tx.update(wasteRows).set({ uatId: u.id, supportingDoc: evidence }).where(eq(wasteRows.id, row.id));
     await recheckAndSet(tx, user, row, reason, "waste.row.attributed", { uat: null }, { uat: u.name, dovada: evidence });
   });
@@ -116,7 +121,10 @@ export async function validateRows(_: ActionResult, fd: FormData): Promise<Actio
   const ids = fd.getAll("rowId").map(String).filter(Boolean);
   const where = ids.length ? and(inArray(wasteRows.id, ids), eq(wasteRows.status, "imported")) : and(eq(wasteRows.importId, importId), eq(wasteRows.status, "imported"));
   const done = await db.transaction(async (tx) => {
-    const rows = await tx.update(wasteRows).set({ status: "validated" }).where(where).returning({ id: wasteRows.id });
+    // QA01: rândurile unei UAT cu anul aprobat nu se validează (ar schimba totalul aprobat).
+    const where2 = and(where, sql`not exists (select 1 from annual_approvals a where a.uat_id = ${wasteRows.uatId}
+      and a.year = ${wasteRows.year} and a.reopened_at is null)`);
+    const rows = await tx.update(wasteRows).set({ status: "validated" }).where(where2).returning({ id: wasteRows.id });
     if (rows.length)
       await audit(tx, { category: "waste", action: "waste.rows.validated", entityType: "import", entityId: importId || null, actorId: user.id, newValues: { randuri: rows.length } });
     return rows.length;

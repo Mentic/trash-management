@@ -32,3 +32,9 @@ export async function requireUser(perm?: Permission): Promise<CurrentUser> {
   if (perm && !can(u.role, perm)) notFound();
   return u;
 }
+
+/** R07 — aceeași regulă de acces pentru fișă, anexe, imprimare și export (QA02: inclusiv ciornele). */
+export function canSeeDocument(user: CurrentUser, doc: { assigneeId: string | null; status: string }): boolean {
+  if (doc.status === "draft" && !can(user.role, "document.create")) return false;
+  return can(user.role, "registry.read_all") || doc.assigneeId === user.id;
+}

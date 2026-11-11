@@ -115,3 +115,11 @@ export async function recheckRow(tx: Tx, rowId: string, toleranceKg = 20) {
   if (!r.uatId) rules.push({ rule: "V4", details: { rule: "V4", reason: r.sharedRoute ? "shared_route" : "no_uat" } });
   return rules;
 }
+
+/** QA01 / D07: un an aprobat pentru o UAT nu se mai poate modifica — nici prin atribuire, nici prin validare. */
+export async function approvedYearFor(tx: Tx, uatId: string | null, year: number | null): Promise<boolean> {
+  if (!uatId || year === null) return false;
+  const [a] = await tx.select({ id: annualApprovals.id }).from(annualApprovals)
+    .where(and(eq(annualApprovals.uatId, uatId), eq(annualApprovals.year, year), isNull(annualApprovals.reopenedAt)));
+  return !!a;
+}

@@ -70,7 +70,10 @@ async function run(id: string, ok: string, fn: (tx: Tx, user: CurrentUser) => Pr
 
 const str = (fd: FormData, k: string) => String(fd.get(k) ?? "").trim();
 
-async function saveFiles(tx: Tx, user: CurrentUser, docId: string, files: File[]) {
+async function saveFiles(tx: Tx, user: CurrentUser, docId: string, files: File[]): Promise<string[]> {
+  const ids: string[] = [];
+  const total = files.reduce((n, f) => n + f.size, 0);
+  if (total > 50 * 1024 * 1024) throw new UserError("Fișierele depășesc împreună 50 MB; adăugați restul după salvare.");
   for (const f of files) {
     if (!f.size) continue;
     if (f.size > MAX_BYTES) throw new UserError(`Fișierul ${f.name} depășește 10 MB.`);
@@ -79,9 +82,11 @@ async function saveFiles(tx: Tx, user: CurrentUser, docId: string, files: File[]
     if (!mime) throw new UserError(`Tip de fișier nepermis: ${f.name}. Permise: PDF, JPG, PNG, DOCX, XLSX, CSV, TXT.`);
     const bytes = Buffer.from(await f.arrayBuffer());
     const { sha256, storageKey } = await storeFile(bytes);
-    await tx.insert(attachments).values({ documentId: docId, fileName: f.name, mimeType: mime, sizeBytes: bytes.length, sha256, storageKey, uploadedBy: user.id });
+    const [a] = await tx.insert(attachments).values({ documentId: docId, fileName: f.name, mimeType: mime, sizeBytes: bytes.length, sha256, storageKey, uploadedBy: user.id }).returning({ id: attachments.id });
+    ids.push(a!.id);
     await log(tx, user, { id: docId }, "anexa_adaugata", { newValues: { fileName: f.name, sha256 } });
   }
+  return ids;
 }
 
 /** Confirmarea: număr atomic (R06), termen (R04), stare inițială (5.1). */
@@ -257,11 +262,8 @@ export async function recordDispatch(_: ActionResult, fd: FormData) {
     const pair = doc.linkedDocumentId ? await loadDoc(tx, doc.linkedDocumentId, user) : null;
     const outgoing = doc.direction === "outgoing" ? doc : pair?.direction === "outgoing" ? pair : doc;
     let proofAttachmentId: string | null = null;
-    if (proofFile?.size) {
-      await saveFiles(tx, user, outgoing.id, [proofFile]);
-      const [a] = await tx.select({ id: attachments.id }).from(attachments).where(eq(attachments.documentId, outgoing.id)).orderBy(attachments.uploadedAt);
-      proofAttachmentId = a?.id ?? null;
-    }
+    // QA03: dovada este exact fișierul încărcat acum, nu prima anexă a documentului.
+    if (proofFile?.size) proofAttachmentId = (await saveFiles(tx, user, outgoing.id, [proofFile]))[0] ?? null;
     await tx.insert(dispatches).values({ documentId: outgoing.id, channel: channel.data, dispatchedOn: date, proofRef: proof || null, proofAttachmentId });
     await update(tx, doc, { status });
     await log(tx, user, doc, "expediat", { newValues: { canal: channel.data, data: date, dovada: proof || proofFile?.name } });
@@ -368,4 +370,31 @@ export async function upsertDossier(_: ActionResult, fd: FormData): Promise<Acti
   await audit(db, { category: "registry", action: "dosar.adaugat", entityType: "dossier", entityId: code, actorId: user.id, newValues: { code, title, retention } });
   revalidatePath("/registry/dossiers");
   return { ok: "Dosar adăugat." };
+}
+
+/** QA10 — o ciornă se poate continua și corecta înainte de atribuirea numărului (fără motiv: nu are număr). */
+export async function updateDraft(_: ActionResult, fd: FormData) {
+  const id = str(fd, "id");
+  return run(id, "draft", async (tx, user) => {
+    if (user.role !== "registrar") throw new TransitionError("updateDraft");
+    const doc = await loadDoc(tx, id, user);
+    checkVersion(doc, fd);
+    if (doc.status !== "draft") throw new UserError("Doar ciornele se pot edita liber; după confirmare folosiți „Corectează metadatele”.");
+    const requestType = str(fd, "requestType") as (typeof REQUEST_TYPES)[number];
+    if (!REQUEST_TYPES_BY_DIRECTION[doc.direction].includes(requestType)) throw new UserError("Tipul documentului nu se potrivește cu sensul.");
+    const subject = str(fd, "subject");
+    const correspondentName = doc.direction === "internal" ? INTERNAL_CORRESPONDENT : str(fd, "correspondentName");
+    if (!subject || !correspondentName) throw new UserError("Obiectul și corespondentul sunt obligatorii.");
+    const incoming = doc.direction === "incoming";
+    const intake = str(fd, "intakeChannel");
+    await update(tx, doc, {
+      subject, correspondentName, requestType,
+      correspondentAddress: str(fd, "correspondentAddress") || null,
+      externalRef: incoming ? str(fd, "externalRef") || null : null,
+      intakeChannel: incoming && (INTAKE_CHANNELS as readonly string[]).includes(intake) ? (intake as (typeof INTAKE_CHANNELS)[number]) : null,
+      redirected: incoming && requestType === "petition" && fd.get("redirected") === "on",
+    });
+    await saveFiles(tx, user, doc.id, (fd.getAll("files") as File[]).filter((f) => f.size));
+    await log(tx, user, doc, "ciorna_salvata");
+  });
 }
