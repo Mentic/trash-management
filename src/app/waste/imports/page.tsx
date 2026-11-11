@@ -9,6 +9,7 @@ import { PageTitle, Card, input, th, td } from "@/components/ui";
 import { ActionForm } from "@/components/ActionForm";
 import { importCsv } from "@/server/actions/waste";
 import { fmtDateTime } from "@/lib/format";
+import { FileInput } from "@/components/FileInput";
 
 export const dynamic = "force-dynamic";
 
@@ -34,10 +35,7 @@ export default async function ImportsPage() {
                 {reports.map((r) => <option key={r.id} value={r.id}>{r.number}/{r.year} — {r.subject}</option>)}
               </select>
             </div>
-            <div>
-              <label htmlFor="file" className="block text-sm font-medium">2. Fișierul CSV (UTF-8, separator „;”, zecimale cu virgulă; maximum 10 MB)</label>
-              <input id="file" name="file" type="file" accept=".csv,text/csv" required className="text-sm" />
-            </div>
+            <FileInput id="file" name="file" label="2. Fișierul CSV primit de la operator (UTF-8, separator „;”, zecimale cu virgulă; maximum 10 MB)" accept=".csv,text/csv" required />
           </ActionForm>
         )}
       </Card>

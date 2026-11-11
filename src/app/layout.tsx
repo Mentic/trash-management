@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import "./globals.css";
 import { getSession } from "@/server/auth/session";
 import { can, type Permission } from "@/server/auth/rbac";
 import { logout } from "@/server/actions/auth";
 import { SessionTimer } from "@/components/SessionTimer";
+import { NavLinks } from "@/components/NavLinks";
 import { ROLE_LABEL } from "@/lib/labels";
 
 export const metadata: Metadata = {
@@ -48,9 +48,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           </div>
           {user && (
             <nav aria-label="Navigare principală" className="mx-auto mt-2 flex max-w-7xl flex-wrap gap-1">
-              {NAV.filter((n) => can(user.role, n.perm)).map((n) => (
-                <Link key={n.href} href={n.href} className="rounded px-2 py-1 text-sm hover:bg-gray-100">{n.label}</Link>
-              ))}
+              <NavLinks items={NAV.filter((n) => can(user.role, n.perm)).map(({ href, label }) => ({ href, label }))} />
             </nav>
           )}
         </header>

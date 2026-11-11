@@ -10,11 +10,11 @@ Pregătire: Kit demo → Resetează datele demo (bifat „Păstrează înrolări
 
 | ID | Pași | Rezultat așteptat | BRD | Rezultat |
 | --- | --- | --- | --- | --- |
-| L1 | Login `ana.registrator` cu parola corectă (cont neînrolat) | Apare ecranul „Activați autentificarea în doi pași”, cu cod QR și cheia în text, grupată câte 4 caractere | S01, S02 | |
+| L1 | Login `ana.registrator` cu parola corectă (sau click pe cardul „Ana — Registrator”; cont neînrolat) | Apare ecranul „Activați autentificarea în doi pași”, cu cod QR și cheia în text, grupată câte 4 caractere | S01, S02 | |
 | L1.1 | Scanați QR-ul cu **Google Authenticator** pe telefon | Contul „ADI Demo: ana.registrator” apare în aplicație | S02 | |
 | L1.2 | Introduceți `000000` | Mesaj „Codul nu este valid…”, cu numărul de încercări rămase; contul nu devine activ | S02, S05 | |
 | L1.3 | Apăsați „Copiază” lângă cheie | Mesajul „Cheia a fost copiată.”; cheia se poate lipi în Microsoft Authenticator (adăugare manuală) | A08 | |
-| L2 | Introduceți codul din telefon → „Activează” | Apar 10 coduri de recuperare `XXXXX-XXXXX`, cu „Imprimă” și „Descarcă” | S04 | |
+| L2 | Introduceți codul din telefon → „Activează” | Pagina arată doar „✓ Autentificarea în doi pași este activă” și 10 coduri de recuperare `XXXXX-XXXXX`, cu „Imprimă” și „Descarcă” | S04 | |
 | L2.1 | „Descarcă” | Se descarcă un `.txt` cu cele 10 coduri; păstrați-l pentru L5 | S04 | |
 | L2.2 | „Am salvat codurile — continuă” | Registrul documentelor, cu numele utilizatorului în antet | S02 | |
 | L3 | Deconectare → login din nou | Nu mai apare QR-ul; se cere codul de 6 cifre | S03 | |
@@ -34,10 +34,13 @@ Pregătire: Kit demo → Resetează datele demo (bifat „Păstrează înrolări
 
 | ID | Pași | Rezultat așteptat | BRD | Rezultat |
 | --- | --- | --- | --- | --- |
-| R1 | Ana → Registru → „Document nou”: Sens Intrare, Tip cerere Petiție, Corespondent „Ion Popescu (fictiv)”, Număr extern `438/2026`, Obiect oarecare | Sub „Tip cerere” apare „Termen calculat: azi + 30 zile” | R04 | |
+| R1 | Ana → Registru → „Document nou”: Sens **Intrare** (cardul cu explicație), Tip document Petiție, Corespondent „Ion Popescu (fictiv)”, Număr extern `438/2026`, Obiect oarecare | Sub „Tip document” apare „Termen de răspuns calculat: azi + 30 zile” | R04 | |
 | R1.1 | „Confirmă și atribuie număr” → OK la confirmare | Fișa „Intrare 121/2026”, stare Înregistrat, termen = data înregistrării + 30 zile | R01, R06 | |
 | R1.2 | Schimbați tipul în formular la „Informații de interes public” (fără salvare) | Termenul calculat devine azi + 10 zile | R04 | |
 | R1.3 | Formularul de înregistrare | Nu există niciun câmp CNP | R05 | |
+| R1.4 | Alegeți Sens **Ieșire**, apoi **Intern** | Ieșire: dispar canalul de primire și numărul expeditorului; „Destinatar”; fără termen. Intern: dispare corespondentul; tipul este „Intern” | R01 | |
+| R1.5 | După confirmare | Mesaj verde „Documentul a fost înregistrat cu numărul …”; bara de pași arată „Înregistrat”; caseta „Pasul următor” spune ce urmează | UX | |
+| R1.6 | Registru, ca Ana / Mihai / Elena | Panoul „De lucru” arată cifrele pentru rolul respectiv; click pe o cifră deschide lista filtrată | UX | |
 | R2 | Pe 121/2026: Responsabil „Mihai (fictiv)” → „Repartizează” | Stare Repartizat; istoricul arată repartizarea | R2 | |
 | R2.1 | Login Mihai (alt browser / fereastră privată) → Registru | Vede 121/2026 și doar lucrările repartizate lui | R07 | |
 | R2.2 | Ana: Registru, filtru Responsabil = Nerepartizat → copiați linkul unui document → Mihai deschide linkul | Pagina „nu există” (404) pentru Mihai | R07 | |
@@ -74,7 +77,7 @@ Pregătire: Kit demo → Resetează datele demo (bifat „Păstrează înrolări
 | D3.1 | Rândurile semnalate apar primele, cu text („⚑ V3 Diferență 0,050 t…”), nu doar culoare | — | A04 | |
 | D4 | Rândul cu „V2 Duplicat” → Exclude → motiv „Duplicat confirmat” | Stare Exclus | D06 | |
 | D4.1 | Rândul T-2026-002543 → Corectează (valoarea propusă = tichetul, 0,537) → Salvează corecția | Semnalarea dispare, stare Importat | D06 | |
-| D4.2 | „Validează rândurile curate” | „23 rânduri validate”; T-2026-002534 (rută comună) rămâne Semnalat | D07 | |
+| D4.2 | „Validează rândurile curate” (rândurile curate nu au butoane proprii) | „23 rânduri validate”; T-2026-002534 (rută comună) rămâne Semnalat | D07 | |
 | D4.3 | Corectați un rând fără motiv | Nu se poate trimite (motiv obligatoriu) | D06 | |
 | D5 | Elena: Situație pe UAT (2026) | Totaluri doar din curse validate; Nevalidate / Neatribuite / Excluse apar separat, în afara totalurilor | D08 | |
 | D5.1 | Click pe totalul Comuna Berca → octombrie 2026 → un tichet | Pagina tichetului: toate câmpurile, cantitate raportat vs tichet, link spre intrarea 123/2026 | D08 | |

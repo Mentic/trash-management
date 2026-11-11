@@ -31,15 +31,17 @@ export async function importCsv(_: ActionResult, fd: FormData): Promise<ActionRe
   redirect(`/waste/imports/${id}`);
 }
 
-async function rowAction(fd: FormData, fn: (tx: Tx, user: CurrentUser, row: typeof wasteRows.$inferSelect, reason: string) => Promise<void>, needReason = true): Promise<ActionResult> {
+async function rowAction(fd: FormData, ok: string, fn: (tx: Tx, user: CurrentUser, row: typeof wasteRows.$inferSelect, reason: string) => Promise<void>, needReason = true): Promise<ActionResult> {
   const user = await requireUser("waste.row.edit");
   const reason = str(fd, "reason");
   if (needReason && !reason) return { error: "Completați motivul." };
+  let importId = "";
   try {
     await db.transaction(async (tx) => {
       const [row] = await tx.select().from(wasteRows).where(eq(wasteRows.id, str(fd, "rowId"))).for("update");
       if (!row) throw new UserError("Rândul nu există.");
       if (row.status === "approved") throw new UserError("Rândul face parte dintr-un an aprobat și nu se mai poate modifica (D07).");
+      importId = row.importId;
       await fn(tx, user, row, reason);
     });
   } catch (e) {
@@ -47,7 +49,7 @@ async function rowAction(fd: FormData, fn: (tx: Tx, user: CurrentUser, row: type
     throw e;
   }
   revalidatePath("/waste", "layout");
-  return { ok: "Salvat." };
+  redirect(`/waste/imports/${importId}?ok=${ok}`);
 }
 
 async function resolveOpenFlags(tx: Tx, user: CurrentUser, rowId: string, reason: string, keep: string[] = []) {
@@ -69,7 +71,7 @@ async function recheckAndSet(tx: Tx, user: CurrentUser, row: typeof wasteRows.$i
 }
 
 export async function correctRow(_: ActionResult, fd: FormData) {
-  return rowAction(fd, async (tx, user, row, reason) => {
+  return rowAction(fd, "corrected", async (tx, user, row, reason) => {
     if (!["flagged", "validated", "imported"].includes(row.status)) throw new UserError("Rândul nu poate fi corectat în starea curentă.");
     const rep = parseTonnesToKg(str(fd, "reportedT"));
     const tic = str(fd, "ticketT") ? parseTonnesToKg(str(fd, "ticketT")) : null;
@@ -82,7 +84,7 @@ export async function correctRow(_: ActionResult, fd: FormData) {
 }
 
 export async function assignRowUat(_: ActionResult, fd: FormData) {
-  return rowAction(fd, async (tx, user, row, reason) => {
+  return rowAction(fd, "assigned", async (tx, user, row, reason) => {
     const evidence = str(fd, "evidenceRef");
     if (!evidence) throw new UserError("Rutele comune se atribuie doar pe bază de dovadă sau de regulă aprobată de director (I09).");
     const [u] = await tx.select().from(uats).where(eq(uats.id, str(fd, "uatId")));
@@ -93,7 +95,7 @@ export async function assignRowUat(_: ActionResult, fd: FormData) {
 }
 
 export async function excludeRow(_: ActionResult, fd: FormData) {
-  return rowAction(fd, async (tx, user, row, reason) => {
+  return rowAction(fd, "excluded", async (tx, user, row, reason) => {
     if (!["imported", "flagged"].includes(row.status)) throw new UserError("Doar rândurile importate sau semnalate se pot exclude.");
     await tx.update(wasteRows).set({ status: "excluded", statusReason: reason, version: row.version + 1 }).where(eq(wasteRows.id, row.id));
     await resolveOpenFlags(tx, user, row.id, reason);
@@ -102,7 +104,7 @@ export async function excludeRow(_: ActionResult, fd: FormData) {
 }
 
 export async function reactivateRow(_: ActionResult, fd: FormData) {
-  return rowAction(fd, async (tx, user, row, reason) => {
+  return rowAction(fd, "reactivated", async (tx, user, row, reason) => {
     if (row.status !== "excluded") throw new UserError("Rândul nu este exclus.");
     await recheckAndSet(tx, user, row, reason, "waste.row.reactivated", { status: "excluded" }, null);
   });
@@ -119,6 +121,8 @@ export async function validateRows(_: ActionResult, fd: FormData): Promise<Actio
       await audit(tx, { category: "waste", action: "waste.rows.validated", entityType: "import", entityId: importId || null, actorId: user.id, newValues: { randuri: rows.length } });
     return rows.length;
   });
+  if (!done) return { error: "Niciun rând curat de validat. Rândurile semnalate se rezolvă întâi." };
   revalidatePath("/waste", "layout");
-  return done ? { ok: `${done} ${done === 1 ? "rând validat" : "rânduri validate"}.` } : { error: "Niciun rând curat de validat. Rândurile semnalate se rezolvă întâi." };
+  if (importId) redirect(`/waste/imports/${importId}?ok=validated&n=${done}`);
+  return { ok: `${done} ${done === 1 ? "rând validat" : "rânduri validate"}.` };
 }

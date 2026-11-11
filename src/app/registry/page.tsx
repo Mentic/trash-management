@@ -1,7 +1,7 @@
 // R01, R04, R07, R08 — registrul: listă filtrată pe rol, căutare, filtre, export CSV.
 import Link from "next/link";
 import { requireUser, can } from "@/server/auth/rbac";
-import { allDossiers, listDocuments, officers, type RegistryFilters } from "@/server/queries/registry";
+import { allDossiers, listDocuments, officers, workItems, type RegistryFilters } from "@/server/queries/registry";
 import { PageTitle, btn, btnPrimary, input, th, td } from "@/components/ui";
 import { DocStatusBadge, Deadline } from "@/components/badges";
 import { DIRECTION_LABEL, DOC_STATUS_LABEL } from "@/lib/labels";
@@ -10,10 +10,17 @@ import { fmtDate } from "@/lib/format";
 
 export const dynamic = "force-dynamic";
 
+const TONE = {
+  blue: "border-blue-300 bg-blue-50 text-blue-900",
+  amber: "border-amber-400 bg-amber-50 text-amber-900",
+  red: "border-red-400 bg-red-50 text-red-900",
+  green: "border-green-400 bg-green-50 text-green-900",
+} as const;
+
 export default async function RegistryPage({ searchParams }: { searchParams: Promise<RegistryFilters> }) {
   const user = await requireUser("registry.read");
   const f = await searchParams;
-  const [{ rows, total, page, pages }, offs, dos] = await Promise.all([listDocuments(user, f), officers(), allDossiers()]);
+  const [{ rows, total, page, pages }, offs, dos, work] = await Promise.all([listDocuments(user, f), officers(), allDossiers(), workItems(user)]);
   const qs = new URLSearchParams(Object.entries(f).filter(([k, v]) => v && k !== "page") as [string, string][]).toString();
   const hasFilters = qs.length > 0;
   const seeAll = can(user.role, "registry.read_all");
@@ -24,6 +31,21 @@ export default async function RegistryPage({ searchParams }: { searchParams: Pro
         {can(user.role, "document.create") && <Link href="/registry/new" className={btnPrimary}>Document nou</Link>}
         <a href={`/api/registry/export.csv?${qs}`} className={btn}>Export CSV</a>
       </>}>Registrul documentelor</PageTitle>
+
+      <section aria-labelledby="work-title" className="mb-4">
+        <h2 id="work-title" className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-700">De lucru</h2>
+        <ul className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
+          {work.map((w) => (
+            <li key={w.label}>
+              <Link href={w.href} className={`block rounded border p-3 hover:shadow ${w.count === 0 ? "border-gray-200 text-gray-500" : TONE[w.tone]}`}>
+                <span className="block text-2xl font-semibold">{w.count}</span>
+                <span className="block text-sm font-medium">{w.label}</span>
+                <span className="block text-xs">{w.hint}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
 
       <form role="search" className="mb-4 grid grid-cols-2 gap-2 rounded border p-3 md:grid-cols-7" aria-label="Căutare și filtre">
         <div className="col-span-2">

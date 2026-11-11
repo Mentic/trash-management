@@ -17,6 +17,7 @@ import { clientIp } from "@/server/auth/session";
 import { currentYear, isoDateInTz, todayIso } from "@/lib/format";
 import { ALLOWED_MIME, MAX_BYTES, storeFile } from "@/storage/files";
 import type { ActionResult } from "@/components/ActionForm";
+import { INTERNAL_CORRESPONDENT, REQUEST_TYPES_BY_DIRECTION } from "@/lib/directions";
 
 type Doc = typeof documents.$inferSelect;
 class UserError extends Error {}
@@ -51,7 +52,7 @@ function next(doc: Doc, action: DocAction, user: CurrentUser, reason?: string): 
 }
 
 /** Rulează o acțiune: erorile de business devin mesaje lângă formular; succesul reîmprospătează fișa. */
-async function run(id: string, fn: (tx: Tx, user: CurrentUser) => Promise<void | string>): Promise<ActionResult> {
+async function run(id: string, ok: string, fn: (tx: Tx, user: CurrentUser) => Promise<void | string>): Promise<ActionResult> {
   const user = await requireUser("registry.read");
   let target: string | void;
   try {
@@ -63,9 +64,8 @@ async function run(id: string, fn: (tx: Tx, user: CurrentUser) => Promise<void |
     throw e;
   }
   revalidatePath("/registry");
-  if (target) redirect(`/registry/${target}`);
-  revalidatePath(`/registry/${id}`);
-  return { ok: "Salvat." };
+  // Mesaj de confirmare vizibil pe fișă (textul se construiește la afișare din cheie — lib/messages.ts).
+  redirect(`/registry/${target || id}?ok=${ok}`);
 }
 
 const str = (fd: FormData, k: string) => String(fd.get(k) ?? "").trim();
@@ -89,14 +89,15 @@ async function confirm(tx: Tx, user: CurrentUser, doc: Doc) {
   const status = next(doc, "confirm", user);
   const year = currentYear();
   const number = await allocateRegistryNumber(tx, year);
-  const deadline = computeDeadline(todayIso(), doc.requestType, { redirected: doc.redirected }, DEMO_DEADLINES);
+  // R04: termenul de răspuns privește doar documentele primite.
+  const deadline = doc.direction === "incoming" ? computeDeadline(todayIso(), doc.requestType, { redirected: doc.redirected }, DEMO_DEADLINES) : null;
   await update(tx, doc, { status, year, number, registeredAt: new Date(), deadline });
   await log(tx, user, doc, "confirmat", { newValues: { numar: `${number}/${year}`, termen: deadline } });
 }
 
 const docSchema = z.object({
   direction: z.enum(DIRECTIONS),
-  correspondentName: z.string().trim().min(1, "Completați corespondentul."),
+  correspondentName: z.string().trim().min(1, "Completați expeditorul sau destinatarul."),
   correspondentAddress: z.string().trim().optional(),
   externalRef: z.string().trim().optional(),
   subject: z.string().trim().min(1, "Completați obiectul."),
@@ -107,20 +108,24 @@ const docSchema = z.object({
 
 export async function createDocument(_: ActionResult, fd: FormData): Promise<ActionResult> {
   const user = await requireUser("document.create");
+  const direction = str(fd, "direction");
   const parsed = docSchema.safeParse({
-    direction: str(fd, "direction"), correspondentName: str(fd, "correspondentName"),
+    direction, correspondentName: direction === "internal" ? INTERNAL_CORRESPONDENT : str(fd, "correspondentName"),
     correspondentAddress: str(fd, "correspondentAddress") || undefined, externalRef: str(fd, "externalRef") || undefined,
     subject: str(fd, "subject"), requestType: str(fd, "requestType"), intakeChannel: str(fd, "intakeChannel") || undefined,
     redirected: fd.get("redirected") === "on",
   });
   if (!parsed.success) return { error: parsed.error.issues.map((i) => i.message).join(" ") };
+  if (!REQUEST_TYPES_BY_DIRECTION[parsed.data.direction].includes(parsed.data.requestType))
+    return { error: "Tipul documentului nu se potrivește cu sensul ales." };
+  if (parsed.data.direction !== "incoming") Object.assign(parsed.data, { externalRef: undefined, intakeChannel: undefined, redirected: false });
   const intent = str(fd, "intent");
   let id = "";
   try {
     await db.transaction(async (tx) => {
       const [doc] = await tx.insert(documents).values({ ...parsed.data, year: currentYear(), createdBy: user.id }).returning();
       id = doc!.id;
-      await log(tx, user, doc!, "ciorna_salvata");
+      if (intent !== "confirm") await log(tx, user, doc!, "ciorna_salvata");
       await saveFiles(tx, user, doc!.id, fd.getAll("files") as File[]);
       if (intent === "confirm") await confirm(tx, user, doc!);
     });
@@ -129,12 +134,12 @@ export async function createDocument(_: ActionResult, fd: FormData): Promise<Act
     throw e;
   }
   revalidatePath("/registry");
-  redirect(`/registry/${id}`);
+  redirect(`/registry/${id}?ok=${intent === "confirm" ? "confirmed" : "draft"}`);
 }
 
 export async function confirmDraft(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "confirmed", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     await confirm(tx, user, doc);
@@ -156,20 +161,20 @@ export async function deleteDraft(_: ActionResult, fd: FormData): Promise<Action
 
 export async function assignDocument(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "assigned", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     const status = next(doc, "assign", user);
     const [officer] = await tx.select().from(users).where(eq(users.id, str(fd, "assigneeId")));
     if (!officer || officer.role !== "officer") throw new UserError("Alegeți un responsabil.");
     await update(tx, doc, { status, assigneeId: officer.id });
-    await log(tx, user, doc, "repartizat", { oldValues: { responsabil: doc.assigneeId }, newValues: { responsabil: officer.username } });
+    await log(tx, user, doc, "repartizat", { newValues: { responsabil: officer.displayName } });
   });
 }
 
 export async function saveReply(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, str(fd, "intent") === "submit" ? "submitted" : "reply", async (tx, user) => {
     let doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     const text = str(fd, "replyDraft");
@@ -194,7 +199,7 @@ export async function saveReply(_: ActionResult, fd: FormData) {
 
 export async function returnReply(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "returned", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     const reason = str(fd, "reason");
@@ -206,7 +211,7 @@ export async function returnReply(_: ActionResult, fd: FormData) {
 
 export async function approveReply(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "approved", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     await update(tx, doc, { status: next(doc, "approve", user) });
@@ -217,7 +222,7 @@ export async function approveReply(_: ActionResult, fd: FormData) {
 /** R06, I02 — răspunsul primește un număr nou de ieșire, legat de intrare în ambele sensuri. */
 export async function registerOutgoing(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "outgoing", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     const status = next(doc, "registerOutgoing", user);
@@ -238,7 +243,7 @@ export async function registerOutgoing(_: ActionResult, fd: FormData) {
 /** R09 — canal, dată și dovadă; starea se oglindește pe intrare și pe ieșire. */
 export async function recordDispatch(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "dispatched", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     const channel = z.enum(DISPATCH_CHANNELS).safeParse(str(fd, "channel"));
@@ -277,7 +282,7 @@ async function checkDossier(tx: Tx, doc: Doc, dossierId: string) {
 
 export async function fileDocument(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "filed", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     const action: DocAction = doc.status === "registered" || doc.status === "assigned" ? "fileWithoutReply" : "file";
@@ -290,7 +295,7 @@ export async function fileDocument(_: ActionResult, fd: FormData) {
 
 export async function cancelDocument(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "cancelled", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     const reason = str(fd, "reason");
@@ -305,7 +310,7 @@ const CORRECTABLE = ["subject", "correspondentName", "correspondentAddress", "ex
 /** R02, R8 — corecție cu motiv; jurnalul păstrează valoarea veche și cea nouă. */
 export async function correctMetadata(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "corrected", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     const reason = str(fd, "reason");
@@ -325,7 +330,7 @@ export async function correctMetadata(_: ActionResult, fd: FormData) {
 
 export async function extendDeadline(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "extended", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     checkVersion(doc, fd);
     const reason = str(fd, "reason");
@@ -344,7 +349,7 @@ export async function extendDeadline(_: ActionResult, fd: FormData) {
 
 export async function addAttachments(_: ActionResult, fd: FormData) {
   const id = str(fd, "id");
-  return run(id, async (tx, user) => {
+  return run(id, "attachments", async (tx, user) => {
     const doc = await loadDoc(tx, id, user);
     if (doc.status === "cancelled" || doc.status === "filed") throw new UserError("Documentul este închis.");
     const files = (fd.getAll("files") as File[]).filter((f) => f.size);

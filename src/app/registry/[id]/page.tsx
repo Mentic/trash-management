@@ -4,7 +4,7 @@ import { requireUser, can } from "@/server/auth/rbac";
 import { getDocument } from "@/server/queries/document";
 import { allDossiers, officers } from "@/server/queries/registry";
 import { canTransition, type DocAction } from "@/domain/documentStateMachine";
-import { Badge, Card, Crumbs, PageTitle, btn, input, th, td } from "@/components/ui";
+import { Card, Crumbs, PageTitle, btn, input, th, td } from "@/components/ui";
 import { DocStatusBadge, Deadline } from "@/components/badges";
 import { ActionForm } from "@/components/ActionForm";
 import {
@@ -14,6 +14,11 @@ import {
 import { DIRECTION_LABEL, DISPATCH_LABEL, INTAKE_LABEL, REQUEST_TYPE_LABEL } from "@/lib/labels";
 import { fmtDate, fmtDateTime, todayIso } from "@/lib/format";
 import { HISTORY_LABEL, fieldLabel } from "@/lib/history";
+import { Stepper, SuccessBanner, nextStep } from "@/components/flow";
+import { FileInput } from "@/components/FileInput";
+import { docMessage } from "@/lib/messages";
+import { db } from "@/db/client";
+import { users } from "@/db/schema";
 
 export const dynamic = "force-dynamic";
 
@@ -41,17 +46,26 @@ function ReasonAction({ label, action, id, version, confirm, extra }: {
   );
 }
 
-export default async function DocumentPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function DocumentPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ ok?: string }> }) {
   const user = await requireUser("registry.read");
   const { id } = await params;
+  const { ok: okKey } = await searchParams;
   const { doc, assigneeName, dossier, linked, files, sent, history } = await getDocument(user, id);
-  const [offs, dos] = await Promise.all([officers(), allDossiers()]);
+  const [offs, dos, people] = await Promise.all([officers(), allDossiers(), db.select({ u: users.username, n: users.displayName }).from(users)]);
+  const display = new Map(people.map((p) => [p.u, p.n]));
+  const show = (v: unknown) => fmtVal(typeof v === "string" && display.has(v) ? display.get(v) : v);
   const ok = (action: DocAction, reason?: string) =>
     canTransition({ action, doc: { status: doc.status, direction: doc.direction, assigneeId: doc.assigneeId }, actor: user, reason: reason ?? "x" });
   const v = doc.version;
   const num = doc.number ? `${doc.number}/${doc.year}` : "Ciornă";
   const canEditReply = (doc.status === "assigned" || doc.status === "drafting") && doc.assigneeId === user.id && user.role === "officer";
   const canFile = ok("file") || ok("fileWithoutReply");
+  const withoutReply = history.some(({ e }) => e.action === "document.clasat_fara_raspuns");
+  const banner = docMessage(okKey, { num, assignee: assigneeName, linked: linked?.number ? `${linked.number}/${linked.year}` : null, dossier: dossier?.code });
+  const hint = nextStep({ status: doc.status, direction: doc.direction, role: user.role, isAssignee: doc.assigneeId === user.id, assignee: assigneeName });
+  // O singură acțiune principală pe stare; clasarea fără răspuns e secundară (închide lucrarea).
+  const fileIsPrimary = ok("file");
+  const anyAction = doc.status === "draft" || canFile || (["assign", "submitForApproval", "approve", "return", "registerOutgoing", "recordDispatch", "extendDeadline", "correctMetadata", "cancel"] as const).some((a) => ok(a));
 
   return (
     <>
@@ -60,6 +74,8 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
         {DIRECTION_LABEL[doc.direction]} {num}
       </PageTitle>
 
+      <SuccessBanner text={banner} />
+      <Stepper direction={doc.direction} status={doc.status} filedWithoutReply={withoutReply} />
       <div className="mb-4 flex flex-wrap items-center gap-3 text-sm">
         <DocStatusBadge status={doc.status} />
         <span>Responsabil: <strong>{assigneeName ?? "—"}</strong></span>
@@ -91,8 +107,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                   <Hidden id={doc.id} version={v} />
                   <label htmlFor="replyDraft" className="block text-sm font-medium">Textul răspunsului (obligatoriu)</label>
                   <textarea id="replyDraft" name="replyDraft" rows={6} className={input} defaultValue={doc.replyDraft ?? ""} required />
-                  <label htmlFor="replyFiles" className="block text-sm">Anexe la răspuns</label>
-                  <input id="replyFiles" name="files" type="file" multiple className="text-sm" />
+                  <FileInput id="replyFiles" name="files" label="Anexe la răspuns" multiple />
                   <label className="flex items-center gap-2 text-sm"><input type="checkbox" name="intent" value="submit" /> Trimite la aprobare după salvare</label>
                 </ActionForm>
               ) : <p className="whitespace-pre-wrap text-sm">{doc.replyDraft}</p>}
@@ -113,8 +128,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
             {can(user.role, "document.create") && doc.status !== "filed" && doc.status !== "cancelled" && (
               <ActionForm action={addAttachments} submit="Adaugă anexe" className="mt-3 flex flex-wrap items-center gap-2">
                 <input type="hidden" name="id" value={doc.id} />
-                <label htmlFor="moreFiles" className="sr-only">Fișiere</label>
-                <input id="moreFiles" name="files" type="file" multiple className="text-sm" />
+                <FileInput id="moreFiles" name="files" label="Adăugați anexe" multiple />
               </ActionForm>
             )}
             <p className="mt-2 text-xs text-gray-600">Anexele nu se modifică după încărcare (R02).</p>
@@ -144,7 +158,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
                       <td className={td}>
                         {e.reason && <div><strong>Motiv:</strong> {e.reason}</div>}
                         {Object.keys(nv).filter((k) => !(e.reason && k === "detalii")).map((k) => (
-                          <div key={k}>{fieldLabel(k)}: {k in ov && <><del>{fmtVal(ov[k])}</del> → </>}{fmtVal(nv[k])}</div>
+                          <div key={k}>{fieldLabel(k)}: {k in ov && <><del>{show(ov[k])}</del> → </>}{show(nv[k])}</div>
                         ))}
                       </td>
                     </tr>
@@ -156,7 +170,11 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
         </div>
 
         <aside aria-label="Acțiuni" className="space-y-3">
-          <h2 className="font-semibold">Acțiuni</h2>
+          <div className="rounded border-l-4 border-[var(--accent)] bg-blue-50 p-3 text-sm" role="note">
+            <p className="font-semibold">Pasul următor</p>
+            <p>{hint}</p>
+          </div>
+          {anyAction && <h2 className="font-semibold">Acțiuni</h2>}
           {doc.status === "draft" && can(user.role, "document.create") && (
             <>
               <ActionForm action={confirmDraft} submit="Confirmă și atribuie număr" confirm="Numărul se atribuie definitiv. Continuați?"><Hidden id={doc.id} version={v} /></ActionForm>
@@ -193,12 +211,11 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
               <input id="date" name="date" type="date" className={input} defaultValue={todayIso()} required />
               <label htmlFor="proofRef" className="block text-sm font-medium">Dovadă: număr de confirmare</label>
               <input id="proofRef" name="proofRef" className={input} placeholder="ex. confirmare e-mail (simulată)" />
-              <label htmlFor="proofFile" className="block text-sm">sau fișier</label>
-              <input id="proofFile" name="proofFile" type="file" className="text-sm" />
+              <FileInput id="proofFile" name="proofFile" label="sau fișierul dovezii" />
             </ActionForm>
           )}
           {canFile && (
-            <ActionForm action={fileDocument} submit={ok("file") ? "Clasează la dosar" : "Clasează fără răspuns"} className="space-y-2 rounded border p-2">
+            <ActionForm action={fileDocument} submit={fileIsPrimary ? "Clasează la dosar" : "Clasează fără răspuns"} submitClass={fileIsPrimary ? undefined : btn} className="space-y-2 rounded border p-2">
               <Hidden id={doc.id} version={v} />
               <label htmlFor="dossierId" className="block text-sm font-medium">Dosar (obligatoriu)</label>
               <select id="dossierId" name="dossierId" className={input} defaultValue={doc.dossierId ?? ""} required>
@@ -206,6 +223,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
               </select>
             </ActionForm>
           )}
+          {(ok("extendDeadline") || ok("correctMetadata") || ok("cancel")) && <h3 className="pt-2 text-sm font-semibold text-gray-700">Alte acțiuni</h3>}
           {ok("extendDeadline") && doc.deadline && (
             <ReasonAction label="Prelungește termenul" action={extendDeadline} id={doc.id} version={v} extra={<>
               <label htmlFor="days" className="block text-sm">Zile (obligatoriu{doc.requestType === "petition" ? "; petiții: maximum 15 în total" : ""})</label>
@@ -225,7 +243,7 @@ export default async function DocumentPage({ params }: { params: Promise<{ id: s
             </>} />
           )}
           {ok("cancel") && <ReasonAction label="Anulează înregistrarea" action={cancelDocument} id={doc.id} version={v} confirm="Anularea este definitivă; numărul rămâne în registru marcat Anulat. Continuați?" />}
-          {doc.status === "filed" && <p className="text-sm"><Badge tone="gray" icon="▣">Clasat</Badge> Documentul este închis.</p>}
+          {doc.status === "filed" && <p className="text-sm">Documentul este închis.</p>}
         </aside>
       </div>
     </>

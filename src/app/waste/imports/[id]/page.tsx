@@ -13,6 +13,8 @@ import { assignRowUat, correctRow, excludeRow, reactivateRow, validateRows } fro
 import { DESTINATION_LABEL, FRACTION_LABEL, RULE_LABEL } from "@/lib/labels";
 import { fmtDateTime, fmtT } from "@/lib/format";
 import { formatKgAsTonnes } from "@/domain/quantity";
+import { SuccessBanner } from "@/components/flow";
+import { wasteMessage } from "@/lib/messages";
 
 export const dynamic = "force-dynamic";
 
@@ -23,10 +25,10 @@ function flagText(rule: string, d: Record<string, unknown>) {
   return RULE_LABEL[rule as keyof typeof RULE_LABEL];
 }
 
-export default async function ImportPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ filter?: string }> }) {
+export default async function ImportPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ filter?: string; ok?: string; n?: string }> }) {
   await requireUser("waste.import");
   const { id } = await params;
-  const { filter } = await searchParams;
+  const { filter, ok: okKey, n: okN } = await searchParams;
   if (!/^[0-9a-f-]{36}$/.test(id)) notFound();
   const [row] = await db.select({ i: imports, number: documents.number, year: documents.year, docId: documents.id }).from(imports).leftJoin(documents, eq(documents.id, imports.documentId)).where(eq(imports.id, id));
   if (!row) notFound();
@@ -48,6 +50,7 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
       <PageTitle actions={<ActionForm action={validateRows} submit="Validează rândurile curate" confirm="Validați toate rândurile importate fără semnalări?"><input type="hidden" name="importId" value={id} /></ActionForm>}>
         Raport de import: {row.i.fileName}
       </PageTitle>
+      <SuccessBanner text={wasteMessage(okKey, okN)} />
       <p className="mb-3 text-sm">Legat de intrarea <Link className="underline" href={`/registry/${row.docId}`}>{row.number}/{row.year}</Link> · {fmtDateTime(row.i.uploadedAt)}</p>
 
       <section aria-live="polite" aria-label="Rezumatul importului" className="mb-6 grid grid-cols-2 gap-2 md:grid-cols-7">
@@ -59,6 +62,12 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
         <Stat label="UAT necunoscut (V5)" value={count("V5")} tone={count("V5") ? "amber" : undefined} />
         <Stat label="Importate fără semnalări" value={row.i.cleanRows} tone="green" />
       </section>
+      <div role="note" className="mb-3 rounded border-l-4 border-[var(--accent)] bg-blue-50 p-3 text-sm">
+        <p className="font-semibold">Pasul următor</p>
+        <p>{statusCount("flagged") > 0
+          ? `Rezolvați cele ${statusCount("flagged")} rânduri semnalate (sus în tabel): excludeți duplicatul, corectați diferența după tichet sau atribuiți UAT-ul cu dovadă. Apoi validați rândurile curate.`
+          : statusCount("imported") > 0 ? "Validați rândurile curate cu butonul „Validează rândurile curate”." : "Importul este verificat. Totalurile apar în Situație pe UAT."}</p>
+      </div>
       <p className="mb-4 text-sm">Stare acum: {statusCount("validated")} validate · {statusCount("imported")} importate · {statusCount("flagged")} semnalate · {statusCount("excluded")} excluse.</p>
 
       {rejected.length > 0 && (
@@ -100,11 +109,8 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
                 <td className={td}><RowStatusBadge status={r.status} /></td>
                 <td className={td}>
                   <div className="flex flex-wrap gap-1">{fl.map((f, i) => <Badge key={i} tone="red" icon="⚑">{f.rule} {flagText(f.rule, f.details)}</Badge>)}</div>
-                  {(r.status === "flagged" || r.status === "imported") && (
+                  {r.status === "flagged" && (
                     <div className="mt-1 flex flex-wrap gap-1">
-                      {r.status === "imported" && (
-                        <ActionForm action={validateRows} submit="Validează" submitClass={btn}><input type="hidden" name="rowId" value={r.id} /><input type="hidden" name="importId" value={id} /></ActionForm>
-                      )}
                       <details className="rounded border p-1"><summary className="cursor-pointer text-xs">Corectează</summary>
                         <ActionForm action={correctRow} submit="Salvează corecția" className="mt-1 space-y-1">
                           <input type="hidden" name="rowId" value={r.id} />
@@ -140,6 +146,7 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
                       </details>
                     </div>
                   )}
+                  {(r.status === "imported" || r.status === "validated") && <span className="text-xs text-gray-600">{r.status === "imported" ? "Fără semnalări — se validează cu butonul de sus" : "Validat"}</span>}
                   {r.status === "excluded" && (
                     <details className="mt-1 rounded border p-1"><summary className="cursor-pointer text-xs">Reactivează</summary>
                       <ActionForm action={reactivateRow} submit="Reactivează" className="mt-1 space-y-1">

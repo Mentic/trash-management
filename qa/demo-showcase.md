@@ -9,9 +9,9 @@
 | Minut | Cine | Ce faceți (clicuri) | Ce spuneți | Momentul „wow” |
 | --- | --- | --- | --- | --- |
 | 0–2 | — | Ecranul de login, banda „DEMO — date fictive” | „Un registru unic pentru intrări, ieșiri și interne, plus verificarea raportului operatorului — instrumentul pentru procedura de control din noul statut. Totul găzduit în UE.” | — |
-| 2–4 | Ana | Login → **codul QR se scanează live** cu telefonul → codul de 6 cifre → cele 10 coduri de recuperare | „Autentificare în doi pași, ca la bancă. Fără SMS, fără costuri, merge cu orice aplicație de autentificare.” | 1 |
-| 4–5 | Ana | Document nou: Petiție, Număr extern **438/2026**, obiect → arătați „Termen calculat” → Confirmă | „Numărul se dă o singură dată, atomic, și nu se refolosește. Termenul legal se calculează singur.” → **121/2026** | 2 |
-| 5–6 | Ana | Repartizează lui Mihai | „Fiecare vede doar ce trebuie: Mihai nu poate deschide nici prin link o lucrare care nu e a lui.” | 2 |
+| 2–4 | Ana | Login cu un click pe cardul „Ana — Registrator” → **codul QR se scanează live** cu telefonul → codul de 6 cifre → cele 10 coduri de recuperare | „Autentificare în doi pași, ca la bancă. Fără SMS, fără costuri, merge cu orice aplicație de autentificare.” | 1 |
+| 4–5 | Ana | Arătați panoul „De lucru”; Document nou: Sens Intrare (explicat pe card), Petiție, numărul expeditorului **438/2026**, obiect → arătați „Termen de răspuns calculat” → Confirmă | „Numărul se dă o singură dată, atomic, și nu se refolosește. Termenul legal se calculează singur.” → **121/2026** | 2 |
+| 5–6 | Ana | Arătați bara de pași și caseta „Pasul următor” → Repartizează lui Mihai (mesajul verde confirmă) | „Fiecare vede doar ce trebuie: Mihai nu poate deschide nici prin link o lucrare care nu e a lui.” | 2 |
 | 6–7 | Mihai | Fișa 121 → scrie răspunsul → bifează „Trimite la aprobare” → Salvează | — | 2 |
 | 7–8 | Elena | „Returnează cu motiv”: *Completați temeiul legal* → Mihai corectează și retrimite → Elena „Aprobă răspunsul” | „Motivul rămâne în istoric, cu autor și oră.” | 2 |
 | 8–9 | Ana | „Înregistrează ieșirea” (**122/2026**, legată) → „Consemnează expedierea” cu dovadă → Clasează în I-1 → căutare **438/2026** | „Căutați după numărul expeditorului și găsiți intrarea, răspunsul și tot istoricul.” | 2 |

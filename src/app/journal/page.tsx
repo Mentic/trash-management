@@ -4,7 +4,7 @@ import { db } from "@/db/client";
 import { auditEvents, users } from "@/db/schema";
 import { requireUser } from "@/server/auth/rbac";
 import { PageTitle, btnPrimary, input, th, td } from "@/components/ui";
-import { HISTORY_LABEL } from "@/lib/history";
+import { HISTORY_LABEL, describeValues } from "@/lib/history";
 import { fmtDateTime } from "@/lib/format";
 
 export const dynamic = "force-dynamic";
@@ -29,9 +29,9 @@ export default async function JournalPage({ searchParams }: { searchParams: Prom
         <caption className="mb-2 text-left text-sm">Ultimele 300 de evenimente. Jurnalul nu se poate modifica din aplicație (N09).</caption>
         <thead><tr><th scope="col" className={th}>Data</th><th scope="col" className={th}>Utilizator</th><th scope="col" className={th}>Categorie</th><th scope="col" className={th}>Acțiune</th><th scope="col" className={th}>Motiv / detalii</th><th scope="col" className={th}>IP</th></tr></thead>
         <tbody>{rows.map(({ e, actor }) => (
-          <tr key={e.id}><td className={td}>{fmtDateTime(e.occurredAt)}</td><td className={td}>{actor ?? (e.entityType === "user" ? e.entityId : "sistem")}</td>
+          <tr key={e.id}><td className={td}>{fmtDateTime(e.occurredAt)}</td><td className={td}>{actor ?? (e.entityType === "user" ? `${e.entityId} (necunoscut)` : "sistem")}</td>
             <td className={td}>{CATS[e.category]}</td><td className={td}>{HISTORY_LABEL[e.action] ?? e.action}</td>
-            <td className={td}>{e.reason ?? (e.newValues ? JSON.stringify(e.newValues).slice(0, 120) : "")}</td><td className={td}>{e.ip ?? ""}</td></tr>
+            <td className={td}>{e.reason && <div><strong>Motiv:</strong> {e.reason}</div>}{describeValues(e.newValues)}</td><td className={td}>{e.ip ?? ""}</td></tr>
         ))}</tbody>
       </table>
     </>

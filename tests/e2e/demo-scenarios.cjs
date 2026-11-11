@@ -40,10 +40,10 @@ const text = (p) => p.textContent("main");
   await ana.fill("#correspondentName", "Ion Popescu (fictiv)");
   await ana.fill("#externalRef", "438/2026");
   await ana.fill("#subject", "Sesizare privind ridicarea deșeurilor voluminoase");
-  const hint = await ana.textContent("text=Termen calculat");
+  const hint = await ana.textContent("text=Termen de răspuns calculat");
   await ana.click("text=Confirmă și atribuie număr");
-  await ana.waitForURL(/\/registry\/[0-9a-f-]{36}$/);
-  const inUrl = ana.url();
+  await ana.waitForURL(/\/registry\/[0-9a-f-]{36}(\?.*)?$/);
+  const inUrl = ana.url().split("?")[0];
   assert((await ana.textContent("h1")).includes("121/2026"), "R1: adresa 438/2026 înregistrată ca intrarea 121/2026");
   const expected = new Date(Date.now() + 30 * 864e5).toLocaleDateString("ro-RO", { timeZone: "Europe/Bucharest", day: "2-digit", month: "2-digit", year: "numeric" });
   assert((await text(ana)).includes(expected) && hint.includes(expected), `R1: termenul petiției = data înregistrării + 30 de zile (${expected})`);
@@ -51,7 +51,8 @@ const text = (p) => p.textContent("main");
   // R2
   await ana.selectOption("#assigneeId", { label: "Mihai (fictiv)" });
   await ana.click("button:has-text('Repartizează')");
-  await ana.waitForSelector("text=Responsabil: Mihai (fictiv)");
+  await ana.waitForURL(/ok=assigned/);
+  assert((await text(ana)).includes("a fost repartizată lui Mihai (fictiv)"), "UX: confirmarea acțiunii apare ca mesaj pe fișă");
   await mihai.goto(`${B}/registry?q=121/2026`);
   assert((await text(mihai)).includes("121/2026"), "R2: lucrarea apare în lista lui Mihai");
   await ana.goto(`${B}/registry?assignee=none`);
@@ -67,7 +68,7 @@ const text = (p) => p.textContent("main");
   await mihai.fill("#replyDraft", "Vă rugăm să precizați adresa exactă și data la care deșeurile nu au fost ridicate.");
   await mihai.check("input[name=intent][value=submit]");
   await mihai.click("button:has-text('Salvează')");
-  await mihai.waitForSelector("text=În aprobare");
+  await mihai.waitForURL(/ok=submitted/);
   ok("R3: Mihai redactează cererea de clarificări și o trimite la aprobare");
 
   // R4
@@ -75,15 +76,15 @@ const text = (p) => p.textContent("main");
   await elena.click("summary:has-text('Returnează cu motiv')");
   await elena.fill("details[open] textarea[name=reason]", "Completați temeiul legal");
   await elena.click("details[open] button[type=submit]");
-  await elena.waitForSelector("main >> text=În redactare");
+  await elena.waitForURL(/ok=returned/);
   await mihai.goto(inUrl);
   await mihai.fill("#replyDraft", "Conform OG 27/2002, vă rugăm să precizați adresa exactă și data la care deșeurile nu au fost ridicate.");
   await mihai.check("input[name=intent][value=submit]");
   await mihai.click("button:has-text('Salvează')");
-  await mihai.waitForSelector("text=În aprobare");
+  await mihai.waitForURL(/ok=submitted/);
   await elena.goto(inUrl);
   await elena.click("button:has-text('Aprobă răspunsul')");
-  await elena.waitForSelector("main >> text=Aprobat");
+  await elena.waitForURL(/ok=approved/);
   assert((await text(elena)).includes("Completați temeiul legal"), "R4: returnat cu motiv, corectat, retrimis și aprobat; motivul apare în istoric");
 
   // R5
@@ -131,12 +132,23 @@ const text = (p) => p.textContent("main");
   await ana.fill("#correspondentName", "Operator de colectare (fictiv)");
   await ana.fill("#subject", "Raport lunar de activitate – octombrie 2026");
   await ana.click("text=Confirmă și atribuie număr");
-  await ana.waitForURL(/\/registry\/[0-9a-f-]{36}$/);
+  await ana.waitForURL(/\/registry\/[0-9a-f-]{36}(\?.*)?$/);
   assert((await ana.textContent("h1")).includes("123/2026"), "D1: raportul pe octombrie înregistrat ca intrarea 123/2026");
   await ana.selectOption("#dossierId", { label: "II-1 — Rapoarte lunare ale operatorilor" });
   await ana.click("button:has-text('Clasează fără răspuns')");
   await ana.waitForSelector("text=Documentul este închis");
   ok("D1: clasat fără răspuns în II-1");
+
+  // Sens = Ieșire: fără canal de primire și fără termen de răspuns
+  await ana.goto(`${B}/registry/new`);
+  await ana.check("input[name=direction][value=outgoing]");
+  const outTypes = await ana.locator("#requestType option").allTextContents();
+  await ana.fill("#correspondentName", "Administrația Fondului pentru Mediu");
+  await ana.fill("#subject", "Transmitere situație cantități 2025");
+  await ana.click("text=Confirmă și atribuie număr");
+  await ana.waitForURL(/ok=confirmed/);
+  assert(!outTypes.includes("Petiție") && (await ana.textContent("main")).includes("Termen: —") && (await ana.textContent("h1")).includes("Ieșire 124/2026"),
+    "Sens Ieșire: tipuri potrivite, fără termen de răspuns; documentul intră direct ca ieșire înregistrată");
 
   // D2–D3
   await mihai.goto(`${B}/waste/imports`);
@@ -186,7 +198,7 @@ const text = (p) => p.textContent("main");
 
   // S08
   await elena.goto(`${B}/journal?category=security`);
-  assert((await text(elena)).includes("auth.mfa_enrolled"), "S08: înrolările apar în jurnalul de securitate");
+  assert((await text(elena)).includes("2FA activat (cod QR)"), "S08: înrolările apar în jurnalul de securitate, în limbaj natural");
   if (process.env.SHOTS) {
     const shot = async (p, url, name) => { await p.goto(`${B}${url}`); await p.screenshot({ path: `${process.env.SHOTS}/${name}.png`, fullPage: true }); };
     await shot(ana, "/registry", "1-registru");
