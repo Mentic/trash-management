@@ -33,7 +33,7 @@ export default async function DossiersPage() {
           </ActionForm>
         </Card>
       )}
-      <p className="mt-4 text-sm text-gray-600">Închiderea anului arhivistic este în Etapa 2.</p>
+      <p className="mt-4 text-sm text-[var(--ink-2)]">Închiderea anului arhivistic este în Etapa 2.</p>
     </>
   );
 }

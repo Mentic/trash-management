@@ -45,7 +45,7 @@ export default async function UatDrillPage({ params, searchParams }: { params: P
           <thead><tr><th scope="col" className={th}>Luna</th><th scope="col" className={`${th} text-right`}>Curse</th><th scope="col" className={`${th} text-right`}>Total</th></tr></thead>
           <tbody>
             {months.map((m) => (
-              <tr key={m.period}><th scope="row" className={`${td} text-left`}><Link className="underline" href={`/waste/summary/${uatId}?${base}&period=${m.period}`}>{fmtPeriod(m.period)}</Link></th>
+              <tr key={m.period}><th scope="row" className={`${td} text-left`}><Link className="text-[var(--accent)] hover:underline" href={`/waste/summary/${uatId}?${base}&period=${m.period}`}>{fmtPeriod(m.period)}</Link></th>
                 <td className={`${td} text-right`}>{fmtInt(m.n)}</td><td className={`${td} text-right`}>{fmtT(m.kg)}</td></tr>
             ))}
             <tr><th scope="row" className={`${td} text-left font-semibold`}>Total</th><td className={`${td} text-right`}>{fmtInt(months.reduce((s, m) => s + m.n, 0))}</td><td className={`${td} text-right font-semibold`}>{fmtT(months.reduce((s, m) => s + m.kg, 0))}</td></tr>
@@ -56,7 +56,7 @@ export default async function UatDrillPage({ params, searchParams }: { params: P
           <caption className="mb-2 text-left text-sm">{rows.length} curse validate, {fmtT(rows.reduce((s, r) => s + r.reportedKg, 0))}. Selectați un tichet.</caption>
           <thead><tr><th scope="col" className={th}>Tichet</th><th scope="col" className={th}>Data cântăririi</th><th scope="col" className={th}>Cod LER</th><th scope="col" className={th}>Fracție</th><th scope="col" className={th}>Destinație</th><th scope="col" className={th}>Instalație</th><th scope="col" className={`${th} text-right`}>Cantitate</th><th scope="col" className={th}>Stare</th></tr></thead>
           <tbody>{rows.map((r) => (
-            <tr key={r.id}><td className={td}><Link className="underline" href={`/waste/rows/${r.id}`}>{r.ticketNo}</Link></td><td className={td}>{fmtDateTime(r.weighedAt)}</td><td className={td}>{r.lerCode}</td>
+            <tr key={r.id}><td className={td}><Link className="text-[var(--accent)] hover:underline" href={`/waste/rows/${r.id}`}>{r.ticketNo}</Link></td><td className={td}>{fmtDateTime(r.weighedAt)}</td><td className={td}>{r.lerCode}</td>
               <td className={td}>{FRACTION_LABEL[r.fraction]}</td><td className={td}>{DESTINATION_LABEL[r.destination]}</td><td className={td}>{r.facility}</td>
               <td className={`${td} text-right`}>{fmtT(r.reportedKg)}</td><td className={td}><RowStatusBadge status={r.status} /></td></tr>
           ))}</tbody>

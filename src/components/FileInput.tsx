@@ -22,7 +22,7 @@ export function FileInput({ id, name, label, multiple, accept, required }: {
   const [error, setError] = useState("");
   return (
     <div className="space-y-1">
-      <span className="block text-sm font-medium" id={`${id}-label`}>{label}</span>
+      <span className="block text-[13px] font-medium" id={`${id}-label`}>{label}</span>
       <div className="flex flex-wrap items-center gap-2">
         <input id={id} name={name} type="file" multiple={multiple} accept={accept} required={required}
           aria-labelledby={`${id}-label ${id}-btn`} className="peer sr-only"
@@ -34,10 +34,10 @@ export function FileInput({ id, name, label, multiple, accept, required }: {
             setNames(files.map((f) => f.name));
           }} />
         <label id={`${id}-btn`} htmlFor={id}
-          className="cursor-pointer rounded border bg-white px-3 py-1.5 text-sm hover:bg-gray-50 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-[var(--accent)]">
+          className="cursor-pointer rounded-full bg-white px-4 py-1.5 text-[13px] font-medium text-[var(--accent)] ring-1 ring-[var(--line)] hover:bg-[#f5f5f7] peer-focus-visible:ring-4 peer-focus-visible:ring-[color-mix(in_srgb,var(--accent)_30%,transparent)]">
           {multiple ? "Alegeți fișierele…" : "Alegeți fișierul…"}
         </label>
-        <span className="text-sm text-gray-700" aria-live="polite">
+        <span className="text-sm text-[var(--ink-2)]" aria-live="polite">
           {names.length ? names.join(", ") : "Niciun fișier ales"}
         </span>
       </div>

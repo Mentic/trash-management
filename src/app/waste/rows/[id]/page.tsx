@@ -31,8 +31,8 @@ export default async function RowPage({ params }: { params: Promise<{ id: string
   return (
     <>
       <nav aria-label="Firimituri" className="mb-2 text-sm">
-        <Link className="underline" href="/waste/summary">Situație pe UAT</Link>
-        {r.uatId && <> › <Link className="underline" href={`/waste/summary/${r.uatId}?year=${r.year}`}>{row.uat}</Link> › <Link className="underline" href={`/waste/summary/${r.uatId}?year=${r.year}&period=${r.period.slice(0, 7)}`}>{fmtPeriod(r.period.slice(0, 7))}</Link></>}
+        <Link className="text-[var(--accent)] hover:underline" href="/waste/summary">Situație pe UAT</Link>
+        {r.uatId && <> › <Link className="text-[var(--accent)] hover:underline" href={`/waste/summary/${r.uatId}?year=${r.year}`}>{row.uat}</Link> › <Link className="text-[var(--accent)] hover:underline" href={`/waste/summary/${r.uatId}?year=${r.year}&period=${r.period.slice(0, 7)}`}>{fmtPeriod(r.period.slice(0, 7))}</Link></>}
         {" › "}<span aria-current="page">Tichet {r.ticketNo}</span>
       </nav>
       <PageTitle>Tichet de cântar {r.ticketNo}</PageTitle>
@@ -59,9 +59,9 @@ export default async function RowPage({ params }: { params: Promise<{ id: string
             <dt className="font-medium">Document justificativ</dt><dd>{r.supportingDoc ?? "—"}</dd>
             <dt className="font-medium">Import</dt><dd>{row.imp.fileName}, linia {r.lineNo}</dd>
             <dt className="font-medium">Raportul în registratură</dt>
-            <dd>{row.docId ? <Link className="underline" href={`/registry/${row.docId}`}>intrarea {row.docNumber}/{row.docYear}</Link> : "raport 2025 (set demo, fără intrare)"}</dd>
+            <dd>{row.docId ? <Link className="text-[var(--accent)] hover:underline" href={`/registry/${row.docId}`}>intrarea {row.docNumber}/{row.docYear}</Link> : "raport 2025 (set demo, fără intrare)"}</dd>
           </dl>
-          <p className="mt-2 text-xs text-gray-600">Atașarea scanării tichetului ca dovadă (D04) este în Etapa 2.</p>
+          <p className="mt-2 text-xs text-[var(--ink-2)]">Atașarea scanării tichetului ca dovadă (D04) este în Etapa 2.</p>
         </Card>
       </div>
       {(flags.length > 0 || history.length > 0) && (

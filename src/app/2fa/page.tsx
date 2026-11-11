@@ -10,7 +10,7 @@ export default async function MfaPage() {
   if (!s || s.session.stage !== "password_ok") redirect("/login");
   return (
     <section aria-labelledby="mfa-title" className="max-w-sm">
-      <h1 id="mfa-title" className="mb-2 text-xl font-semibold">Cod de autentificare</h1>
+      <h1 id="mfa-title" className="mb-2 text-[28px] font-semibold">Cod de autentificare</h1>
       <p className="mb-4 text-sm">Introduceți codul de 6 cifre din aplicația de pe telefon pentru <strong>{s.user.displayName}</strong>.</p>
       <MfaForm />
     </section>

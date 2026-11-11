@@ -35,8 +35,8 @@ function ReasonAction({ label, action, id, version, confirm, extra }: {
 }) {
   const fid = `${label.replace(/\W/g, "")}-${id.slice(0, 4)}`;
   return (
-    <details className="rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
-      <summary className="cursor-pointer text-sm font-medium">{label}</summary>
+    <details className="rounded-2xl bg-white p-4 ring-1 ring-[var(--hairline)]">
+      <summary className="cursor-pointer text-[14px] text-[var(--accent)]">{label}</summary>
       <ActionForm action={action} confirm={confirm} submit={label} className="mt-2 space-y-2">
         <Hidden id={id} version={version} />
         {extra}
@@ -77,7 +77,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
 
       <SuccessBanner text={banner} />
       <Stepper direction={doc.direction} status={doc.status} filedWithoutReply={withoutReply} />
-      <div className="mb-4 flex flex-wrap items-center gap-3 text-sm">
+      <div className="mb-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-[14px] text-[var(--ink-2)]">
         <DocStatusBadge status={doc.status} />
         <span>Responsabil: <strong>{assigneeName ?? "—"}</strong></span>
         <span>Termen: <Deadline deadline={doc.deadline} status={doc.status} />{doc.deadlineExtensionDays > 0 && ` (prelungit cu ${doc.deadlineExtensionDays} zile)`}</span>
@@ -85,8 +85,8 @@ export default async function DocumentPage({ params, searchParams }: { params: P
       </div>
       {doc.status === "cancelled" && <p role="note" className="mb-4 rounded border border-red-400 bg-red-50 p-2 text-sm">Anulat: {doc.cancelReason}. Numărul rămâne în registru.</p>}
 
-      <div className="grid gap-4 lg:grid-cols-3">
-        <div className="space-y-4 lg:col-span-2">
+      <div className="grid gap-8 lg:grid-cols-3">
+        <div className="space-y-6 lg:col-span-2">
           {doc.status === "draft" && user.role === "registrar" && (
             <Card title="Editare ciornă">
               <ActionForm action={updateDraft} submit="Salvează ciorna" className="grid gap-3 md:grid-cols-2">
@@ -132,7 +132,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
             </Card>
           )}
           <Card title="Date">
-            <dl className="grid grid-cols-[max-content_1fr] gap-x-4 gap-y-1 text-sm">
+            <dl className="grid grid-cols-[max-content_1fr] gap-x-8 gap-y-2.5 text-[15px] [&_dt]:font-normal [&_dt]:text-[var(--ink-2)]">
               <dt className="font-medium">Data înregistrării</dt><dd>{fmtDateTime(doc.registeredAt)}</dd>
               <dt className="font-medium">Corespondent</dt><dd>{doc.correspondentName}</dd>
               <dt className="font-medium">Adresă</dt><dd>{doc.correspondentAddress ?? "—"}</dd>
@@ -141,7 +141,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
               <dt className="font-medium">Tip cerere</dt><dd>{REQUEST_TYPE_LABEL[doc.requestType]}{doc.redirected && " (redirecționat)"}</dd>
               <dt className="font-medium">Canal de primire</dt><dd>{doc.intakeChannel ? INTAKE_LABEL[doc.intakeChannel] : "—"}</dd>
               <dt className="font-medium">Document legat</dt>
-              <dd>{linked ? <Link className="underline" href={`/registry/${linked.id}`}>{DIRECTION_LABEL[linked.direction]} {linked.number}/{linked.year}</Link> : "—"}</dd>
+              <dd>{linked ? <Link className="text-[var(--accent)] hover:underline" href={`/registry/${linked.id}`}>{DIRECTION_LABEL[linked.direction]} {linked.number}/{linked.year}</Link> : "—"}</dd>
             </dl>
           </Card>
 
@@ -164,8 +164,8 @@ export default async function DocumentPage({ params, searchParams }: { params: P
               <ul className="space-y-1 text-sm">
                 {files.map((f) => (
                   <li key={f.id}>
-                    <a className="underline" href={`/api/attachments/${f.id}`}>{f.fileName}</a>{" "}
-                    <span className="text-gray-600">· {Math.ceil(f.sizeBytes / 1024)} KB · SHA-256 <code title={f.sha256}>{f.sha256.slice(0, 12)}…</code> · {fmtDate(f.uploadedAt)}</span>
+                    <a className="text-[var(--accent)] hover:underline" href={`/api/attachments/${f.id}`}>{f.fileName}</a>{" "}
+                    <span className="text-[var(--ink-2)]">· {Math.ceil(f.sizeBytes / 1024)} KB · SHA-256 <code title={f.sha256}>{f.sha256.slice(0, 12)}…</code> · {fmtDate(f.uploadedAt)}</span>
                   </li>
                 ))}
               </ul>
@@ -176,7 +176,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
                 <FileInput id="moreFiles" name="files" label="Adăugați anexe" multiple />
               </ActionForm>
             )}
-            <p className="mt-2 text-xs text-gray-600">Anexele nu se modifică după încărcare (R02).</p>
+            <p className="mt-2 text-xs text-[var(--ink-2)]">Anexele nu se modifică după încărcare (R02).</p>
           </Card>
 
           {sent.length > 0 && (
@@ -186,7 +186,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
                   {s.proofRef}{s.proofRef && s.proofAttachmentId && " + "}
                   {s.proofAttachmentId && (() => {
                     const f = files.find((x) => x.id === s.proofAttachmentId);
-                    return f ? <a className="underline" href={`/api/attachments/${f.id}`}>{f.fileName}</a> : "fișier atașat";
+                    return f ? <a className="text-[var(--accent)] hover:underline" href={`/api/attachments/${f.id}`}>{f.fileName}</a> : "fișier atașat";
                   })()}
                 </p>
               ))}
@@ -220,12 +220,12 @@ export default async function DocumentPage({ params, searchParams }: { params: P
           </Card>
         </div>
 
-        <aside aria-label="Acțiuni" className="space-y-3">
-          <div className="rounded border-l-4 border-[var(--accent)] bg-blue-50 p-3 text-sm" role="note">
-            <p className="font-semibold">Pasul următor</p>
-            <p>{hint}</p>
+        <aside aria-label="Acțiuni" className="space-y-4">
+          <div role="note">
+            <p className="text-[13px] text-[var(--ink-2)]">Pasul următor</p>
+            <p className="mt-1 text-[15px] leading-snug">{hint}</p>
           </div>
-          {anyAction && <h2 className="font-semibold">Acțiuni</h2>}
+          {anyAction && <h2 className="sr-only">Acțiuni</h2>}
           {doc.status === "draft" && can(user.role, "document.create") && (
             <>
               <ActionForm action={confirmDraft} submit="Confirmă și atribuie număr" confirm="Numărul se atribuie definitiv. Continuați?"><Hidden id={doc.id} version={v} /></ActionForm>
@@ -233,7 +233,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
             </>
           )}
           {ok("assign") && (
-            <ActionForm action={assignDocument} submit={doc.assigneeId ? "Reasignează" : "Repartizează"} className="space-y-2 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+            <ActionForm action={assignDocument} submit={doc.assigneeId ? "Reasignează" : "Repartizează"} className="space-y-2 rounded-2xl bg-white p-4 ring-1 ring-[var(--hairline)]">
               <Hidden id={doc.id} version={v} />
               <label htmlFor="assigneeId" className="block text-sm font-medium">Responsabil (obligatoriu)</label>
               <select id="assigneeId" name="assigneeId" className={input} defaultValue={doc.assigneeId ?? ""} required>
@@ -252,7 +252,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
             <ActionForm action={registerOutgoing} submit="Înregistrează ieșirea" confirm="Se atribuie un număr nou de ieșire, legat de această intrare. Continuați?"><Hidden id={doc.id} version={v} /></ActionForm>
           )}
           {ok("recordDispatch") && (
-            <ActionForm action={recordDispatch} submit="Consemnează expedierea" className="space-y-2 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+            <ActionForm action={recordDispatch} submit="Consemnează expedierea" className="space-y-2 rounded-2xl bg-white p-4 ring-1 ring-[var(--hairline)]">
               <Hidden id={doc.id} version={v} />
               <label htmlFor="channel" className="block text-sm font-medium">Canal (obligatoriu)</label>
               <select id="channel" name="channel" className={input} required defaultValue="email">
@@ -266,7 +266,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
             </ActionForm>
           )}
           {canFile && (
-            <ActionForm action={fileDocument} submit={fileIsPrimary ? "Clasează la dosar" : "Clasează fără răspuns"} submitClass={fileIsPrimary ? undefined : btn} className="space-y-2 rounded-xl border border-slate-200 bg-white p-3 shadow-sm">
+            <ActionForm action={fileDocument} submit={fileIsPrimary ? "Clasează la dosar" : "Clasează fără răspuns"} submitClass={fileIsPrimary ? undefined : btn} className="space-y-2 rounded-2xl bg-white p-4 ring-1 ring-[var(--hairline)]">
               <Hidden id={doc.id} version={v} />
               <label htmlFor="dossierId" className="block text-sm font-medium">Dosar (obligatoriu)</label>
               <select id="dossierId" name="dossierId" className={input} defaultValue={doc.dossierId ?? ""} required>
@@ -274,7 +274,7 @@ export default async function DocumentPage({ params, searchParams }: { params: P
               </select>
             </ActionForm>
           )}
-          {(ok("extendDeadline") || ok("correctMetadata") || ok("cancel")) && <h3 className="pt-2 text-sm font-semibold text-gray-700">Alte acțiuni</h3>}
+          {(ok("extendDeadline") || ok("correctMetadata") || ok("cancel")) && <h3 className="pt-4 text-[13px] text-[var(--ink-2)]">Alte acțiuni</h3>}
           {ok("extendDeadline") && doc.deadline && (
             <ReasonAction label="Prelungește termenul" action={extendDeadline} id={doc.id} version={v} extra={<>
               <label htmlFor="days" className="block text-sm">Zile (obligatoriu{doc.requestType === "petition" ? "; petiții: maximum 15 în total" : ""})</label>

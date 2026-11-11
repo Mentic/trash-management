@@ -15,7 +15,7 @@ export const DocStatusBadge = ({ status }: { status: DocStatus }) => (
 
 /** A04 — termenul are text și pictogramă, nu doar culoare. */
 export function Deadline({ deadline, status }: { deadline: string | null; status: DocStatus }) {
-  if (!deadline) return <span className="text-gray-500">—</span>;
+  if (!deadline) return <span className="text-[var(--ink-2)]">—</span>;
   if (!OPEN_FOR_DEADLINE.includes(status)) return <span>{fmtDate(deadline)}</span>;
   const st = deadlineState(deadline, todayIso(), DEMO_DEADLINES);
   return (

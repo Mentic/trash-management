@@ -44,7 +44,7 @@ export default async function ImportsPage() {
         <table className="w-full border-collapse">
           <thead><tr><th scope="col" className={th}>Data</th><th scope="col" className={th}>Fișier</th><th scope="col" className={th}>Intrare</th><th scope="col" className={th}>Total</th><th scope="col" className={th}>Respinse</th><th scope="col" className={th}>Semnalate</th><th scope="col" className={th}>Curate</th></tr></thead>
           <tbody>{recent.map(({ i, number, year }) => (
-            <tr key={i.id}><td className={td}><Link className="underline" href={`/waste/imports/${i.id}`}>{fmtDateTime(i.uploadedAt)}</Link></td><td className={td}>{i.fileName}</td>
+            <tr key={i.id}><td className={td}><Link className="text-[var(--accent)] hover:underline" href={`/waste/imports/${i.id}`}>{fmtDateTime(i.uploadedAt)}</Link></td><td className={td}>{i.fileName}</td>
               <td className={td}>{number}/{year}</td><td className={td}>{i.totalRows}</td><td className={td}>{i.rejectedRows}</td><td className={td}>{i.flaggedRows}</td><td className={td}>{i.cleanRows}</td></tr>
           ))}</tbody>
         </table>

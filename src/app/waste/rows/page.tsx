@@ -27,12 +27,12 @@ export default async function RowsPage({ searchParams }: { searchParams: Promise
     <>
       <Crumbs items={[{ href: `/waste/summary?${qsOf({ ...f, bucket: undefined, year: String(year) })}`, label: `Situație pe UAT ${year}` }, { label: TITLES[bucket] }]} />
       <PageTitle>{TITLES[bucket]} — {year}</PageTitle>
-      {rows.length === 0 ? <p className="rounded border p-4">Nicio cursă în această categorie pentru filtrele alese.</p> : (
+      {rows.length === 0 ? <p className="rounded-2xl bg-white px-6 py-10 text-center text-[var(--ink-2)] ring-1 ring-[var(--hairline)]">Nicio cursă în această categorie pentru filtrele alese.</p> : (
         <table className="w-full border-collapse">
           <caption className="mb-2 text-left text-sm">{rows.length} curse, {fmtT(rows.reduce((s, r) => s + r.reportedKg, 0))} — nu intră în totalurile validate.</caption>
           <thead><tr><th scope="col" className={th}>Tichet</th><th scope="col" className={th}>Data</th><th scope="col" className={th}>UAT</th><th scope="col" className={th}>Fracție / destinație</th><th scope="col" className={`${th} text-right`}>Cantitate</th><th scope="col" className={th}>Stare</th></tr></thead>
           <tbody>{rows.map((r) => (
-            <tr key={r.id}><td className={td}><Link className="underline" href={`/waste/rows/${r.id}`}>{r.ticketNo}</Link></td><td className={td}>{fmtDateTime(r.weighedAt)}</td>
+            <tr key={r.id}><td className={td}><Link className="text-[var(--accent)] hover:underline" href={`/waste/rows/${r.id}`}>{r.ticketNo}</Link></td><td className={td}>{fmtDateTime(r.weighedAt)}</td>
               <td className={td}>{r.uatName ?? (r.sharedRoute ? "rută comună, fără dovadă" : "—")}</td><td className={td}>{FRACTION_LABEL[r.fraction]} / {DESTINATION_LABEL[r.destination]}</td>
               <td className={`${td} text-right`}>{fmtT(r.reportedKg)}</td><td className={td}><RowStatusBadge status={r.status} /></td></tr>
           ))}</tbody>

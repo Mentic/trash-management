@@ -1,59 +1,62 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Sistemul vizual (vezi .claude/skills/ux/SKILL.md). Culorile de acțiune au contrast ≥ 4,5:1 pe alb (A04). */
+/* Sistem vizual sobru, în spiritul Apple HIG: neutre, un singur accent, linii fine, spațiu generos.
+   Detalii și reguli: .claude/skills/ux/SKILL.md. Contrast verificat ≥ 4,5:1 pentru text (A04). */
 @theme {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-sans: "Inter Variable", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
 }
 
 :root {
-  --ink: #0f172a;          /* slate-900 */
-  --paper: #f6f8fa;        /* fundal pagină */
-  --accent: #0f766e;       /* teal-700 — verde „mediu”, 5,5:1 pe alb */
-  --accent-hover: #115e59; /* teal-800 */
-  --accent-soft: #f0fdfa;  /* teal-50 */
-  --demo: #7c4a03;
-  --demo-bg: #fef3c7;
+  --ink: #1d1d1f;           /* text principal */
+  --ink-2: #6e6e73;         /* text secundar (4,6:1 pe alb) */
+  --paper: #f5f5f7;         /* fundalul paginii */
+  --surface: #ffffff;       /* suprafețe (liste, formulare) */
+  --hairline: #e5e5ea;      /* separatoare */
+  --line: #d2d2d7;          /* contururi de câmpuri */
+  --accent: #0066cc;        /* singurul accent: acțiuni, linkuri, focus (5,6:1 pe alb) */
+  --accent-hover: #0058b0;
+  --accent-soft: #eef5ff;
+  --red: #c4271b;           /* doar pentru probleme (5,9:1) */
+  --amber: #8a5a00;         /* atenție (5,9:1) */
+  --green: #1d7a35;         /* finalizat (5,3:1) */
+  --demo: #6e6e73;
+  --demo-bg: #ffffff;
 }
 
 body {
   color: var(--ink);
   background: var(--paper);
   font-family: var(--font-sans);
-  font-feature-settings: "cv11", "ss01";
+  font-size: 15px;
+  letter-spacing: -0.006em;
   -webkit-font-smoothing: antialiased;
 }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { letter-spacing: -0.02em; }
+:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent) 45%, transparent); outline-offset: 2px; border-radius: 6px; }
 .skip-link { position: absolute; left: -9999px; }
-.skip-link:focus { left: 1rem; top: 1rem; background: white; padding: .5rem 1rem; z-index: 60; border-radius: .5rem; }
-::selection { background: #99f6e4; }
+.skip-link:focus { left: 1rem; top: 1rem; background: white; padding: .5rem 1rem; z-index: 60; border-radius: .75rem; }
+::selection { background: #cce0ff; }
+a { text-underline-offset: 3px; }
 
-/* Câmpuri de formular unitare (inclusiv select nativ). */
 input:not([type=checkbox]):not([type=radio]):not([type=file]), select, textarea {
-  border-color: #cbd5e1; background: white; border-radius: .5rem;
+  border: 1px solid var(--line); background: white; border-radius: 10px; min-height: 38px;
 }
 input:not([type=checkbox]):not([type=radio]):not([type=file]):focus, select:focus, textarea:focus {
-  outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent);
+  outline: 3px solid color-mix(in srgb, var(--accent) 30%, transparent); outline-offset: 0; border-color: var(--accent);
 }
 input[type=checkbox], input[type=radio] { accent-color: var(--accent); width: 1rem; height: 1rem; }
+
+/* Tabele: listă albă cu separatoare fine, fără umbre. */
+@media screen {
+  main table { background: var(--surface); border-collapse: separate !important; border-spacing: 0; border-radius: 14px; overflow: hidden; box-shadow: 0 0 0 1px var(--hairline); }
+  main .surface table { box-shadow: none; border-radius: 0; }
+  main tbody tr:hover { background: #fafafa; }
+  main tbody tr:last-child > * { border-bottom: 0; }
+}
 
 @media print {
   .no-print { display: none !important; }
   body { background: white; }
   @page { size: A4; margin: 15mm; }
-}
-
-/* Tabelele de date apar ca „carduri” albe pe fundalul paginii. */
-@media screen {
-  main table {
-    background: white;
-    border-collapse: separate !important;
-    border-spacing: 0;
-    border-radius: .75rem;
-    overflow: hidden;
-    box-shadow: 0 0 0 1px #e2e8f0, 0 1px 2px rgb(15 23 42 / .04);
-  }
-  main section.rounded-xl table, main .bg-white table { box-shadow: none; border-radius: 0; }
-  main tbody tr:hover { background: #f8fafc; }
-  main tbody tr:last-child > * { border-bottom: 0; }
 }

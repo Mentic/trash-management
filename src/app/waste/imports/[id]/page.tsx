@@ -53,9 +53,9 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
         Raport de import: {row.i.fileName}
       </PageTitle>
       <SuccessBanner text={wasteMessage(okKey, okN)} />
-      <p className="mb-3 text-sm">Legat de intrarea <Link className="underline" href={`/registry/${row.docId}`}>{row.number}/{row.year}</Link> · {fmtDateTime(row.i.uploadedAt)}</p>
+      <p className="mb-3 text-sm">Legat de intrarea <Link className="text-[var(--accent)] hover:underline" href={`/registry/${row.docId}`}>{row.number}/{row.year}</Link> · {fmtDateTime(row.i.uploadedAt)}</p>
 
-      <section aria-live="polite" aria-label="Rezumatul importului" className="mb-6 grid grid-cols-2 gap-2 md:grid-cols-7">
+      <section aria-live="polite" aria-label="Rezumatul importului" className="mb-8 grid grid-cols-3 gap-6 rounded-2xl bg-white p-6 ring-1 ring-[var(--hairline)] md:grid-cols-7">
         <Stat label="Rânduri în fișier" value={row.i.totalRows} />
         <Stat label="Respinse (V1, V6)" value={row.i.rejectedRows} tone={row.i.rejectedRows ? "red" : undefined} />
         <Stat label="Duplicat (V2)" value={count("V2")} tone={count("V2") ? "amber" : undefined} />
@@ -64,13 +64,13 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
         <Stat label="UAT necunoscut (V5)" value={count("V5")} tone={count("V5") ? "amber" : undefined} />
         <Stat label="Importate fără semnalări" value={row.i.cleanRows} tone="green" />
       </section>
-      <div role="note" className="mb-3 rounded border-l-4 border-[var(--accent)] bg-blue-50 p-3 text-sm">
-        <p className="font-semibold">Pasul următor</p>
+      <div role="note" className="mb-6">
+        <p className="text-[13px] text-[var(--ink-2)]">Pasul următor</p>
         <p>{statusCount("flagged") > 0
           ? `Rezolvați cele ${statusCount("flagged")} rânduri semnalate (sus în tabel): excludeți duplicatul, corectați diferența după tichet sau atribuiți UAT-ul cu dovadă. Apoi validați rândurile curate.`
           : statusCount("imported") > 0 ? "Validați rândurile curate cu butonul „Validează rândurile curate”." : "Importul este verificat. Totalurile apar în Situație pe UAT."}</p>
       </div>
-      <p className="mb-4 text-sm">Stare acum (întregul import): {statusCount("validated")} validate · {statusCount("imported")} importate · {statusCount("flagged")} semnalate · {statusCount("excluded")} excluse.</p>
+      <p className="mb-6 text-[13px] text-[var(--ink-2)]">Stare acum (întregul import): {statusCount("validated")} validate · {statusCount("imported")} importate · {statusCount("flagged")} semnalate · {statusCount("excluded")} excluse.</p>
 
       {rejected.length > 0 && (
         <section className="mb-6">
@@ -100,20 +100,20 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
           <tbody>{sorted.map((r) => {
             const fl = flagsByRow.get(r.id) ?? [];
             return (
-              <tr key={r.id} className={fl.length ? "bg-amber-50/40" : undefined}>
+              <tr key={r.id} className={fl.length ? "bg-[#fffaf0]" : undefined}>
                 <td className={td}>{r.lineNo}</td>
-                <td className={td}><Link className="underline" href={`/waste/rows/${r.id}`}>{r.ticketNo}</Link></td>
-                <td className={td}>{fmtDateTime(r.weighedAt)}</td>
+                <td className={`${td} whitespace-nowrap`}><Link className="text-[var(--accent)] hover:underline" href={`/waste/rows/${r.id}`}>{r.ticketNo}</Link></td>
+                <td className={`${td} whitespace-nowrap`}>{fmtDateTime(r.weighedAt)}</td>
                 <td className={td}>{r.uatName ?? <Badge tone="amber" icon="?">neatribuit</Badge>}</td>
                 <td className={td}>{FRACTION_LABEL[r.fraction]} / {DESTINATION_LABEL[r.destination]}</td>
-                <td className={td}>{fmtT(r.reportedKg)}</td>
-                <td className={td}>{r.ticketKg === null ? "—" : fmtT(r.ticketKg)}</td>
+                <td className={`${td} whitespace-nowrap tabular-nums`}>{fmtT(r.reportedKg)}</td>
+                <td className={`${td} whitespace-nowrap tabular-nums`}>{r.ticketKg === null ? "—" : fmtT(r.ticketKg)}</td>
                 <td className={td}><RowStatusBadge status={r.status} /></td>
                 <td className={td}>
                   <div className="flex flex-wrap gap-1">{fl.map((f, i) => <Badge key={i} tone="red" icon="⚑">{f.rule} {flagText(f.rule, f.details)}</Badge>)}</div>
                   {r.status === "flagged" && (
-                    <div className="mt-1 flex flex-wrap gap-1">
-                      <details className="rounded border p-1"><summary className="cursor-pointer text-xs">Corectează</summary>
+                    <div className="mt-1.5 flex flex-wrap gap-x-4 gap-y-1">
+                      <details className="rounded-lg"><summary className="cursor-pointer text-[13px] text-[var(--accent)]">Corectează</summary>
                         <ActionForm action={correctRow} submit="Salvează corecția" className="mt-1 space-y-1">
                           <input type="hidden" name="rowId" value={r.id} />
                           <label className="block text-xs" htmlFor={`rep-${r.id}`}>Cantitate raportată (t)</label>
@@ -125,7 +125,7 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
                         </ActionForm>
                       </details>
                       {!r.uatName && (
-                        <details className="rounded border p-1"><summary className="cursor-pointer text-xs">Atribuie UAT</summary>
+                        <details className="rounded-lg"><summary className="cursor-pointer text-[13px] text-[var(--accent)]">Atribuie UAT</summary>
                           <ActionForm action={assignRowUat} submit="Atribuie" className="mt-1 space-y-1">
                             <input type="hidden" name="rowId" value={r.id} />
                             <label className="block text-xs" htmlFor={`uat-${r.id}`}>UAT (obligatoriu)</label>
@@ -139,7 +139,7 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
                           </ActionForm>
                         </details>
                       )}
-                      <details className="rounded border p-1"><summary className="cursor-pointer text-xs">Exclude</summary>
+                      <details className="rounded-lg"><summary className="cursor-pointer text-[13px] text-[var(--accent)]">Exclude</summary>
                         <ActionForm action={excludeRow} submit="Exclude din calcul" className="mt-1 space-y-1">
                           <input type="hidden" name="rowId" value={r.id} />
                           <label className="block text-xs" htmlFor={`er-${r.id}`}>Motiv (obligatoriu)</label>
@@ -148,9 +148,9 @@ export default async function ImportPage({ params, searchParams }: { params: Pro
                       </details>
                     </div>
                   )}
-                  {(r.status === "imported" || r.status === "validated") && <span className="text-xs text-gray-600">{r.status === "imported" ? "Fără semnalări — se validează cu butonul de sus" : "Validat"}</span>}
+                  {(r.status === "imported" || r.status === "validated") && <span className="text-xs text-[var(--ink-2)]">{r.status === "imported" ? "Fără semnalări — se validează cu butonul de sus" : "Validat"}</span>}
                   {r.status === "excluded" && (
-                    <details className="mt-1 rounded border p-1"><summary className="cursor-pointer text-xs">Reactivează</summary>
+                    <details className="mt-1 rounded-lg"><summary className="cursor-pointer text-[13px] text-[var(--accent)]">Reactivează</summary>
                       <ActionForm action={reactivateRow} submit="Reactivează" className="mt-1 space-y-1">
                         <input type="hidden" name="rowId" value={r.id} />
                         <label className="block text-xs" htmlFor={`ra-${r.id}`}>Motiv (obligatoriu)</label>

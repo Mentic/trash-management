@@ -23,7 +23,7 @@ export default async function DemoPage() {
       <div className="grid gap-4 lg:grid-cols-2">
         <Card title="Fișiere de import">
           <ul className="space-y-2 text-sm">{FILES.map(([f, d]) => (
-            <li key={f}><a className="underline" href={`/api/demo-files/${f}`} download>{f}</a><br /><span className="text-gray-600">{d}</span></li>
+            <li key={f}><a className="text-[var(--accent)] hover:underline" href={`/api/demo-files/${f}`} download>{f}</a><br /><span className="text-[var(--ink-2)]">{d}</span></li>
           ))}</ul>
         </Card>
         <Card title="Resetarea datelor demo">

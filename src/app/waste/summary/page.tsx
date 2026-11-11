@@ -33,15 +33,15 @@ export default async function SummaryPage({ searchParams }: { searchParams: Prom
               <tr key={u.id}>
                 <th scope="row" className={`${td} text-left font-medium`}>{u.name}</th><td className={td}>{u.siruta}</td><td className={td}>{u.environment}</td>
                 <td className={`${td} text-right`}>{fmtInt(r?.n ?? 0)}</td>
-                <td className={`${td} text-right`}>{r ? <Link className="font-medium underline" href={`/waste/summary/${u.id}?${qs}`}>{fmtT(r.kg)}</Link> : "—"}</td>
+                <td className={`${td} text-right`}>{r ? <Link className="font-medium text-[var(--accent)] hover:underline" href={`/waste/summary/${u.id}?${qs}`}>{fmtT(r.kg)}</Link> : "—"}</td>
               </tr>
             );
           })}
           {!f.uat && <tr><th scope="row" className={`${td} text-left font-semibold`}>Total</th><td className={td} colSpan={2} /><td className={`${td} text-right`}>{fmtInt(byUat.reduce((s, r) => s + r.n, 0))}</td><td className={`${td} text-right font-semibold`}>{fmtT(total)}</td></tr>}
         </tbody>
       </table>
-      <h2 className="mb-2 font-semibold">În afara totalurilor</h2>
-      <div className="grid gap-2 md:grid-cols-3">
+      <h2 className="mb-3 mt-10 text-[13px] text-[var(--ink-2)]">În afara totalurilor</h2>
+      <div className="grid gap-6 rounded-2xl bg-white p-6 ring-1 ring-[var(--hairline)] md:grid-cols-3">
         <Link href={`/waste/rows?bucket=unvalidated&${qs}`}><Stat label={`Nevalidate (importate, semnalate, corectate) · ${b("unvalidated").n} curse`} value={fmtT(b("unvalidated").kg)} tone={b("unvalidated").n ? "amber" : undefined} /></Link>
         <Link href={`/waste/rows?bucket=unassigned&${qs}`}><Stat label={`Neatribuite (fără UAT) · ${b("unassigned").n} curse`} value={fmtT(b("unassigned").kg)} tone={b("unassigned").n ? "amber" : undefined} /></Link>
         <Link href={`/waste/rows?bucket=excluded&${qs}`}><Stat label={`Excluse · ${b("excluded").n} curse`} value={fmtT(b("excluded").kg)} /></Link>

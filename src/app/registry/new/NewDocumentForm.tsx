@@ -31,21 +31,21 @@ export function NewDocumentForm({ today }: { today: string }) {
   };
 
   return (
-    <form action={action} onSubmit={onSubmit} className="grid max-w-3xl gap-4 md:grid-cols-2">
+    <form action={action} onSubmit={onSubmit} className="grid max-w-3xl gap-5 md:grid-cols-2">
       {dialog}
-      {state?.error && <div role="alert" className="rounded border border-red-400 bg-red-50 p-2 text-sm md:col-span-2">{state.error}</div>}
+      {state?.error && <div role="alert" className="text-[14px] text-[var(--red)] md:col-span-2">{state.error}</div>}
 
       <fieldset className="md:col-span-2">
-        <legend className="mb-1 text-sm font-medium">Sens (obligatoriu) — direcția documentului față de ADI</legend>
+        <legend className="mb-2 text-[13px] font-medium">Sens (obligatoriu) — direcția documentului față de ADI</legend>
         <div className="grid gap-2 md:grid-cols-3">
           {(Object.keys(DIRECTION_HELP) as Direction[]).map((d) => (
-            <label key={d} className={`cursor-pointer rounded border p-3 text-sm ${direction === d ? "border-[var(--accent)] bg-blue-50 ring-1 ring-[var(--accent)]" : "hover:bg-gray-50"}`}>
+            <label key={d} className={`cursor-pointer rounded-2xl bg-white p-4 text-[14px] transition ${direction === d ? "ring-2 ring-[var(--accent)]" : "ring-1 ring-[var(--hairline)] hover:ring-[var(--line)]"}`}>
               <span className="flex items-center gap-2 font-semibold">
                 <input type="radio" name="direction" value={d} checked={direction === d} onChange={() => pickDirection(d)} />
                 {DIRECTION_HELP[d].title}
               </span>
               <span className="mt-1 block">{DIRECTION_HELP[d].text}</span>
-              <span className="mt-1 block text-xs text-gray-600">{DIRECTION_HELP[d].examples}</span>
+              <span className="mt-1 block text-[12px] text-[var(--ink-2)]">{DIRECTION_HELP[d].examples}</span>
             </label>
           ))}
         </div>

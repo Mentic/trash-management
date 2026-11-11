@@ -1,17 +1,19 @@
-// Componente de bază: text + culoare pentru stări (A04), etichete vizibile (A07), tabele cu antet (A06).
+// Componente de bază, sobre: suprafețe albe, separatoare fine, culoarea doar acolo unde are sens (A04, A06, A07).
 import Link from "next/link";
 import type { ReactNode } from "react";
-
 import { buttonVariants } from "./ui/button";
 
 export const btn = buttonVariants({ variant: "outline", size: "sm" });
 export const btnPrimary = buttonVariants({ size: "sm" });
-export const input = "w-full rounded-lg border px-3 py-1.5 text-sm shadow-xs";
+export const input = "w-full px-3 py-2 text-[15px]";
 
-export function PageTitle({ children, actions }: { children: ReactNode; actions?: ReactNode }) {
+export function PageTitle({ children, actions, subtitle }: { children: ReactNode; actions?: ReactNode; subtitle?: ReactNode }) {
   return (
-    <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
-      <h1 className="text-2xl font-semibold tracking-tight text-slate-900">{children}</h1>
+    <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+      <div>
+        <h1 className="text-[28px] font-semibold leading-tight text-[var(--ink)]">{children}</h1>
+        {subtitle && <p className="mt-1 text-[15px] text-[var(--ink-2)]">{subtitle}</p>}
+      </div>
       {actions && <div className="flex flex-wrap gap-2">{actions}</div>}
     </div>
   );
@@ -19,27 +21,23 @@ export function PageTitle({ children, actions }: { children: ReactNode; actions?
 
 export function Field({ label, htmlFor, required, children, hint }: { label: string; htmlFor: string; required?: boolean; children: ReactNode; hint?: string }) {
   return (
-    <div className="space-y-1">
-      <label htmlFor={htmlFor} className="block text-sm font-medium">{label}{required && " (obligatoriu)"}</label>
+    <div className="space-y-1.5">
+      <label htmlFor={htmlFor} className="block text-[13px] font-medium text-[var(--ink)]">{label}{required && <span className="text-[var(--ink-2)]"> (obligatoriu)</span>}</label>
       {children}
-      {hint && <p className="text-xs text-gray-600">{hint}</p>}
+      {hint && <p className="text-[13px] text-[var(--ink-2)]">{hint}</p>}
     </div>
   );
 }
 
-const TONES = {
-  gray: "bg-gray-100 text-gray-800 border-gray-300",
-  blue: "bg-blue-50 text-blue-900 border-blue-300",
-  green: "bg-green-50 text-green-900 border-green-400",
-  amber: "bg-amber-50 text-amber-900 border-amber-400",
-  red: "bg-red-50 text-red-900 border-red-400",
-} as const;
-export type Tone = keyof typeof TONES;
+const DOT = { gray: "bg-[#aeaeb2]", blue: "bg-[var(--accent)]", amber: "bg-[#f5a623]", red: "bg-[var(--red)]", green: "bg-[#34c759]" } as const;
+const TEXT = { gray: "text-[var(--ink-2)]", blue: "text-[var(--ink)]", amber: "text-[var(--amber)]", red: "text-[var(--red)]", green: "text-[var(--green)]" } as const;
+export type Tone = keyof typeof DOT;
 
+/** Stare: punct colorat + text (culoarea nu e singurul purtător — A04). */
 export function Badge({ tone = "gray", icon, children }: { tone?: Tone; icon?: string; children: ReactNode }) {
   return (
-    <span className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full border px-2 py-0.5 text-xs font-medium ${TONES[tone]}`}>
-      {icon && <span aria-hidden="true">{icon}</span>}
+    <span className={`inline-flex items-center gap-1.5 whitespace-nowrap text-[13px] font-medium ${TEXT[tone]}`}>
+      <span aria-hidden className={`size-2 rounded-full ${DOT[tone]}`} />
       {children}
     </span>
   );
@@ -47,36 +45,37 @@ export function Badge({ tone = "gray", icon, children }: { tone?: Tone; icon?: s
 
 export function Card({ title, children, className = "" }: { title?: string; children: ReactNode; className?: string }) {
   return (
-    <section className={`rounded-xl border border-slate-200 bg-white p-5 shadow-sm ${className}`} aria-label={title}>
-      {title && <h2 className="mb-3 text-base font-semibold text-slate-900">{title}</h2>}
+    <section className={`surface rounded-2xl bg-white p-6 ring-1 ring-[var(--hairline)] ${className}`} aria-label={title}>
+      {title && <h2 className="mb-4 text-[17px] font-semibold">{title}</h2>}
       {children}
     </section>
   );
 }
 
+/** Cifră mare + etichetă; culoare doar pentru probleme sau finalizare. */
 export function Stat({ label, value, tone }: { label: string; value: ReactNode; tone?: Tone }) {
   return (
-    <div data-stat={label} className={`rounded-xl border p-4 shadow-sm ${tone ? TONES[tone] : "border-slate-200 bg-white"}`}>
-      <div className="text-xs font-medium">{label}</div>
-      <div data-value className="mt-1 text-2xl font-semibold tabular-nums">{value}</div>
+    <div data-stat={label} className="min-w-0">
+      <div data-value className={`text-[28px] font-semibold leading-none tabular-nums ${tone ? TEXT[tone] : "text-[var(--ink)]"}`}>{value}</div>
+      <div className="mt-1.5 text-[13px] text-[var(--ink-2)]">{label}</div>
     </div>
   );
 }
 
-export const th = "border-b border-slate-200 bg-slate-50 px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-slate-600";
-export const td = "border-b border-slate-100 px-3 py-2 align-top text-sm";
+export const th = "border-b border-[var(--hairline)] px-4 py-2.5 text-left text-[12px] font-medium text-[var(--ink-2)]";
+export const td = "border-b border-[var(--hairline)] px-4 py-3 align-top text-[14px]";
 
 export function Notice({ tone = "blue", children }: { tone?: Tone; children: ReactNode }) {
-  return <div role="status" className={`mb-4 rounded-xl border px-4 py-3 text-sm ${TONES[tone]}`}>{children}</div>;
+  return <div role="status" className={`mb-4 rounded-2xl bg-white px-5 py-3 text-[14px] ring-1 ring-[var(--hairline)] ${TEXT[tone]}`}>{children}</div>;
 }
 
 export function Crumbs({ items }: { items: { href?: string; label: string }[] }) {
   return (
-    <nav aria-label="Firimituri" className="mb-2 text-sm">
+    <nav aria-label="Firimituri" className="mb-2 text-[13px] text-[var(--ink-2)]">
       {items.map((it, i) => (
         <span key={i}>
-          {i > 0 && " › "}
-          {it.href ? <Link className="underline" href={it.href}>{it.label}</Link> : <span aria-current="page">{it.label}</span>}
+          {i > 0 && <span aria-hidden> › </span>}
+          {it.href ? <Link className="text-[var(--accent)] hover:underline" href={it.href}>{it.label}</Link> : <span aria-current="page">{it.label}</span>}
         </span>
       ))}
     </nav>

@@ -1,7 +1,6 @@
 // Bara de pași a circuitului și „Pasul următor” pe fișa documentului (sec. 5.1).
 import { CheckCircle2 } from "lucide-react";
 import type { Direction, DocStatus, Role } from "@/domain/codes";
-import { ToastOnMount } from "./Toast";
 
 const STEPS: Record<Direction, { key: DocStatus; label: string }[]> = {
   incoming: [
@@ -16,26 +15,26 @@ const STEPS: Record<Direction, { key: DocStatus; label: string }[]> = {
   outgoing: [{ key: "outgoing_registered", label: "Ieșire înregistrată" }, { key: "dispatched", label: "Expediat" }, { key: "filed", label: "Clasat" }],
 };
 
+/** Progresul în circuit: o propoziție și o bară subțire — fără zgomot vizual. */
 export function Stepper({ direction, status, filedWithoutReply }: { direction: Direction; status: DocStatus; filedWithoutReply?: boolean }) {
   if (status === "draft" || status === "cancelled") return null;
   let steps = STEPS[direction];
   if (filedWithoutReply) steps = [steps[0]!, { key: "filed", label: "Clasat fără răspuns" }];
-  const idx = steps.findIndex((s) => s.key === status);
+  const idx = Math.max(0, steps.findIndex((s) => s.key === status));
+  const done = status === "filed";
+  const pct = done ? 100 : Math.round(((idx + 0.5) / steps.length) * 100);
   return (
-    <ol aria-label="Etapele circuitului documentului" className="mb-4 flex flex-wrap items-center gap-1 text-xs">
-      {steps.map((s, i) => {
-        const done = i < idx || status === "filed";
-        const cur = i === idx && status !== "filed";
-        return (
-          <li key={s.key} className="flex items-center gap-1" aria-current={cur ? "step" : undefined}>
-            <span className={`rounded-full border px-2 py-0.5 ${cur ? "border-[var(--accent)] bg-[var(--accent)] font-semibold text-white" : done ? "border-green-500 bg-green-50 text-green-900" : "border-gray-300 text-gray-500"}`}>
-              {done && <span aria-hidden="true">✓ </span>}{s.label}{cur && <span className="sr-only"> (pasul curent)</span>}
-            </span>
-            {i < steps.length - 1 && <span aria-hidden="true" className="text-gray-400">→</span>}
-          </li>
-        );
-      })}
-    </ol>
+    <div className="mb-6">
+      <p className="mb-2 text-[13px] text-[var(--ink-2)]">
+        {done ? "Circuit încheiat" : <>Etapa {idx + 1} din {steps.length}: <span className="font-medium text-[var(--ink)]">{steps[idx]!.label}</span></>}
+        {!done && idx + 1 < steps.length && <> · urmează {steps[idx + 1]!.label.toLowerCase()}</>}
+      </p>
+      <div role="progressbar" aria-label="Etapele circuitului documentului" aria-valuemin={0} aria-valuemax={steps.length} aria-valuenow={done ? steps.length : idx + 1}
+        aria-valuetext={done ? "Circuit încheiat" : `Etapa ${idx + 1} din ${steps.length}: ${steps[idx]!.label}`}
+        className="h-1 overflow-hidden rounded-full bg-[#e8e8ed]">
+        <div className={`h-full rounded-full ${done ? "bg-[#34c759]" : "bg-[var(--accent)]"}`} style={{ width: `${pct}%` }} />
+      </div>
+    </div>
   );
 }
 
@@ -66,9 +65,8 @@ export function nextStep(o: { status: DocStatus; direction: Direction; role: Rol
 export function SuccessBanner({ text }: { text: string | null }) {
   if (!text) return null;
   return (
-    <div role="status" className="mb-4 flex items-center gap-2 rounded-xl border border-green-300 bg-green-50 px-4 py-3 text-sm font-medium text-green-900 shadow-sm">
-      <CheckCircle2 className="size-5 shrink-0 text-green-700" aria-hidden />{text}
-      <ToastOnMount text={text} />
+    <div role="status" className="mb-6 flex items-center gap-2 text-[14px] text-[var(--green)] animate-in fade-in-0 duration-300">
+      <CheckCircle2 className="size-4 shrink-0" aria-hidden />{text}
     </div>
   );
 }

@@ -13,7 +13,7 @@ PAYT, indicatorul de reciclare, găzduire de producție). Datele sunt fictive; U
 ## Tehnologie
 
 Next.js 16.4.6 (App Router, Server Actions), React 19.3.1, TypeScript 5.9.3, PostgreSQL 17, Drizzle ORM 0.45.4,
-Tailwind CSS 4.3.5, shadcn/ui pe `radix-ui`, `lucide-react`, `sonner`, Inter local. Vitest 5.1.0, Playwright 1.63.0.
+Tailwind CSS 4.3.5, componente shadcn/ui pe `radix-ui`, `lucide-react`, Inter local. Vitest 5.1.0, Playwright 1.63.0.
 Node ≥ 22 (Docker: Node 24), pnpm 10.28.0. Docker Compose (app, Postgres, Caddy); `compose.local.yml` pentru laptop.
 
 ## Structură
@@ -28,7 +28,7 @@ Node ≥ 22 (Docker: Node 24), pnpm 10.28.0. Docker Compose (app, Postgres, Cadd
 | `src/domain/` | Reguli pure: stări, termene, coduri, TOTP, CSV, cantități, V1–V6, AFM, mutarea datelor demo |
 | `src/db/` | Schema Drizzle, migrări (inclusiv jurnal append-only), contor atomic |
 | `src/seed/` | Bootstrap (migrări + set demo la pornire), loader complet, resetare |
-| `src/components/` | UI: `ui/` (shadcn), `ActionForm`, `useConfirm`, `flow` (pași, „Pasul următor”, mesaje), `FileInput`, `SessionTimer`, `NavLinks`, `Toast` |
+| `src/components/` | UI: `ui/` (shadcn), `ActionForm`, `useConfirm`, `flow` (pași, „Pasul următor”, mesaje), `FileInput`, `SessionTimer`, `NavLinks` |
 | `src/lib/` | Formate românești, etichete, mesaje de confirmare, sensuri, istoric |
 | `seed/` | Setul demo, generator, validator, rezultate așteptate |
 | `tests/unit/`, `tests/e2e/` | Vitest; Playwright: `auth-smoke`, `demo-scenarios` (29 verificări), `qa-regressions` (11) |

@@ -38,7 +38,7 @@ export default async function UatsPage({ searchParams }: { searchParams: Promise
       </form>
 
       <Card title={`Estimarea contribuției la Fondul pentru mediu — ${sel.u.name}, ${year}`} className="mb-6 border-[var(--accent)]">
-        <p className="mb-3 text-sm"><Badge tone="amber">DEMO — date fictive</Badge>{" "}{sel.provisional ? <Badge tone="amber" icon="~">provizoriu: anul nu este aprobat</Badge> : <Badge tone="green" icon="✓">an aprobat</Badge>}</p>
+        <p className="mb-4 flex flex-wrap gap-4 text-sm"><Badge tone="amber">DEMO — date fictive</Badge>{sel.provisional ? <Badge tone="amber" icon="~">provizoriu: anul nu este aprobat</Badge> : <Badge tone="green" icon="✓">an aprobat</Badge>}</p>
         <div className="grid gap-4 md:grid-cols-2">
           <div aria-label="Formula" className="space-y-2 font-mono text-sm">
             <p>Q<sub>ob</sub> = p<sub>anexa 6</sub> × Q<sub>mun</sub></p>
@@ -56,7 +56,7 @@ export default async function UatsPage({ searchParams }: { searchParams: Promise
             <dt className="font-medium">Termen</dt><dd>Declarare și plată până la <strong>25 ianuarie {year + 1}</strong></dd>
           </dl>
         </div>
-        <p className="mt-3 text-xs text-gray-600">Estimare orientativă (D03), distinctă de ținta de reciclare și de PAYT. Procentul din anexa 6 și baza Q<sub>mun</sub> sunt ipoteze demo de confirmat (I05, I06).</p>
+        <p className="mt-3 text-xs text-[var(--ink-2)]">Estimare orientativă (D03), distinctă de ținta de reciclare și de PAYT. Procentul din anexa 6 și baza Q<sub>mun</sub> sunt ipoteze demo de confirmat (I05, I06).</p>
       </Card>
 
       <table className="w-full border-collapse">
@@ -69,7 +69,7 @@ export default async function UatsPage({ searchParams }: { searchParams: Promise
         </tr></thead>
         <tbody>{calc.map((c) => (
           <tr key={c.u.id} className={c.u.id === sel.u.id ? "bg-blue-50" : undefined}>
-            <th scope="row" className={`${td} text-left`}><Link className="underline" href={`/waste/uats?year=${year}&uat=${c.u.id}`}>{c.u.name}</Link></th>
+            <th scope="row" className={`${td} text-left`}><Link className="text-[var(--accent)] hover:underline" href={`/waste/uats?year=${year}&uat=${c.u.id}`}>{c.u.name}</Link></th>
             <td className={td}>{c.u.siruta}</td><td className={td}>{c.u.environment}{!c.u.organizedService && " · fără serviciu organizat"}</td>
             <td className={`${td} text-right`}>{fmtInt(c.u.population)}</td><td className={`${td} text-right`}>{fmtT1(c.u.contractedQtyKg)}</td>
             <td className={`${td} text-right`}>{fmtT1(c.qmun)}</td><td className={`${td} text-right`}>{fmtT1(c.qval)}</td><td className={`${td} text-right`}>{fmtT1(c.qobKg)}</td>
@@ -77,7 +77,7 @@ export default async function UatsPage({ searchParams }: { searchParams: Promise
           </tr>
         ))}</tbody>
       </table>
-      <p className="mt-2 text-xs text-gray-600">* provizoriu (an neaprobat). Calculul taxei PAYT pe UAT este dezactivat (I13); datele pentru PAYT (D02) sunt în Etapa 2.</p>
+      <p className="mt-2 text-xs text-[var(--ink-2)]">* provizoriu (an neaprobat). Calculul taxei PAYT pe UAT este dezactivat (I13); datele pentru PAYT (D02) sunt în Etapa 2.</p>
     </>
   );
 }
