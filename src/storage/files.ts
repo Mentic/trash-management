@@ -1,7 +1,7 @@
 // R02 — stocare adresată după SHA-256; fișierele nu se modifică după scriere.
 import "server-only";
 import { createHash } from "node:crypto";
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const dir = () => process.env.FILE_STORAGE_DIR ?? path.join(process.cwd(), "data/files");
@@ -16,7 +16,13 @@ export async function storeFile(bytes: Buffer): Promise<{ sha256: string; storag
 }
 
 export const readStoredFile = (storageKey: string) => readFile(path.join(dir(), storageKey));
-export const clearStorage = () => rm(dir(), { recursive: true, force: true });
+/** Golește conținutul, dar păstrează directorul: în Docker este punctul de montare al volumului (nu poate fi șters). */
+export async function clearStorage() {
+  const root = dir();
+  await mkdir(root, { recursive: true });
+  const entries = await readdir(root);
+  await Promise.all(entries.map((e) => rm(path.join(root, e), { recursive: true, force: true })));
+}
 
 export const ALLOWED_MIME: Record<string, string> = {
   pdf: "application/pdf", jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", csv: "text/csv",
