@@ -1,0 +1,65 @@
+[
+  {
+    "siruta_demo": "900001",
+    "denumire": "Municipiul Râmnicu Sărat",
+    "tip": "municipiu",
+    "mediu": "urban",
+    "populatie_rpl2021": 29774,
+    "serviciu_salubrizare_organizat": true,
+    "cantitate_contractata_t_an": 6937.342
+  },
+  {
+    "siruta_demo": "900002",
+    "denumire": "Orașul Nehoiu",
+    "tip": "oraș",
+    "mediu": "urban",
+    "populatie_rpl2021": 9464,
+    "serviciu_salubrizare_organizat": true,
+    "cantitate_contractata_t_an": 2205.112
+  },
+  {
+    "siruta_demo": "900003",
+    "denumire": "Orașul Pogoanele",
+    "tip": "oraș",
+    "mediu": "urban",
+    "populatie_rpl2021": 6384,
+    "serviciu_salubrizare_organizat": true,
+    "cantitate_contractata_t_an": 1487.472
+  },
+  {
+    "siruta_demo": "900004",
+    "denumire": "Comuna Berca",
+    "tip": "comună",
+    "mediu": "rural",
+    "populatie_rpl2021": 7741,
+    "serviciu_salubrizare_organizat": true,
+    "cantitate_contractata_t_an": 812.805
+  },
+  {
+    "siruta_demo": "900005",
+    "denumire": "Comuna Vadu Pașii",
+    "tip": "comună",
+    "mediu": "rural",
+    "populatie_rpl2021": 9726,
+    "serviciu_salubrizare_organizat": true,
+    "cantitate_contractata_t_an": 1021.23
+  },
+  {
+    "siruta_demo": "900006",
+    "denumire": "Comuna Cislău",
+    "tip": "comună",
+    "mediu": "rural",
+    "populatie_rpl2021": 4218,
+    "serviciu_salubrizare_organizat": true,
+    "cantitate_contractata_t_an": 442.89
+  },
+  {
+    "siruta_demo": "900007",
+    "denumire": "Comuna Breaza",
+    "tip": "comună",
+    "mediu": "rural",
+    "populatie_rpl2021": 2474,
+    "serviciu_salubrizare_organizat": true,
+    "cantitate_contractata_t_an": 259.77
+  }
+]

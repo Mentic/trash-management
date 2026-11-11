@@ -1,0 +1,31 @@
+# Sec. 11 — la fiecare push: typecheck, teste, validatorul setului demo, migrări pe Postgres real, build.
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:17
+        env: { POSTGRES_USER: app_admin, POSTGRES_PASSWORD: ci, POSTGRES_DB: adi }
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U app_admin -d adi" --health-interval 5s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 24, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm test
+      - name: Validator set de date demo
+        run: python3 -I seed/validate_seed.py seed
+      - name: Migrări pe PostgreSQL 17
+        env: { DATABASE_ADMIN_URL: "postgres://app_admin:ci@localhost:5432/adi" }
+        run: pnpm db:migrate
+      - run: pnpm build
+        env: { NEXT_TELEMETRY_DISABLED: "1" }

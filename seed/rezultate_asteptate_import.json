@@ -1,0 +1,30 @@
+[
+  {
+    "fisier": "import_2026-10_scenariu_erori.csv",
+    "randuri_total": 26,
+    "respinse_V1": [
+      "T-2026-002539"
+    ],
+    "duplicat_V2": [
+      "T-2026-002535"
+    ],
+    "diferenta_V3": [
+      "T-2026-002543"
+    ],
+    "neatribuit_V4": [
+      "T-2026-002534"
+    ],
+    "importate_fara_semnalari": 22
+  },
+  {
+    "fisier": "import_2026-10_test_V5_V6.csv",
+    "randuri_total": 4,
+    "uat_necunoscut_V5": [
+      "T-2026-002552"
+    ],
+    "respinse_V6": [
+      "T-2025-999001"
+    ],
+    "importate_fara_semnalari": 2
+  }
+]

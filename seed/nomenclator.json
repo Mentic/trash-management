@@ -1,0 +1,27 @@
+[
+  {
+    "indicativ": "I-1",
+    "denumire": "Corespondență cu UAT-urile membre",
+    "termen_pastrare": "10 ani"
+  },
+  {
+    "indicativ": "I-2",
+    "denumire": "Corespondență cu operatorii și instituțiile",
+    "termen_pastrare": "10 ani"
+  },
+  {
+    "indicativ": "II-1",
+    "denumire": "Rapoarte lunare ale operatorilor",
+    "termen_pastrare": "10 ani"
+  },
+  {
+    "indicativ": "III-1",
+    "denumire": "Petiții și solicitări de informații de interes public",
+    "termen_pastrare": "5 ani"
+  },
+  {
+    "indicativ": "IV-1",
+    "denumire": "Documente interne și hotărâri AGA",
+    "termen_pastrare": "Permanent"
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "procent_anexa6": {
+    "2025": 45,
+    "2026": 45
+  },
+  "tinte_reciclare": {
+    "2025": 55,
+    "2030": 60,
+    "2035": 65
+  },
+  "indici_generare_t_loc_an": {
+    "urban": 0.233,
+    "rural": 0.105
+  },
+  "contributie_afm_lei_t": 50,
+  "toleranta_diferenta_t": 0.02,
+  "termene_zile": {
+    "petitie": 30,
+    "petitie_prelungire_max": 15,
+    "informatii_publice": 10,
+    "altele": 30,
+    "redirectionare": 5,
+    "avertizare_inainte": 5
+  },
+  "an_inchis_deseuri": {
+    "2025": "aprobat"
+  },
+  "ancora_date": "2026-11-10"
+}

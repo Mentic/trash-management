@@ -1,0 +1,5609 @@
+[
+  {
+    "nr": 1,
+    "an": 2026,
+    "numar": "1/2026",
+    "data_inregistrare": "2026-01-13",
+    "sens": "intrare",
+    "tip_cerere": "informatii_publice",
+    "corespondent": "Maria Ionescu (fictiv)",
+    "adresa_corespondent": "Cislău, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare informații privind contractul de sortare",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-01-23",
+    "anexe": [
+      {
+        "nume": "scanare_1.pdf",
+        "dimensiune_kb": 260
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-01-13",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-01-13",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-01-19",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-01-20",
+        "utilizator": "elena.director",
+        "actiune": "returnat",
+        "detalii": "Atașați situația cantităților"
+      },
+      {
+        "data": "2026-01-21",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-01-22",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-01-23",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "3/2026"
+      },
+      {
+        "data": "2026-01-26",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "3/2026"
+  },
+  {
+    "nr": 2,
+    "an": 2026,
+    "numar": "2/2026",
+    "data_inregistrare": "2026-01-16",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Berca",
+    "nr_extern": "6537/16.01.2026",
+    "obiect": "Solicitare situație cantități colectate – semestrul I",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-02-15",
+    "anexe": [
+      {
+        "nume": "scanare_2.pdf",
+        "dimensiune_kb": 280
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-01-16",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-01-16",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-01-20",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-01-21",
+        "utilizator": "elena.director",
+        "actiune": "returnat",
+        "detalii": "Completați temeiul legal"
+      },
+      {
+        "data": "2026-01-22",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-01-23",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-01-26",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "4/2026"
+      },
+      {
+        "data": "2026-01-29",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "4/2026"
+  },
+  {
+    "nr": 3,
+    "an": 2026,
+    "numar": "3/2026",
+    "data_inregistrare": "2026-01-23",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Maria Ionescu (fictiv)",
+    "adresa_corespondent": "Cislău, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 1/2026 – Solicitare informații privind contractul de sortare",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "1/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_1.pdf",
+        "dimensiune_kb": 394
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-01-23",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-01-23",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0003 (simulată)"
+      },
+      {
+        "data": "2026-01-26",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 4,
+    "an": 2026,
+    "numar": "4/2026",
+    "data_inregistrare": "2026-01-26",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Comunei Berca",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 2/2026 – Solicitare situație cantități colectate – semestrul I",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "2/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_2.pdf",
+        "dimensiune_kb": 400
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-01-26",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-01-26",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0004 (simulată)"
+      },
+      {
+        "data": "2026-01-29",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 5,
+    "an": 2026,
+    "numar": "5/2026",
+    "data_inregistrare": "2026-01-28",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Breaza",
+    "nr_extern": "2229/28.01.2026",
+    "obiect": "Solicitare clarificări privind factura operatorului",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-02-27",
+    "anexe": [
+      {
+        "nume": "scanare_5.pdf",
+        "dimensiune_kb": 541
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-01-28",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-01-28",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-02-04",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-02-05",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-02-06",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "9/2026"
+      },
+      {
+        "data": "2026-02-09",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "9/2026"
+  },
+  {
+    "nr": 6,
+    "an": 2026,
+    "numar": "6/2026",
+    "data_inregistrare": "2026-01-29",
+    "sens": "intrare",
+    "tip_cerere": "informatii_publice",
+    "corespondent": "Cristian Tudor (fictiv)",
+    "adresa_corespondent": "Râmnicu Sărat, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare informații privind cantitățile reciclate în 2025",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-02-08",
+    "anexe": [
+      {
+        "nume": "scanare_6.pdf",
+        "dimensiune_kb": 721
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-01-29",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-01-29",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-02-05",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-02-06",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-02-09",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "11/2026"
+      },
+      {
+        "data": "2026-02-12",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "11/2026"
+  },
+  {
+    "nr": 7,
+    "an": 2026,
+    "numar": "7/2026",
+    "data_inregistrare": "2026-01-30",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Notă internă – verificarea rapoartelor operatorului pe trimestrul III",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-01-30",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-01",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "IV-1"
+      }
+    ]
+  },
+  {
+    "nr": 8,
+    "an": 2026,
+    "numar": "8/2026",
+    "data_inregistrare": "2026-02-03",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "nr_extern": "4467/03.02.2026",
+    "obiect": "Comunicare persoană de contact pentru serviciul de salubrizare",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-03-05",
+    "anexe": [
+      {
+        "nume": "scanare_8.pdf",
+        "dimensiune_kb": 498
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-02-03",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-03",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-02-11",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-02-12",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-02-13",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "13/2026"
+      },
+      {
+        "data": "2026-02-16",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "13/2026"
+  },
+  {
+    "nr": 9,
+    "an": 2026,
+    "numar": "9/2026",
+    "data_inregistrare": "2026-02-06",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Comunei Breaza",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 5/2026 – Solicitare clarificări privind factura operatorului",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "5/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_5.pdf",
+        "dimensiune_kb": 275
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-02-06",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-06",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0009 (simulată)"
+      },
+      {
+        "data": "2026-02-09",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 10,
+    "an": 2026,
+    "numar": "10/2026",
+    "data_inregistrare": "2026-02-06",
+    "sens": "intrare",
+    "tip_cerere": "raport_operator",
+    "corespondent": "Operator Colectare Demo SRL (fictiv)",
+    "nr_extern": "RL-01/2026",
+    "obiect": "Raport lunar de activitate – ianuarie 2026",
+    "canal": "e-mail",
+    "dosar": "II-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [
+      {
+        "nume": "raport_2026-01.csv",
+        "dimensiune_kb": 110
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-02-06",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-06",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat_fara_raspuns",
+        "detalii": "II-1"
+      }
+    ]
+  },
+  {
+    "nr": 11,
+    "an": 2026,
+    "numar": "11/2026",
+    "data_inregistrare": "2026-02-09",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Cristian Tudor (fictiv)",
+    "adresa_corespondent": "Râmnicu Sărat, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 6/2026 – Solicitare informații privind cantitățile reciclate în 2025",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "6/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_6.pdf",
+        "dimensiune_kb": 128
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-02-09",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-09",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0011 (simulată)"
+      },
+      {
+        "data": "2026-02-12",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 12,
+    "an": 2026,
+    "numar": "12/2026",
+    "data_inregistrare": "2026-02-09",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "nr_extern": "1290/09.02.2026",
+    "obiect": "Comunicare persoană de contact pentru serviciul de salubrizare",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-03-11",
+    "anexe": [
+      {
+        "nume": "scanare_12.pdf",
+        "dimensiune_kb": 463
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-02-09",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-09",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-02-13",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-02-14",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-02-16",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "14/2026"
+      },
+      {
+        "data": "2026-02-19",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "14/2026"
+  },
+  {
+    "nr": 13,
+    "an": 2026,
+    "numar": "13/2026",
+    "data_inregistrare": "2026-02-13",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 8/2026 – Comunicare persoană de contact pentru serviciul de salubrizare",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "8/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_8.pdf",
+        "dimensiune_kb": 310
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-02-13",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-13",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0013 (simulată)"
+      },
+      {
+        "data": "2026-02-16",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 14,
+    "an": 2026,
+    "numar": "14/2026",
+    "data_inregistrare": "2026-02-16",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 12/2026 – Comunicare persoană de contact pentru serviciul de salubrizare",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "12/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_12.pdf",
+        "dimensiune_kb": 243
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-02-16",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-16",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0014 (simulată)"
+      },
+      {
+        "data": "2026-02-19",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 15,
+    "an": 2026,
+    "numar": "15/2026",
+    "data_inregistrare": "2026-02-16",
+    "sens": "intrare",
+    "tip_cerere": "informatii_publice",
+    "corespondent": "Elisabeta Stan (fictiv)",
+    "adresa_corespondent": "Vadu Pașii, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare informații privind cantitățile reciclate în 2025",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-02-26",
+    "anexe": [
+      {
+        "nume": "scanare_15.pdf",
+        "dimensiune_kb": 857
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-02-16",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-16",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-02-21",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-02-22",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-02-23",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "16/2026"
+      },
+      {
+        "data": "2026-02-26",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "16/2026"
+  },
+  {
+    "nr": 16,
+    "an": 2026,
+    "numar": "16/2026",
+    "data_inregistrare": "2026-02-23",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Elisabeta Stan (fictiv)",
+    "adresa_corespondent": "Vadu Pașii, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 15/2026 – Solicitare informații privind cantitățile reciclate în 2025",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "15/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_15.pdf",
+        "dimensiune_kb": 203
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-02-23",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-23",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0016 (simulată)"
+      },
+      {
+        "data": "2026-02-26",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 17,
+    "an": 2026,
+    "numar": "17/2026",
+    "data_inregistrare": "2026-02-24",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Referat de necesitate – echipamente IT",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-02-24",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-26",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "IV-1"
+      }
+    ]
+  },
+  {
+    "nr": 18,
+    "an": 2026,
+    "numar": "18/2026",
+    "data_inregistrare": "2026-02-26",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Berca",
+    "nr_extern": "6145/26.02.2026",
+    "obiect": "Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-03-28",
+    "anexe": [
+      {
+        "nume": "scanare_18.pdf",
+        "dimensiune_kb": 410
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-02-26",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-26",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-03-05",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-03-06",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-03-09",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "22/2026"
+      },
+      {
+        "data": "2026-03-12",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "22/2026"
+  },
+  {
+    "nr": 19,
+    "an": 2026,
+    "numar": "19/2026",
+    "data_inregistrare": "2026-02-27",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "nr_extern": "1366/27.02.2026",
+    "obiect": "Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-03-29",
+    "anexe": [
+      {
+        "nume": "scanare_19.pdf",
+        "dimensiune_kb": 716
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-02-27",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-02-27",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-03-07",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-03-08",
+        "utilizator": "elena.director",
+        "actiune": "returnat",
+        "detalii": "Reformulați concluzia"
+      },
+      {
+        "data": "2026-03-09",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-03-10",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-03-11",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "23/2026"
+      },
+      {
+        "data": "2026-03-14",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "23/2026"
+  },
+  {
+    "nr": 20,
+    "an": 2026,
+    "numar": "20/2026",
+    "data_inregistrare": "2026-03-02",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "nr_extern": "",
+    "obiect": "Înregistrare anulată",
+    "canal": "e-mail",
+    "dosar": null,
+    "stare": "anulat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-03-02",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-03-02",
+        "utilizator": "ana.registrator",
+        "actiune": "anulat",
+        "detalii": "Document înregistrat de două ori (duplicat)"
+      }
+    ]
+  },
+  {
+    "nr": 21,
+    "an": 2026,
+    "numar": "21/2026",
+    "data_inregistrare": "2026-03-06",
+    "sens": "intrare",
+    "tip_cerere": "raport_operator",
+    "corespondent": "Operator Colectare Demo SRL (fictiv)",
+    "nr_extern": "RL-02/2026",
+    "obiect": "Raport lunar de activitate – februarie 2026",
+    "canal": "e-mail",
+    "dosar": "II-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [
+      {
+        "nume": "raport_2026-02.csv",
+        "dimensiune_kb": 97
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-03-06",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-03-06",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat_fara_raspuns",
+        "detalii": "II-1"
+      }
+    ]
+  },
+  {
+    "nr": 22,
+    "an": 2026,
+    "numar": "22/2026",
+    "data_inregistrare": "2026-03-09",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Comunei Berca",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 18/2026 – Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "18/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_18.pdf",
+        "dimensiune_kb": 144
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-03-09",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-03-09",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0021 (simulată)"
+      },
+      {
+        "data": "2026-03-12",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 23,
+    "an": 2026,
+    "numar": "23/2026",
+    "data_inregistrare": "2026-03-11",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 19/2026 – Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "19/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_19.pdf",
+        "dimensiune_kb": 365
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-03-11",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-03-11",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0022 (simulată)"
+      },
+      {
+        "data": "2026-03-14",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 24,
+    "an": 2026,
+    "numar": "24/2026",
+    "data_inregistrare": "2026-03-11",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Proces-verbal ședință AGA – extras",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-03-11",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-03-13",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "IV-1"
+      }
+    ]
+  },
+  {
+    "nr": 25,
+    "an": 2026,
+    "numar": "25/2026",
+    "data_inregistrare": "2026-03-26",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "nr_extern": "6067/26.03.2026",
+    "obiect": "Sesizare privind frecvența de colectare în satele aparținătoare",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-04-25",
+    "anexe": [
+      {
+        "nume": "scanare_24.pdf",
+        "dimensiune_kb": 800
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-03-26",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-03-26",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-04-03",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-04-04",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-04-06",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "27/2026"
+      },
+      {
+        "data": "2026-04-09",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "27/2026"
+  },
+  {
+    "nr": 26,
+    "an": 2026,
+    "numar": "26/2026",
+    "data_inregistrare": "2026-03-31",
+    "sens": "intrare",
+    "tip_cerere": "informatii_publice",
+    "corespondent": "Maria Ionescu (fictiv)",
+    "adresa_corespondent": "Cislău, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare informații privind cantitățile reciclate în 2025",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-04-10",
+    "anexe": [
+      {
+        "nume": "scanare_25.pdf",
+        "dimensiune_kb": 217
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-03-31",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-03-31",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-04-04",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-04-05",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-04-06",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "28/2026"
+      },
+      {
+        "data": "2026-04-09",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "28/2026"
+  },
+  {
+    "nr": 27,
+    "an": 2026,
+    "numar": "27/2026",
+    "data_inregistrare": "2026-04-06",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 25/2026 – Sesizare privind frecvența de colectare în satele aparținătoare",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "25/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_24.pdf",
+        "dimensiune_kb": 398
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-04-06",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-04-06",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0026 (simulată)"
+      },
+      {
+        "data": "2026-04-09",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 28,
+    "an": 2026,
+    "numar": "28/2026",
+    "data_inregistrare": "2026-04-06",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Maria Ionescu (fictiv)",
+    "adresa_corespondent": "Cislău, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 26/2026 – Solicitare informații privind cantitățile reciclate în 2025",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "26/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_25.pdf",
+        "dimensiune_kb": 399
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-04-06",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-04-06",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0027 (simulată)"
+      },
+      {
+        "data": "2026-04-09",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 29,
+    "an": 2026,
+    "numar": "29/2026",
+    "data_inregistrare": "2026-04-07",
+    "sens": "intrare",
+    "tip_cerere": "raport_operator",
+    "corespondent": "Operator Colectare Demo SRL (fictiv)",
+    "nr_extern": "RL-03/2026",
+    "obiect": "Raport lunar de activitate – martie 2026",
+    "canal": "e-mail",
+    "dosar": "II-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [
+      {
+        "nume": "raport_2026-03.csv",
+        "dimensiune_kb": 113
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-04-07",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-04-07",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat_fara_raspuns",
+        "detalii": "II-1"
+      }
+    ]
+  },
+  {
+    "nr": 30,
+    "an": 2026,
+    "numar": "30/2026",
+    "data_inregistrare": "2026-04-16",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "nr_extern": "1983/16.04.2026",
+    "obiect": "Transmitere date privind numărul de gospodării",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-05-16",
+    "anexe": [
+      {
+        "nume": "scanare_29.pdf",
+        "dimensiune_kb": 215
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-04-16",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-04-16",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-04-24",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-04-25",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-04-27",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "32/2026"
+      },
+      {
+        "data": "2026-04-30",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "32/2026"
+  },
+  {
+    "nr": 31,
+    "an": 2026,
+    "numar": "31/2026",
+    "data_inregistrare": "2026-04-17",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Decizie director – desemnare persoană responsabilă cu arhiva",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-04-17",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-04-19",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "IV-1"
+      }
+    ]
+  },
+  {
+    "nr": 32,
+    "an": 2026,
+    "numar": "32/2026",
+    "data_inregistrare": "2026-04-27",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 30/2026 – Transmitere date privind numărul de gospodării",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "30/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_29.pdf",
+        "dimensiune_kb": 318
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-04-27",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-04-27",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0031 (simulată)"
+      },
+      {
+        "data": "2026-04-30",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 33,
+    "an": 2026,
+    "numar": "33/2026",
+    "data_inregistrare": "2026-04-27",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Notă internă – planificarea inventarului de arhivă",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-04-27",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-04-29",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "IV-1"
+      }
+    ]
+  },
+  {
+    "nr": 34,
+    "an": 2026,
+    "numar": "34/2026",
+    "data_inregistrare": "2026-05-05",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Maria Ionescu (fictiv)",
+    "adresa_corespondent": "sat Bărăști, Cislău, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Sesizare: deșeurile nu au fost ridicate în satul Bărăști",
+    "canal": "depunere la sediu",
+    "dosar": "III-1",
+    "termen": "2026-06-04",
+    "anexe": [
+      {
+        "nume": "scanare_33.pdf",
+        "dimensiune_kb": 899
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-05-05",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-05",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-05-09",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-05-10",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-05-11",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "36/2026"
+      },
+      {
+        "data": "2026-05-14",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "36/2026"
+  },
+  {
+    "nr": 35,
+    "an": 2026,
+    "numar": "35/2026",
+    "data_inregistrare": "2026-05-07",
+    "sens": "intrare",
+    "tip_cerere": "raport_operator",
+    "corespondent": "Operator Colectare Demo SRL (fictiv)",
+    "nr_extern": "RL-04/2026",
+    "obiect": "Raport lunar de activitate – aprilie 2026",
+    "canal": "e-mail",
+    "dosar": "II-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [
+      {
+        "nume": "raport_2026-04.csv",
+        "dimensiune_kb": 41
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-05-07",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-07",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat_fara_raspuns",
+        "detalii": "II-1"
+      }
+    ]
+  },
+  {
+    "nr": 36,
+    "an": 2026,
+    "numar": "36/2026",
+    "data_inregistrare": "2026-05-11",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Maria Ionescu (fictiv)",
+    "adresa_corespondent": "sat Bărăști, Cislău, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 34/2026 – Sesizare: deșeurile nu au fost ridicate în satul Bărăști",
+    "canal": "depunere la sediu",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "34/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_33.pdf",
+        "dimensiune_kb": 246
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-05-11",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-11",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: depunere la sediu; dovadă: confirmare-0035 (simulată)"
+      },
+      {
+        "data": "2026-05-14",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 37,
+    "an": 2026,
+    "numar": "37/2026",
+    "data_inregistrare": "2026-05-13",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Administrația Fondului pentru Mediu",
+    "nr_extern": "11467/13.05.2026",
+    "obiect": "Informare privind declararea contribuțiilor anuale",
+    "canal": "e-mail",
+    "dosar": "I-2",
+    "termen": "2026-06-12",
+    "anexe": [
+      {
+        "nume": "scanare_36.pdf",
+        "dimensiune_kb": 332
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-05-13",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-13",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-05-20",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-05-21",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-05-22",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "42/2026"
+      },
+      {
+        "data": "2026-05-25",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-2"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "42/2026"
+  },
+  {
+    "nr": 38,
+    "an": 2026,
+    "numar": "38/2026",
+    "data_inregistrare": "2026-05-14",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Breaza",
+    "nr_extern": "3347/14.05.2026",
+    "obiect": "Solicitare situație cantități colectate – semestrul I",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-06-13",
+    "anexe": [
+      {
+        "nume": "scanare_37.pdf",
+        "dimensiune_kb": 397
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-05-14",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-14",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-05-21",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-05-22",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-05-25",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "43/2026"
+      },
+      {
+        "data": "2026-05-28",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "43/2026"
+  },
+  {
+    "nr": 39,
+    "an": 2026,
+    "numar": "39/2026",
+    "data_inregistrare": "2026-05-15",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Florin Radu (fictiv)",
+    "adresa_corespondent": "sat Pogoanele, Pogoanele, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Sesizare: deșeurile nu au fost ridicate în satul Pogoanele",
+    "canal": "poștă",
+    "dosar": "III-1",
+    "termen": "2026-06-14",
+    "anexe": [
+      {
+        "nume": "scanare_38.pdf",
+        "dimensiune_kb": 317
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-05-15",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-15",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-05-19",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-05-20",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-05-21",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "41/2026"
+      },
+      {
+        "data": "2026-05-24",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "41/2026"
+  },
+  {
+    "nr": 40,
+    "an": 2026,
+    "numar": "40/2026",
+    "data_inregistrare": "2026-05-18",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Vadu Pașii",
+    "nr_extern": "2624/18.05.2026",
+    "obiect": "Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-06-17",
+    "anexe": [
+      {
+        "nume": "scanare_39.pdf",
+        "dimensiune_kb": 520
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-05-18",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-18",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-05-21",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-05-22",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-05-25",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "44/2026"
+      },
+      {
+        "data": "2026-05-28",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "44/2026"
+  },
+  {
+    "nr": 41,
+    "an": 2026,
+    "numar": "41/2026",
+    "data_inregistrare": "2026-05-21",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Florin Radu (fictiv)",
+    "adresa_corespondent": "sat Pogoanele, Pogoanele, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 39/2026 – Sesizare: deșeurile nu au fost ridicate în satul Pogoanele",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "39/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_38.pdf",
+        "dimensiune_kb": 80
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-05-21",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-21",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0040 (simulată)"
+      },
+      {
+        "data": "2026-05-24",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 42,
+    "an": 2026,
+    "numar": "42/2026",
+    "data_inregistrare": "2026-05-22",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Administrația Fondului pentru Mediu",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 37/2026 – Informare privind declararea contribuțiilor anuale",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "37/2026",
+    "dosar": "I-2",
+    "anexe": [
+      {
+        "nume": "raspuns_36.pdf",
+        "dimensiune_kb": 250
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-05-22",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-22",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0041 (simulată)"
+      },
+      {
+        "data": "2026-05-25",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-2"
+      }
+    ]
+  },
+  {
+    "nr": 43,
+    "an": 2026,
+    "numar": "43/2026",
+    "data_inregistrare": "2026-05-25",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Comunei Breaza",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 38/2026 – Solicitare situație cantități colectate – semestrul I",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "38/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_37.pdf",
+        "dimensiune_kb": 123
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-05-25",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-25",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0042 (simulată)"
+      },
+      {
+        "data": "2026-05-28",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 44,
+    "an": 2026,
+    "numar": "44/2026",
+    "data_inregistrare": "2026-05-25",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Comunei Vadu Pașii",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 40/2026 – Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "40/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_39.pdf",
+        "dimensiune_kb": 369
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-05-25",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-25",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0043 (simulată)"
+      },
+      {
+        "data": "2026-05-28",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 45,
+    "an": 2026,
+    "numar": "45/2026",
+    "data_inregistrare": "2026-05-29",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Berca",
+    "nr_extern": "7741/29.05.2026",
+    "obiect": "Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-06-28",
+    "anexe": [
+      {
+        "nume": "scanare_44.pdf",
+        "dimensiune_kb": 313
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-05-29",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-05-29",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-06-05",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-06-06",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-06-08",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "49/2026"
+      },
+      {
+        "data": "2026-06-11",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "49/2026"
+  },
+  {
+    "nr": 46,
+    "an": 2026,
+    "numar": "46/2026",
+    "data_inregistrare": "2026-06-01",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Consiliul Județean Buzău",
+    "nr_extern": "10761/01.06.2026",
+    "obiect": "Convocare ședință de lucru privind SMID",
+    "canal": "e-mail",
+    "dosar": "I-2",
+    "termen": "2026-07-01",
+    "anexe": [
+      {
+        "nume": "scanare_45.pdf",
+        "dimensiune_kb": 362
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-06-01",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-06-01",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-06-07",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-06-08",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-06-09",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "50/2026"
+      },
+      {
+        "data": "2026-06-12",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-2"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "50/2026"
+  },
+  {
+    "nr": 47,
+    "an": 2026,
+    "numar": "47/2026",
+    "data_inregistrare": "2026-06-02",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Referat de necesitate – echipamente IT",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-06-02",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-06-04",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "IV-1"
+      }
+    ]
+  },
+  {
+    "nr": 48,
+    "an": 2026,
+    "numar": "48/2026",
+    "data_inregistrare": "2026-06-05",
+    "sens": "intrare",
+    "tip_cerere": "raport_operator",
+    "corespondent": "Operator Colectare Demo SRL (fictiv)",
+    "nr_extern": "RL-05/2026",
+    "obiect": "Raport lunar de activitate – mai 2026",
+    "canal": "e-mail",
+    "dosar": "II-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [
+      {
+        "nume": "raport_2026-05.csv",
+        "dimensiune_kb": 107
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-06-05",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-06-05",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat_fara_raspuns",
+        "detalii": "II-1"
+      }
+    ]
+  },
+  {
+    "nr": 49,
+    "an": 2026,
+    "numar": "49/2026",
+    "data_inregistrare": "2026-06-08",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Comunei Berca",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 45/2026 – Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "45/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_44.pdf",
+        "dimensiune_kb": 153
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-06-08",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-06-08",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0048 (simulată)"
+      },
+      {
+        "data": "2026-06-11",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 50,
+    "an": 2026,
+    "numar": "50/2026",
+    "data_inregistrare": "2026-06-09",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Consiliul Județean Buzău",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 46/2026 – Convocare ședință de lucru privind SMID",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "46/2026",
+    "dosar": "I-2",
+    "anexe": [
+      {
+        "nume": "raspuns_45.pdf",
+        "dimensiune_kb": 236
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-06-09",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-06-09",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0049 (simulată)"
+      },
+      {
+        "data": "2026-06-12",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-2"
+      }
+    ]
+  },
+  {
+    "nr": 51,
+    "an": 2026,
+    "numar": "51/2026",
+    "data_inregistrare": "2026-06-10",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Cristian Tudor (fictiv)",
+    "adresa_corespondent": "sat Râmnicu Sărat, Râmnicu Sărat, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Sesizare privind un depozit necontrolat lângă Râmnicu Sărat",
+    "canal": "depunere la sediu",
+    "dosar": "III-1",
+    "termen": "2026-07-10",
+    "anexe": [
+      {
+        "nume": "scanare_50.pdf",
+        "dimensiune_kb": 496
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-06-10",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-06-10",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-06-15",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-06-16",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-06-17",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "52/2026"
+      },
+      {
+        "data": "2026-06-20",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "52/2026"
+  },
+  {
+    "nr": 52,
+    "an": 2026,
+    "numar": "52/2026",
+    "data_inregistrare": "2026-06-17",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Cristian Tudor (fictiv)",
+    "adresa_corespondent": "sat Râmnicu Sărat, Râmnicu Sărat, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 51/2026 – Sesizare privind un depozit necontrolat lângă Râmnicu Sărat",
+    "canal": "depunere la sediu",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "51/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_50.pdf",
+        "dimensiune_kb": 107
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-06-17",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-06-17",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: depunere la sediu; dovadă: confirmare-0051 (simulată)"
+      },
+      {
+        "data": "2026-06-20",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 53,
+    "an": 2026,
+    "numar": "53/2026",
+    "data_inregistrare": "2026-06-24",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Berca",
+    "nr_extern": "5184/24.06.2026",
+    "obiect": "Solicitare clarificări privind factura operatorului",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-07-24",
+    "anexe": [
+      {
+        "nume": "scanare_52.pdf",
+        "dimensiune_kb": 654
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-06-24",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-06-24",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-06-29",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-06-30",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-01",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "56/2026"
+      },
+      {
+        "data": "2026-07-04",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "56/2026"
+  },
+  {
+    "nr": 54,
+    "an": 2026,
+    "numar": "54/2026",
+    "data_inregistrare": "2026-06-26",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "nr_extern": "3661/26.06.2026",
+    "obiect": "Solicitare situație cantități colectate – semestrul I",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-07-26",
+    "anexe": [
+      {
+        "nume": "scanare_53.pdf",
+        "dimensiune_kb": 790
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-06-26",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-06-26",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-07-03",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-04",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-06",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "57/2026"
+      },
+      {
+        "data": "2026-07-09",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "57/2026"
+  },
+  {
+    "nr": 55,
+    "an": 2026,
+    "numar": "55/2026",
+    "data_inregistrare": "2026-06-30",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Breaza",
+    "nr_extern": "942/30.06.2026",
+    "obiect": "Propunere de suplimentare a punctelor de colectare separată",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-07-30",
+    "anexe": [
+      {
+        "nume": "scanare_54.pdf",
+        "dimensiune_kb": 722
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-06-30",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-06-30",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-07-04",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-05",
+        "utilizator": "elena.director",
+        "actiune": "returnat",
+        "detalii": "Atașați situația cantităților"
+      },
+      {
+        "data": "2026-07-06",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-07",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-08",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "59/2026"
+      },
+      {
+        "data": "2026-07-11",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "59/2026"
+  },
+  {
+    "nr": 56,
+    "an": 2026,
+    "numar": "56/2026",
+    "data_inregistrare": "2026-07-01",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Comunei Berca",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 53/2026 – Solicitare clarificări privind factura operatorului",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "53/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_52.pdf",
+        "dimensiune_kb": 301
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-07-01",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-01",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0055 (simulată)"
+      },
+      {
+        "data": "2026-07-04",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 57,
+    "an": 2026,
+    "numar": "57/2026",
+    "data_inregistrare": "2026-07-06",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 54/2026 – Solicitare situație cantități colectate – semestrul I",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "54/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_53.pdf",
+        "dimensiune_kb": 236
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-07-06",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-06",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0056 (simulată)"
+      },
+      {
+        "data": "2026-07-09",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 58,
+    "an": 2026,
+    "numar": "58/2026",
+    "data_inregistrare": "2026-07-07",
+    "sens": "intrare",
+    "tip_cerere": "raport_operator",
+    "corespondent": "Operator Colectare Demo SRL (fictiv)",
+    "nr_extern": "RL-06/2026",
+    "obiect": "Raport lunar de activitate – iunie 2026",
+    "canal": "e-mail",
+    "dosar": "II-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [
+      {
+        "nume": "raport_2026-06.csv",
+        "dimensiune_kb": 44
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-07-07",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-07",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat_fara_raspuns",
+        "detalii": "II-1"
+      }
+    ]
+  },
+  {
+    "nr": 59,
+    "an": 2026,
+    "numar": "59/2026",
+    "data_inregistrare": "2026-07-08",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Comunei Breaza",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 55/2026 – Propunere de suplimentare a punctelor de colectare separată",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "55/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_54.pdf",
+        "dimensiune_kb": 91
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-07-08",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-08",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0058 (simulată)"
+      },
+      {
+        "data": "2026-07-11",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 60,
+    "an": 2026,
+    "numar": "60/2026",
+    "data_inregistrare": "2026-07-16",
+    "sens": "intrare",
+    "tip_cerere": "informatii_publice",
+    "corespondent": "Florin Radu (fictiv)",
+    "adresa_corespondent": "Pogoanele, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare informații privind contractul de sortare",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-07-26",
+    "anexe": [
+      {
+        "nume": "scanare_59.pdf",
+        "dimensiune_kb": 379
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-07-16",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-16",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-07-20",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-21",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-22",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "62/2026"
+      },
+      {
+        "data": "2026-07-25",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "62/2026"
+  },
+  {
+    "nr": 61,
+    "an": 2026,
+    "numar": "61/2026",
+    "data_inregistrare": "2026-07-21",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "nr_extern": "8273/21.07.2026",
+    "obiect": "Solicitare clarificări privind factura operatorului",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-08-20",
+    "anexe": [
+      {
+        "nume": "scanare_60.pdf",
+        "dimensiune_kb": 768
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-07-21",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-21",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-07-29",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-30",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-31",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "66/2026"
+      },
+      {
+        "data": "2026-08-03",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "66/2026"
+  },
+  {
+    "nr": 62,
+    "an": 2026,
+    "numar": "62/2026",
+    "data_inregistrare": "2026-07-22",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Florin Radu (fictiv)",
+    "adresa_corespondent": "Pogoanele, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 60/2026 – Solicitare informații privind contractul de sortare",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "60/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_59.pdf",
+        "dimensiune_kb": 202
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-07-22",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-22",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0061 (simulată)"
+      },
+      {
+        "data": "2026-07-25",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 63,
+    "an": 2026,
+    "numar": "63/2026",
+    "data_inregistrare": "2026-07-22",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Pogoanele",
+    "nr_extern": "1265/22.07.2026",
+    "obiect": "Comunicare persoană de contact pentru serviciul de salubrizare",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-08-21",
+    "anexe": [
+      {
+        "nume": "scanare_62.pdf",
+        "dimensiune_kb": 664
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-07-22",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-22",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-07-28",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-29",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-07-30",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "65/2026"
+      },
+      {
+        "data": "2026-08-02",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "65/2026"
+  },
+  {
+    "nr": 64,
+    "an": 2026,
+    "numar": "64/2026",
+    "data_inregistrare": "2026-07-29",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "nr_extern": "5962/29.07.2026",
+    "obiect": "Transmitere date privind numărul de gospodării",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-08-28",
+    "anexe": [
+      {
+        "nume": "scanare_63.pdf",
+        "dimensiune_kb": 571
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-07-29",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-29",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-08-02",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-08-03",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-08-04",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "68/2026"
+      },
+      {
+        "data": "2026-08-07",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "68/2026"
+  },
+  {
+    "nr": 65,
+    "an": 2026,
+    "numar": "65/2026",
+    "data_inregistrare": "2026-07-30",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Orașului Pogoanele",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 63/2026 – Comunicare persoană de contact pentru serviciul de salubrizare",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "63/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_62.pdf",
+        "dimensiune_kb": 119
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-07-30",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-30",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0064 (simulată)"
+      },
+      {
+        "data": "2026-08-02",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 66,
+    "an": 2026,
+    "numar": "66/2026",
+    "data_inregistrare": "2026-07-31",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 61/2026 – Solicitare clarificări privind factura operatorului",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "61/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_60.pdf",
+        "dimensiune_kb": 103
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-07-31",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-07-31",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0065 (simulată)"
+      },
+      {
+        "data": "2026-08-03",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 67,
+    "an": 2026,
+    "numar": "67/2026",
+    "data_inregistrare": "2026-08-03",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "nr_extern": "",
+    "obiect": "Înregistrare anulată",
+    "canal": "e-mail",
+    "dosar": null,
+    "stare": "anulat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-08-03",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-03",
+        "utilizator": "ana.registrator",
+        "actiune": "anulat",
+        "detalii": "Document înregistrat de două ori (duplicat)"
+      }
+    ]
+  },
+  {
+    "nr": 68,
+    "an": 2026,
+    "numar": "68/2026",
+    "data_inregistrare": "2026-08-04",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 64/2026 – Transmitere date privind numărul de gospodării",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "64/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_63.pdf",
+        "dimensiune_kb": 197
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-08-04",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-04",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0066 (simulată)"
+      },
+      {
+        "data": "2026-08-07",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 69,
+    "an": 2026,
+    "numar": "69/2026",
+    "data_inregistrare": "2026-08-07",
+    "sens": "intrare",
+    "tip_cerere": "raport_operator",
+    "corespondent": "Operator Colectare Demo SRL (fictiv)",
+    "nr_extern": "RL-07/2026",
+    "obiect": "Raport lunar de activitate – iulie 2026",
+    "canal": "e-mail",
+    "dosar": "II-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [
+      {
+        "nume": "raport_2026-07.csv",
+        "dimensiune_kb": 109
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-08-07",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-07",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat_fara_raspuns",
+        "detalii": "II-1"
+      }
+    ]
+  },
+  {
+    "nr": 70,
+    "an": 2026,
+    "numar": "70/2026",
+    "data_inregistrare": "2026-08-10",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Vasile Marin (fictiv)",
+    "adresa_corespondent": "sat Pâclele, Berca, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Sesizare privind un depozit necontrolat lângă Pâclele",
+    "canal": "depunere la sediu",
+    "dosar": "III-1",
+    "termen": "2026-09-09",
+    "anexe": [
+      {
+        "nume": "scanare_68.pdf",
+        "dimensiune_kb": 433
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-08-10",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-10",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-08-14",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-08-15",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-08-17",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "73/2026"
+      },
+      {
+        "data": "2026-08-20",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "73/2026"
+  },
+  {
+    "nr": 71,
+    "an": 2026,
+    "numar": "71/2026",
+    "data_inregistrare": "2026-08-11",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "nr_extern": "3501/11.08.2026",
+    "obiect": "Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-09-10",
+    "anexe": [
+      {
+        "nume": "scanare_69.pdf",
+        "dimensiune_kb": 336
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-08-11",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-11",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-08-19",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-08-20",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-08-21",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "75/2026"
+      },
+      {
+        "data": "2026-08-24",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "75/2026"
+  },
+  {
+    "nr": 72,
+    "an": 2026,
+    "numar": "72/2026",
+    "data_inregistrare": "2026-08-13",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Maria Ionescu (fictiv)",
+    "adresa_corespondent": "sat Bărăști, Cislău, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare pubelă suplimentară pentru reciclabile",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-09-12",
+    "anexe": [
+      {
+        "nume": "scanare_70.pdf",
+        "dimensiune_kb": 551
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-08-13",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-13",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-08-18",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-08-19",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-08-20",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "74/2026"
+      },
+      {
+        "data": "2026-08-23",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "74/2026"
+  },
+  {
+    "nr": 73,
+    "an": 2026,
+    "numar": "73/2026",
+    "data_inregistrare": "2026-08-17",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Vasile Marin (fictiv)",
+    "adresa_corespondent": "sat Pâclele, Berca, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 70/2026 – Sesizare privind un depozit necontrolat lângă Pâclele",
+    "canal": "depunere la sediu",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "70/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_68.pdf",
+        "dimensiune_kb": 357
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-08-17",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-17",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: depunere la sediu; dovadă: confirmare-0071 (simulată)"
+      },
+      {
+        "data": "2026-08-20",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 74,
+    "an": 2026,
+    "numar": "74/2026",
+    "data_inregistrare": "2026-08-20",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Maria Ionescu (fictiv)",
+    "adresa_corespondent": "sat Bărăști, Cislău, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 72/2026 – Solicitare pubelă suplimentară pentru reciclabile",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "72/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_70.pdf",
+        "dimensiune_kb": 204
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-08-20",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-20",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0072 (simulată)"
+      },
+      {
+        "data": "2026-08-23",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 75,
+    "an": 2026,
+    "numar": "75/2026",
+    "data_inregistrare": "2026-08-21",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 71/2026 – Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "71/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_69.pdf",
+        "dimensiune_kb": 301
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-08-21",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-21",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0073 (simulată)"
+      },
+      {
+        "data": "2026-08-24",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 76,
+    "an": 2026,
+    "numar": "76/2026",
+    "data_inregistrare": "2026-08-26",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Referat de necesitate – echipamente IT",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-08-26",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-28",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "IV-1"
+      }
+    ]
+  },
+  {
+    "nr": 77,
+    "an": 2026,
+    "numar": "77/2026",
+    "data_inregistrare": "2026-08-31",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Pogoanele",
+    "nr_extern": "6923/31.08.2026",
+    "obiect": "Solicitare situație cantități colectate – semestrul I",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-09-30",
+    "anexe": [
+      {
+        "nume": "scanare_75.pdf",
+        "dimensiune_kb": 817
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-08-31",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-08-31",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-09-07",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-09-08",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-09-09",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "79/2026"
+      },
+      {
+        "data": "2026-09-12",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "79/2026"
+  },
+  {
+    "nr": 78,
+    "an": 2026,
+    "numar": "78/2026",
+    "data_inregistrare": "2026-09-07",
+    "sens": "intrare",
+    "tip_cerere": "raport_operator",
+    "corespondent": "Operator Colectare Demo SRL (fictiv)",
+    "nr_extern": "RL-08/2026",
+    "obiect": "Raport lunar de activitate – august 2026",
+    "canal": "e-mail",
+    "dosar": "II-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [
+      {
+        "nume": "raport_2026-08.csv",
+        "dimensiune_kb": 113
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-09-07",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-09-07",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat_fara_raspuns",
+        "detalii": "II-1"
+      }
+    ]
+  },
+  {
+    "nr": 79,
+    "an": 2026,
+    "numar": "79/2026",
+    "data_inregistrare": "2026-09-09",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Orașului Pogoanele",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 77/2026 – Solicitare situație cantități colectate – semestrul I",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "77/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_75.pdf",
+        "dimensiune_kb": 147
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-09-09",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-09-09",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0077 (simulată)"
+      },
+      {
+        "data": "2026-09-12",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 80,
+    "an": 2026,
+    "numar": "80/2026",
+    "data_inregistrare": "2026-09-11",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Adriana Neagu (fictiv)",
+    "adresa_corespondent": "sat Scărișoara, Cislău, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Sesizare privind un depozit necontrolat lângă Scărișoara",
+    "canal": "poștă",
+    "dosar": "III-1",
+    "termen": "2026-10-11",
+    "anexe": [
+      {
+        "nume": "scanare_78.pdf",
+        "dimensiune_kb": 216
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-09-11",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-09-11",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-09-18",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-09-19",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-09-21",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "83/2026"
+      },
+      {
+        "data": "2026-09-24",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "83/2026"
+  },
+  {
+    "nr": 81,
+    "an": 2026,
+    "numar": "81/2026",
+    "data_inregistrare": "2026-09-14",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Cislău",
+    "nr_extern": "2354/14.09.2026",
+    "obiect": "Transmitere date privind numărul de gospodării",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-10-14",
+    "anexe": [
+      {
+        "nume": "scanare_79.pdf",
+        "dimensiune_kb": 428
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-09-14",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-09-14",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-09-20",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-09-21",
+        "utilizator": "elena.director",
+        "actiune": "returnat",
+        "detalii": "Completați temeiul legal"
+      },
+      {
+        "data": "2026-09-22",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-09-23",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-09-24",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "84/2026"
+      },
+      {
+        "data": "2026-09-27",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "84/2026"
+  },
+  {
+    "nr": 82,
+    "an": 2026,
+    "numar": "82/2026",
+    "data_inregistrare": "2026-09-16",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Proces-verbal ședință AGA – extras",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-09-16",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-09-18",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "IV-1"
+      }
+    ]
+  },
+  {
+    "nr": 83,
+    "an": 2026,
+    "numar": "83/2026",
+    "data_inregistrare": "2026-09-21",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Adriana Neagu (fictiv)",
+    "adresa_corespondent": "sat Scărișoara, Cislău, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 80/2026 – Sesizare privind un depozit necontrolat lângă Scărișoara",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "80/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_78.pdf",
+        "dimensiune_kb": 205
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-09-21",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-09-21",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0081 (simulată)"
+      },
+      {
+        "data": "2026-09-24",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 84,
+    "an": 2026,
+    "numar": "84/2026",
+    "data_inregistrare": "2026-09-24",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Primăria Comunei Cislău",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 81/2026 – Transmitere date privind numărul de gospodării",
+    "canal": "poștă",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "81/2026",
+    "dosar": "I-1",
+    "anexe": [
+      {
+        "nume": "raspuns_79.pdf",
+        "dimensiune_kb": 85
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-09-24",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-09-24",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: poștă; dovadă: confirmare-0082 (simulată)"
+      },
+      {
+        "data": "2026-09-27",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-1"
+      }
+    ]
+  },
+  {
+    "nr": 85,
+    "an": 2026,
+    "numar": "85/2026",
+    "data_inregistrare": "2026-09-25",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Administrația Fondului pentru Mediu",
+    "nr_extern": "1465/25.09.2026",
+    "obiect": "Informare privind declararea contribuțiilor anuale",
+    "canal": "e-mail",
+    "dosar": "I-2",
+    "termen": "2026-10-25",
+    "anexe": [
+      {
+        "nume": "scanare_83.pdf",
+        "dimensiune_kb": 122
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-09-25",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-09-25",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-09-28",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-09-29",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-09-30",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "86/2026"
+      },
+      {
+        "data": "2026-10-03",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-2"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "86/2026"
+  },
+  {
+    "nr": 86,
+    "an": 2026,
+    "numar": "86/2026",
+    "data_inregistrare": "2026-09-30",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Administrația Fondului pentru Mediu",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 85/2026 – Informare privind declararea contribuțiilor anuale",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "85/2026",
+    "dosar": "I-2",
+    "anexe": [
+      {
+        "nume": "raspuns_83.pdf",
+        "dimensiune_kb": 290
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-09-30",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-09-30",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0084 (simulată)"
+      },
+      {
+        "data": "2026-10-03",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-2"
+      }
+    ]
+  },
+  {
+    "nr": 87,
+    "an": 2026,
+    "numar": "87/2026",
+    "data_inregistrare": "2026-09-30",
+    "sens": "intrare",
+    "tip_cerere": "informatii_publice",
+    "corespondent": "Elisabeta Stan (fictiv)",
+    "adresa_corespondent": "Vadu Pașii, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare informații privind contractul de sortare",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-10-10",
+    "anexe": [
+      {
+        "nume": "scanare_85.pdf",
+        "dimensiune_kb": 727
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-09-30",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-09-30",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-10-07",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-08",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-09",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "96/2026"
+      },
+      {
+        "data": "2026-10-12",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "96/2026"
+  },
+  {
+    "nr": 88,
+    "an": 2026,
+    "numar": "88/2026",
+    "data_inregistrare": "2026-10-01",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Doru Pavel (fictiv)",
+    "adresa_corespondent": "sat Păltineni, Nehoiu, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare pubelă suplimentară pentru reciclabile",
+    "canal": "depunere la sediu",
+    "dosar": "III-1",
+    "termen": "2026-10-31",
+    "anexe": [
+      {
+        "nume": "scanare_86.pdf",
+        "dimensiune_kb": 162
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-01",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-01",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-10-05",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-06",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-07",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "91/2026"
+      },
+      {
+        "data": "2026-10-10",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "91/2026"
+  },
+  {
+    "nr": 89,
+    "an": 2026,
+    "numar": "89/2026",
+    "data_inregistrare": "2026-10-01",
+    "sens": "intrare",
+    "tip_cerere": "informatii_publice",
+    "corespondent": "Gheorghe Dumitrescu (fictiv)",
+    "adresa_corespondent": "Nehoiu, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare informații privind cantitățile reciclate în 2025",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-10-11",
+    "anexe": [
+      {
+        "nume": "scanare_87.pdf",
+        "dimensiune_kb": 240
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-01",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-01",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-10-06",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-07",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-08",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "93/2026"
+      },
+      {
+        "data": "2026-10-11",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "93/2026"
+  },
+  {
+    "nr": 90,
+    "an": 2026,
+    "numar": "90/2026",
+    "data_inregistrare": "2026-10-06",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Mihaela Dobre (fictiv)",
+    "adresa_corespondent": "sat Breaza, Breaza, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Sesizare: deșeurile nu au fost ridicate în satul Breaza",
+    "canal": "depunere la sediu",
+    "dosar": "III-1",
+    "termen": "2026-11-05",
+    "anexe": [
+      {
+        "nume": "scanare_88.pdf",
+        "dimensiune_kb": 508
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-06",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-06",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "in_redactare"
+  },
+  {
+    "nr": 91,
+    "an": 2026,
+    "numar": "91/2026",
+    "data_inregistrare": "2026-10-07",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Doru Pavel (fictiv)",
+    "adresa_corespondent": "sat Păltineni, Nehoiu, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 88/2026 – Solicitare pubelă suplimentară pentru reciclabile",
+    "canal": "depunere la sediu",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "88/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_86.pdf",
+        "dimensiune_kb": 300
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-10-07",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-07",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: depunere la sediu; dovadă: confirmare-0089 (simulată)"
+      },
+      {
+        "data": "2026-10-10",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 92,
+    "an": 2026,
+    "numar": "92/2026",
+    "data_inregistrare": "2026-10-07",
+    "sens": "intrare",
+    "tip_cerere": "raport_operator",
+    "corespondent": "Operator Colectare Demo SRL (fictiv)",
+    "nr_extern": "RL-09/2026",
+    "obiect": "Raport lunar de activitate – septembrie 2026",
+    "canal": "e-mail",
+    "dosar": "II-1",
+    "stare": "clasat",
+    "termen": null,
+    "anexe": [
+      {
+        "nume": "raport_2026-09.csv",
+        "dimensiune_kb": 91
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-07",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-07",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat_fara_raspuns",
+        "detalii": "II-1"
+      }
+    ]
+  },
+  {
+    "nr": 93,
+    "an": 2026,
+    "numar": "93/2026",
+    "data_inregistrare": "2026-10-08",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Gheorghe Dumitrescu (fictiv)",
+    "adresa_corespondent": "Nehoiu, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 89/2026 – Solicitare informații privind cantitățile reciclate în 2025",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "89/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_87.pdf",
+        "dimensiune_kb": 174
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-10-08",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-08",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0091 (simulată)"
+      },
+      {
+        "data": "2026-10-11",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 94,
+    "an": 2026,
+    "numar": "94/2026",
+    "data_inregistrare": "2026-10-08",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Ion Popescu (fictiv)",
+    "adresa_corespondent": "sat Rătești, Berca, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare pubelă suplimentară pentru reciclabile",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-11-07",
+    "anexe": [
+      {
+        "nume": "scanare_92.pdf",
+        "dimensiune_kb": 200
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-08",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-08",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-10-12",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-13",
+        "utilizator": "elena.director",
+        "actiune": "returnat",
+        "detalii": "Completați temeiul legal"
+      },
+      {
+        "data": "2026-10-14",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-15",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-16",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "99/2026"
+      },
+      {
+        "data": "2026-10-19",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "99/2026"
+  },
+  {
+    "nr": 95,
+    "an": 2026,
+    "numar": "95/2026",
+    "data_inregistrare": "2026-10-08",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Agenția pentru Protecția Mediului Buzău",
+    "nr_extern": "2377/08.10.2026",
+    "obiect": "Solicitare date pentru raportarea anuală privind gestionarea deșeurilor 2025",
+    "canal": "e-mail",
+    "dosar": "I-2",
+    "termen": "2026-11-07",
+    "anexe": [
+      {
+        "nume": "scanare_93.pdf",
+        "dimensiune_kb": 305
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-08",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-08",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-10-14",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-15",
+        "utilizator": "elena.director",
+        "actiune": "returnat",
+        "detalii": "Atașați situația cantităților"
+      },
+      {
+        "data": "2026-10-16",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-17",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-19",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "100/2026"
+      },
+      {
+        "data": "2026-10-22",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-2"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "100/2026"
+  },
+  {
+    "nr": 96,
+    "an": 2026,
+    "numar": "96/2026",
+    "data_inregistrare": "2026-10-09",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Elisabeta Stan (fictiv)",
+    "adresa_corespondent": "Vadu Pașii, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 87/2026 – Solicitare informații privind contractul de sortare",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "87/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_85.pdf",
+        "dimensiune_kb": 374
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-10-09",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-09",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0094 (simulată)"
+      },
+      {
+        "data": "2026-10-12",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 97,
+    "an": 2026,
+    "numar": "97/2026",
+    "data_inregistrare": "2026-10-14",
+    "sens": "intrare",
+    "tip_cerere": "informatii_publice",
+    "corespondent": "Elisabeta Stan (fictiv)",
+    "adresa_corespondent": "Vadu Pașii, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare informații privind contractul de sortare",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-10-24",
+    "anexe": [
+      {
+        "nume": "scanare_95.pdf",
+        "dimensiune_kb": 340
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-14",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-14",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-10-19",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-20",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-21",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "101/2026"
+      },
+      {
+        "data": "2026-10-24",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "101/2026"
+  },
+  {
+    "nr": 98,
+    "an": 2026,
+    "numar": "98/2026",
+    "data_inregistrare": "2026-10-14",
+    "sens": "intrare",
+    "tip_cerere": "informatii_publice",
+    "corespondent": "Doru Pavel (fictiv)",
+    "adresa_corespondent": "Nehoiu, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare informații privind cantitățile reciclate în 2025",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-10-24",
+    "anexe": [
+      {
+        "nume": "scanare_96.pdf",
+        "dimensiune_kb": 193
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-14",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-14",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "in_redactare"
+  },
+  {
+    "nr": 99,
+    "an": 2026,
+    "numar": "99/2026",
+    "data_inregistrare": "2026-10-16",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Ion Popescu (fictiv)",
+    "adresa_corespondent": "sat Rătești, Berca, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 94/2026 – Solicitare pubelă suplimentară pentru reciclabile",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "94/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_92.pdf",
+        "dimensiune_kb": 297
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-10-16",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-16",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0097 (simulată)"
+      },
+      {
+        "data": "2026-10-19",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 100,
+    "an": 2026,
+    "numar": "100/2026",
+    "data_inregistrare": "2026-10-19",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Agenția pentru Protecția Mediului Buzău",
+    "adresa_corespondent": "",
+    "nr_extern": "",
+    "obiect": "Răspuns la 95/2026 – Solicitare date pentru raportarea anuală privind gestionarea deșeurilor 2025",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "95/2026",
+    "dosar": "I-2",
+    "anexe": [
+      {
+        "nume": "raspuns_93.pdf",
+        "dimensiune_kb": 351
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-10-19",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-19",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0098 (simulată)"
+      },
+      {
+        "data": "2026-10-22",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "I-2"
+      }
+    ]
+  },
+  {
+    "nr": 101,
+    "an": 2026,
+    "numar": "101/2026",
+    "data_inregistrare": "2026-10-21",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Elisabeta Stan (fictiv)",
+    "adresa_corespondent": "Vadu Pașii, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 97/2026 – Solicitare informații privind contractul de sortare",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "97/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_95.pdf",
+        "dimensiune_kb": 157
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-10-21",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-21",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0099 (simulată)"
+      },
+      {
+        "data": "2026-10-24",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 102,
+    "an": 2026,
+    "numar": "102/2026",
+    "data_inregistrare": "2026-10-21",
+    "sens": "intrare",
+    "tip_cerere": "informatii_publice",
+    "corespondent": "Vasile Marin (fictiv)",
+    "adresa_corespondent": "Berca, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare informații privind contractul de sortare",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-10-31",
+    "anexe": [
+      {
+        "nume": "scanare_100.pdf",
+        "dimensiune_kb": 428
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-21",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-21",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-10-28",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-29",
+        "utilizator": "elena.director",
+        "actiune": "aprobat",
+        "detalii": ""
+      },
+      {
+        "data": "2026-10-30",
+        "utilizator": "ana.registrator",
+        "actiune": "iesire_inregistrata",
+        "detalii": "107/2026"
+      },
+      {
+        "data": "2026-11-02",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "clasat",
+    "legat_de": "107/2026"
+  },
+  {
+    "nr": 103,
+    "an": 2026,
+    "numar": "103/2026",
+    "data_inregistrare": "2026-10-22",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Pogoanele",
+    "nr_extern": "5443/22.10.2026",
+    "obiect": "Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-11-21",
+    "anexe": [
+      {
+        "nume": "scanare_101.pdf",
+        "dimensiune_kb": 364
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-22",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-22",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "in_redactare"
+  },
+  {
+    "nr": 104,
+    "an": 2026,
+    "numar": "104/2026",
+    "data_inregistrare": "2026-10-22",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Cislău",
+    "nr_extern": "7653/22.10.2026",
+    "obiect": "Comunicare persoană de contact pentru serviciul de salubrizare",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-11-21",
+    "anexe": [
+      {
+        "nume": "scanare_102.pdf",
+        "dimensiune_kb": 367
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-22",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-22",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-10-24",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "in_aprobare"
+  },
+  {
+    "nr": 105,
+    "an": 2026,
+    "numar": "105/2026",
+    "data_inregistrare": "2026-10-27",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "nr_extern": "1028/27.10.2026",
+    "obiect": "Transmitere HCL privind aprobarea taxei speciale de salubrizare",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-11-26",
+    "anexe": [
+      {
+        "nume": "scanare_103.pdf",
+        "dimensiune_kb": 201
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-27",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-27",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "in_redactare"
+  },
+  {
+    "nr": 106,
+    "an": 2026,
+    "numar": "106/2026",
+    "data_inregistrare": "2026-10-28",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Agenția pentru Protecția Mediului Buzău",
+    "nr_extern": "19141/28.10.2026",
+    "obiect": "Solicitare date pentru raportarea anuală privind gestionarea deșeurilor 2025",
+    "canal": "e-mail",
+    "dosar": "I-2",
+    "termen": "2026-11-27",
+    "anexe": [
+      {
+        "nume": "scanare_104.pdf",
+        "dimensiune_kb": 862
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-28",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-28",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "repartizat"
+  },
+  {
+    "nr": 107,
+    "an": 2026,
+    "numar": "107/2026",
+    "data_inregistrare": "2026-10-30",
+    "sens": "iesire",
+    "tip_cerere": "raspuns",
+    "corespondent": "Vasile Marin (fictiv)",
+    "adresa_corespondent": "Berca, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Răspuns la 102/2026 – Solicitare informații privind contractul de sortare",
+    "canal": "e-mail",
+    "responsabil": "mihai.responsabil",
+    "legat_de": "102/2026",
+    "dosar": "III-1",
+    "anexe": [
+      {
+        "nume": "raspuns_100.pdf",
+        "dimensiune_kb": 129
+      }
+    ],
+    "stare": "clasat",
+    "istoric": [
+      {
+        "data": "2026-10-30",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-30",
+        "utilizator": "ana.registrator",
+        "actiune": "expediat",
+        "detalii": "canal: e-mail; dovadă: confirmare-0105 (simulată)"
+      },
+      {
+        "data": "2026-11-02",
+        "utilizator": "ana.registrator",
+        "actiune": "clasat",
+        "detalii": "III-1"
+      }
+    ]
+  },
+  {
+    "nr": 108,
+    "an": 2026,
+    "numar": "108/2026",
+    "data_inregistrare": "2026-10-30",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "nr_extern": "8385/30.10.2026",
+    "obiect": "Solicitare situație cantități colectate – semestrul I",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-11-29",
+    "anexe": [
+      {
+        "nume": "scanare_106.pdf",
+        "dimensiune_kb": 740
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-10-30",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-10-30",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-11-01",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "in_aprobare"
+  },
+  {
+    "nr": 109,
+    "an": 2026,
+    "numar": "109/2026",
+    "data_inregistrare": "2026-11-04",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Berca",
+    "nr_extern": "3357/04.11.2026",
+    "obiect": "Propunere de suplimentare a punctelor de colectare separată",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-12-04",
+    "anexe": [
+      {
+        "nume": "scanare_107.pdf",
+        "dimensiune_kb": 793
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-11-04",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-11-04",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "repartizat"
+  },
+  {
+    "nr": 110,
+    "an": 2026,
+    "numar": "110/2026",
+    "data_inregistrare": "2026-11-05",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Orașului Nehoiu",
+    "nr_extern": "8619/05.11.2026",
+    "obiect": "Sesizare privind frecvența de colectare în satele aparținătoare",
+    "canal": "poștă",
+    "dosar": "I-1",
+    "termen": "2026-12-05",
+    "anexe": [
+      {
+        "nume": "scanare_108.pdf",
+        "dimensiune_kb": 681
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-11-05",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-11-05",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "in_redactare"
+  },
+  {
+    "nr": 111,
+    "an": 2026,
+    "numar": "111/2026",
+    "data_inregistrare": "2026-11-06",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Comunei Breaza",
+    "nr_extern": "9208/06.11.2026",
+    "obiect": "Sesizare privind frecvența de colectare în satele aparținătoare",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-12-06",
+    "anexe": [
+      {
+        "nume": "scanare_109.pdf",
+        "dimensiune_kb": 778
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-11-06",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      }
+    ],
+    "stare": "inregistrat"
+  },
+  {
+    "nr": 112,
+    "an": 2026,
+    "numar": "112/2026",
+    "data_inregistrare": "2026-11-09",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Ion Popescu (fictiv)",
+    "adresa_corespondent": "sat Rătești, Berca, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Sesizare privind un depozit necontrolat lângă Rătești",
+    "canal": "e-mail",
+    "dosar": "III-1",
+    "termen": "2026-12-09",
+    "anexe": [
+      {
+        "nume": "scanare_110.pdf",
+        "dimensiune_kb": 662
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-11-09",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-11-09",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      },
+      {
+        "data": "2026-11-11",
+        "utilizator": "mihai.responsabil",
+        "actiune": "trimis_la_aprobare",
+        "detalii": ""
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "in_aprobare"
+  },
+  {
+    "nr": 113,
+    "an": 2026,
+    "numar": "113/2026",
+    "data_inregistrare": "2026-11-10",
+    "sens": "intrare",
+    "tip_cerere": "adresa_institutie",
+    "corespondent": "Primăria Municipiului Râmnicu Sărat",
+    "nr_extern": "9705/10.11.2026",
+    "obiect": "Sesizare privind frecvența de colectare în satele aparținătoare",
+    "canal": "e-mail",
+    "dosar": "I-1",
+    "termen": "2026-12-10",
+    "anexe": [
+      {
+        "nume": "scanare_111.pdf",
+        "dimensiune_kb": 469
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-11-10",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-11-10",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "repartizat"
+  },
+  {
+    "nr": 114,
+    "an": 2026,
+    "numar": "114/2026",
+    "data_inregistrare": "2026-11-10",
+    "sens": "intrare",
+    "tip_cerere": "petitie",
+    "corespondent": "Mihaela Dobre (fictiv)",
+    "adresa_corespondent": "sat Breaza, Breaza, jud. Buzău",
+    "nr_extern": "",
+    "obiect": "Solicitare pubelă suplimentară pentru reciclabile",
+    "canal": "depunere la sediu",
+    "dosar": "III-1",
+    "termen": "2026-12-10",
+    "anexe": [
+      {
+        "nume": "scanare_112.pdf",
+        "dimensiune_kb": 301
+      }
+    ],
+    "istoric": [
+      {
+        "data": "2026-11-10",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      },
+      {
+        "data": "2026-11-10",
+        "utilizator": "ana.registrator",
+        "actiune": "repartizat",
+        "detalii": "mihai.responsabil"
+      }
+    ],
+    "responsabil": "mihai.responsabil",
+    "stare": "repartizat"
+  },
+  {
+    "nr": 115,
+    "an": 2026,
+    "numar": "115/2026",
+    "data_inregistrare": "2026-11-10",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Proces-verbal ședință AGA – extras",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "inregistrat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-11-10",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      }
+    ]
+  },
+  {
+    "nr": 116,
+    "an": 2026,
+    "numar": "116/2026",
+    "data_inregistrare": "2026-11-10",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Decizie director – desemnare persoană responsabilă cu arhiva",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "inregistrat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-11-10",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      }
+    ]
+  },
+  {
+    "nr": 117,
+    "an": 2026,
+    "numar": "117/2026",
+    "data_inregistrare": "2026-11-10",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Notă internă – planificarea inventarului de arhivă",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "inregistrat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-11-10",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      }
+    ]
+  },
+  {
+    "nr": 118,
+    "an": 2026,
+    "numar": "118/2026",
+    "data_inregistrare": "2026-11-10",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Notă internă – verificarea rapoartelor operatorului pe trimestrul III",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "inregistrat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-11-10",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      }
+    ]
+  },
+  {
+    "nr": 119,
+    "an": 2026,
+    "numar": "119/2026",
+    "data_inregistrare": "2026-11-10",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Notă internă – planificarea inventarului de arhivă",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "inregistrat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-11-10",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      }
+    ]
+  },
+  {
+    "nr": 120,
+    "an": 2026,
+    "numar": "120/2026",
+    "data_inregistrare": "2026-11-10",
+    "sens": "intern",
+    "tip_cerere": "intern",
+    "corespondent": "ADI Eco Buzău 2009 (intern)",
+    "nr_extern": "",
+    "obiect": "Decizie director – desemnare persoană responsabilă cu arhiva",
+    "canal": "predare directă",
+    "dosar": "IV-1",
+    "stare": "inregistrat",
+    "termen": null,
+    "anexe": [],
+    "istoric": [
+      {
+        "data": "2026-11-10",
+        "utilizator": "ana.registrator",
+        "actiune": "confirmat",
+        "detalii": "număr atribuit"
+      }
+    ]
+  }
+]

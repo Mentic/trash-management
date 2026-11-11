@@ -1,0 +1,5 @@
+﻿perioada;data_cantaririi;nr_tichet;nr_auto;operator_cui;uat_siruta;ruta_comuna;uat_ruta;cod_ler;fractie;destinatie_tip;instalatie_destinatie;cantitate_raportata_t;cantitate_tichet_t;document_justificativ
+2026-10;2026-10-01 15:40;T-2026-002550;DEMO-02;99999901;900002;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);7,136;7,136;AV-2026-002457
+2026-10;2026-10-03 07:10;T-2026-002551;DEMO-02;99999901;900002;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);7,177;7,177;AV-2026-002450
+2026-10;2026-10-01 13:20;T-2026-002552;DEMO-03;99999901;900099;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);8,522;8,522;AV-2026-002480
+2025-12;2025-12-18 09:20;T-2025-999001;DEMO-04;99999901;900004;Nu;;20 01 08;biodeșeuri;compostare;Platformă de compostare (fictiv);1,207;1,207;AV-2026-002515

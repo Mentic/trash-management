@@ -1,0 +1,26 @@
+[
+  {
+    "id": "u1",
+    "utilizator": "ana.registrator",
+    "nume": "Ana (fictiv)",
+    "rol": "registrator",
+    "parola_demo": "Registru!2026",
+    "twofa_inrolat": false
+  },
+  {
+    "id": "u2",
+    "utilizator": "mihai.responsabil",
+    "nume": "Mihai (fictiv)",
+    "rol": "responsabil",
+    "parola_demo": "Deseuri!2026",
+    "twofa_inrolat": false
+  },
+  {
+    "id": "u3",
+    "utilizator": "elena.director",
+    "nume": "Elena (fictiv)",
+    "rol": "director",
+    "parola_demo": "Aprobare!2026",
+    "twofa_inrolat": false
+  }
+]

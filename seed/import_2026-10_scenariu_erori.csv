@@ -1,0 +1,27 @@
+﻿perioada;data_cantaririi;nr_tichet;nr_auto;operator_cui;uat_siruta;ruta_comuna;uat_ruta;cod_ler;fractie;destinatie_tip;instalatie_destinatie;cantitate_raportata_t;cantitate_tichet_t;document_justificativ
+2026-10;2026-10-02 07:30;T-2026-002515;DEMO-04;99999901;900004;Nu;;20 01 08;biodeșeuri;compostare;Platformă de compostare (fictiv);1,207;1,207;AV-2026-002515
+2026-10;2026-10-02 16:40;T-2026-002510;DEMO-04;99999901;900004;Nu;;20 01 01;hârtie-carton;sortare;Stația de sortare Vadu Pașii (RER Sud);1,918;1,918;AV-2026-002510
+2026-10;2026-10-05 13:30;T-2026-002509;DEMO-04;99999901;900004;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);8,172;8,172;AV-2026-002509
+2026-10;2026-10-07 09:10;T-2026-002539;DEMO-06;99999901;900006;Nu;;200301;hârtie-carton;sortare;Stația de sortare Vadu Pașii (RER Sud);1,330;1,330;AV-2026-002539
+2026-10;2026-10-10 07:20;T-2026-002511;DEMO-04;99999901;900004;Nu;;20 01 01;hârtie-carton;sortare;Stația de sortare Vadu Pașii (RER Sud);0,818;0,818;AV-2026-002511
+2026-10;2026-10-10 12:50;T-2026-002512;DEMO-04;99999901;900004;Nu;;15 01 06;plastic-metal;sortare;Stația de sortare Vadu Pașii (RER Sud);2,062;2,062;AV-2026-002512
+2026-10;2026-10-12 17:00;T-2026-002507;DEMO-04;99999901;900004;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);8,221;8,221;AV-2026-002507
+2026-10;2026-10-13 06:30;T-2026-002543;DEMO-06;99999901;900006;Nu;;20 01 08;biodeșeuri;compostare;Platformă de compostare (fictiv);0,587;0,537;AV-2026-002543
+2026-10;2026-10-13 13:10;T-2026-002503;DEMO-04;99999901;900004;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);6,752;6,752;AV-2026-002503
+2026-10;2026-10-14 06:30;T-2026-002508;DEMO-04;99999901;900004;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);5,593;5,593;AV-2026-002508
+2026-10;2026-10-21 09:30;T-2026-002501;DEMO-04;99999901;900004;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);8,766;8,766;AV-2026-002501
+2026-10;2026-10-22 11:00;T-2026-002541;DEMO-06;99999901;900006;Nu;;15 01 06;plastic-metal;sortare;Stația de sortare Vadu Pașii (RER Sud);0,665;0,665;AV-2026-002541
+2026-10;2026-10-22 11:30;T-2026-002534;DEMO-06;99999901;;Da;900004|900006;20 03 01;reziduale;depozitare;Depozit conform (fictiv);8,993;8,993;AV-2026-002534
+2026-10;2026-10-22 12:20;T-2026-002506;DEMO-04;99999901;900004;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);7,253;7,253;AV-2026-002506
+2026-10;2026-10-23 07:00;T-2026-002542;DEMO-06;99999901;900006;Nu;;20 01 02;sticlă;sortare;Stația de sortare Vadu Pașii (RER Sud);0,665;0,665;AV-2026-002542
+2026-10;2026-10-25 15:10;T-2026-002540;DEMO-06;99999901;900006;Nu;;15 01 06;plastic-metal;sortare;Stația de sortare Vadu Pașii (RER Sud);0,665;0,665;AV-2026-002540
+2026-10;2026-10-26 13:30;T-2026-002514;DEMO-04;99999901;900004;Nu;;20 01 02;sticlă;sortare;Stația de sortare Vadu Pașii (RER Sud);1,368;1,368;AV-2026-002514
+2026-10;2026-10-26 16:50;T-2026-002505;DEMO-04;99999901;900004;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);7,266;7,266;AV-2026-002505
+2026-10;2026-10-28 06:30;T-2026-002535;DEMO-06;99999901;900006;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);8,005;8,005;AV-2026-002535
+2026-10;2026-10-29 10:20;T-2026-002537;DEMO-06;99999901;900006;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);5,650;5,650;AV-2026-002537
+2026-10;2026-10-30 09:30;T-2026-002504;DEMO-04;99999901;900004;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);7,699;7,699;AV-2026-002504
+2026-10;2026-10-30 09:40;T-2026-002513;DEMO-04;99999901;900004;Nu;;15 01 06;plastic-metal;sortare;Stația de sortare Vadu Pașii (RER Sud);0,674;0,674;AV-2026-002513
+2026-10;2026-10-30 11:00;T-2026-002536;DEMO-06;99999901;900006;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);5,710;5,710;AV-2026-002536
+2026-10;2026-10-30 16:10;T-2026-002502;DEMO-04;99999901;900004;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);5,384;5,384;AV-2026-002502
+2026-10;2026-10-31 17:00;T-2026-002538;DEMO-06;99999901;900006;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);6,852;6,852;AV-2026-002538
+2026-10;2026-10-28 06:30;T-2026-002535;DEMO-06;99999901;900006;Nu;;20 03 01;reziduale;depozitare;Depozit conform (fictiv);8,005;8,005;AV-2026-002535
