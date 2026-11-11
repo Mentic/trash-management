@@ -166,7 +166,9 @@ const text = (p) => p.textContent("main");
   // D5
   await elena.goto(`${B}/waste/summary?year=2026`);
   await elena.click("tr:has-text('Comuna Berca') >> a");
-  await elena.click("text=octombrie 2026");
+  await elena.waitForURL(/\/waste\/summary\/[0-9a-f-]{36}\?/);
+  await elena.click("a:has-text('octombrie 2026')");
+  await elena.waitForURL(/period=\d{4}-10/);
   await elena.click("tbody a >> nth=0");
   await elena.waitForSelector("h1:has-text('Tichet de cântar')");
   assert((await text(elena)).includes("intrarea 123/2026"), "D5: totalul Berca se deschide până la tichet și la raportul din registratură");
