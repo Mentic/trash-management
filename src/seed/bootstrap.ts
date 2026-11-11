@@ -4,8 +4,8 @@ import { count } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/postgres-js";
 import { migrate } from "drizzle-orm/postgres-js/migrator";
 import postgres from "postgres";
-import { users } from "@/db/schema";
-import { loadReference } from "./reference";
+import { documents, users } from "@/db/schema";
+import { seedAll } from "./reset";
 
 export async function bootstrap() {
   const url = process.env.DATABASE_ADMIN_URL;
@@ -17,10 +17,13 @@ export async function bootstrap() {
   try {
     const db = drizzle(client);
     await migrate(db, { migrationsFolder: path.join(process.cwd(), "src/db/migrations") });
-    const [row] = await db.select({ n: count() }).from(users);
-    if ((process.env.APP_MODE ?? "demo") === "demo" && row?.n === 0) {
-      await loadReference(db);
-      console.log("[bootstrap] conturile demo și datele de referință au fost încărcate");
+    if ((process.env.APP_MODE ?? "demo") !== "demo") return;
+    const [u] = await db.select({ n: count() }).from(users);
+    const [d] = await db.select({ n: count() }).from(documents);
+    if (u?.n === 0 || d?.n === 0) {
+      // Baza goală sau doar cu conturile (versiunea anterioară): încarcă setul complet, păstrând înrolările 2FA.
+      const shift = await seedAll({ truncate: (u?.n ?? 0) > 0, keepMfa: true });
+      console.log(`[bootstrap] set demo încărcat (ancora mutată la ${shift.target})`);
     }
   } finally {
     await client.end();

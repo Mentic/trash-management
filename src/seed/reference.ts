@@ -1,7 +1,6 @@
 // Sec. 10 (parțial): conturile demo și datele de referință. Documentele și cursele urmează în loader-ul complet.
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { sql } from "drizzle-orm";
 import type { PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import { annualParameters, dossiers, operators, registryCounters, settings, uats, users } from "@/db/schema";
 import { SEED_ROLE } from "@/domain/codes";
@@ -64,6 +63,5 @@ export async function loadReference(db: PostgresJsDatabase<Record<string, unknow
     // R06: setul demo se termină la 120/2026 → următoarea confirmare primește 121/2026.
     const maxNr = Math.max(...docs.map((d) => d.nr));
     await tx.insert(registryCounters).values({ year: docs[0]!.an, lastNumber: maxNr });
-    await tx.execute(sql`select 1`);
   });
 }

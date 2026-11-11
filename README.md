@@ -3,15 +3,16 @@
 Prototip pentru prima întâlnire cu ADI Eco Buzău 2009 (Etapa 1 din BRD v2.2). Toată documentația este în [`docs/`](docs/README.md); cerințele tehnice sunt în
 documentul „Registratură și evidența deșeurilor — cerințe tehnice și soluția propusă” (secțiunile citate mai jos).
 
-## Stare
+## Stare — Etapa 1 gata pentru demo
 
-| Gata | Urmează (plan, sec. 14) |
-| --- | --- |
-| Autentificare: parolă, înrolare 2FA cu cod QR, coduri de recuperare, anti-replay, blocare 5 min, jurnal de securitate (S01–S05, S08) | Expirarea sesiunii cu avertizare (S07), ecranul Jurnal |
-| Schema PostgreSQL (21 tabele, jurnal append-only, contor de registru) | |
-| Reguli de domeniu: V1–V6, AFM, termene, stări document, TOTP, CSV, mutarea datelor | Loader set demo + resetare (sec. 10) |
-| Teste unitare pe setul demo (oracolul AFM, rezultatele importurilor) | Registratură R1–R8, deșeuri D1–D7, Playwright |
-| Docker Compose (app, Postgres 17, Caddy), CI, deploy manual | Ecranele din sec. 8 |
+| Modul | Ce funcționează | Scenarii verificate automat |
+| --- | --- | --- |
+| Autentificare | Parolă, 2FA cu cod QR, coduri de recuperare, anti-replay, blocare 5 min, expirare sesiune 30 min cu avertizare, jurnal de securitate | L1–L5, S08 |
+| Registratură | Registru filtrat pe rol, căutare (inclusiv după numărul extern al intrării), filtre, export CSV, înregistrare cu termen calculat, fișă cu istoric complet, repartizare, redactare, returnare cu motiv, aprobare, ieșire legată, expediere cu dovadă, clasare, corecție cu valoare veche/nouă, anulare, prelungire termen, anexe imuabile, imprimare A4, nomenclator | R1–R8 |
+| Deșeuri | Import CSV legat de intrare, V1–V6 cu raport, excludere, corecție cu re-verificare, atribuire UAT cu dovadă, validare; situație pe UAT cu drill-down până la tichet; categorii separate; export CSV; estimare AFM cu formula | D1–D5, D7 |
+| Demo | Set demo încărcat automat (120 documente, 5.321 curse), Kit demo cu fișierele de import și resetare (opțional cu păstrarea înrolărilor 2FA), marcaj „DEMO — date fictive” | N08 |
+
+Etapa 2 (după semnare): aprobarea/redeschiderea anuală (D07, D6), închiderea anului (R03), dovezi la rânduri (D04), reset 2FA de către director (S06), PAYT și indicatorul de reciclare (D01, D02).
 
 ## Rulare pe laptop (Docker Desktop)
 
@@ -27,7 +28,8 @@ Aplicația: http://localhost:3000 · verificare: http://localhost:3000/api/healt
 La pornire, aplicația aplică migrările și, dacă baza e goală, încarcă conturile demo (Ana, Mihai, Elena — neînrolate în 2FA)
 și datele de referință. Prima autentificare a fiecărui cont afișează codul QR.
 
-Pentru a reîncepe de la zero (inclusiv înrolările 2FA): `docker compose -f compose.yml -f compose.local.yml down -v`, apoi `up -d`.
+Între repetiții: **Kit demo → Resetează datele demo** (bifat „Păstrează înrolările 2FA” ca să nu rescanați codurile QR).
+De la zero, inclusiv înrolările: `docker compose -f compose.yml -f compose.local.yml down -v`, apoi `up -d`.
 
 Oprire: `docker compose -f compose.yml -f compose.local.yml down` (datele rămân în volume; `down -v` le șterge).
 
@@ -51,6 +53,12 @@ Fără Docker: `pnpm install`, un PostgreSQL local, `DATABASE_ADMIN_URL=... pnpm
 ```bash
 pnpm typecheck && pnpm test
 pnpm seed:validate
+```
+
+Scenariile de acceptare, pe o bază proaspăt resetată (necesită Playwright):
+
+```bash
+BASE_URL=http://localhost:3000 node tests/e2e/demo-scenarios.cjs
 ```
 
 ## Structură
