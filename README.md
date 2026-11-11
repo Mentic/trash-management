@@ -1,6 +1,6 @@
 # Registratură și evidența deșeurilor — ADI Eco Buzău 2009 (demo)
 
-Prototip pentru prima întâlnire cu ADI Eco Buzău 2009 (Etapa 1 din BRD v2.2). Toată documentația este în [`docs/`](docs/README.md); cerințele tehnice sunt în
+Prototip pentru prima întâlnire cu ADI Eco Buzău 2009 (Etapa 1 din BRD v2.2). Toată documentația este în [`docs/`](docs/README.md), testele manuale și scriptul demo în [`qa/`](qa/README.md); cerințele tehnice sunt în
 documentul „Registratură și evidența deșeurilor — cerințe tehnice și soluția propusă” (secțiunile citate mai jos).
 
 ## Stare — Etapa 1 gata pentru demo
