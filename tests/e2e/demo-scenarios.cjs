@@ -1,5 +1,5 @@
 // Scenariile de acceptare din BRD pe setul demo proaspăt: R1–R8, D1–D5, D7 (+ L1–L2 pentru fiecare cont).
-// Rulat de scripts/e2e.sh (pnpm test:e2e); manual: BASE_URL=http://localhost:3000 node tests/e2e/demo-scenarios.cjs pe o bază resetată.
+// Rulat de scripts/e2e.mjs (pnpm test:e2e); manual: BASE_URL=http://localhost:3000 node tests/e2e/demo-scenarios.cjs pe o bază resetată.
 const { chromium } = require("playwright");
 const OTPAuth = require("otpauth");
 const path = require("node:path");

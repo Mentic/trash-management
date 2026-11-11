@@ -1,5 +1,5 @@
 // L1–L5 pe o bază proaspătă (conturi neînrolate): node tests/e2e/auth-smoke.cjs (BASE_URL implicit http://localhost:3000).
-// Rulat de scripts/e2e.sh (pnpm test:e2e).
+// Rulat de scripts/e2e.mjs (pnpm test:e2e).
 const { chromium } = require('playwright');
 const OTPAuth = require('otpauth');
 const B = process.env.BASE_URL ?? 'http://localhost:3000';

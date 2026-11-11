@@ -56,7 +56,7 @@ pnpm seed:validate
 ```
 
 Scenariile de acceptare (L1–L5, R1–R8, D1–D5, D7, S08, N08) pe build-ul de producție, fiecare pe o bază proaspătă.
-Rulează automat în CI (jobul `e2e`); local, cu un PostgreSQL în care există rolul `app_rw`:
+Rulează automat în CI (jobul `e2e`, în imaginea oficială Playwright); local, cu orice PostgreSQL (rolul `app_rw` se creează automat):
 
 ```bash
 pnpm exec playwright install chromium

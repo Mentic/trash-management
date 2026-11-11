@@ -17,7 +17,7 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "tsx src/db/migrate.ts",
     "seed:validate": "python3 -I seed/validate_seed.py seed",
-    "test:e2e": "sh scripts/e2e.sh"
+    "test:e2e": "node scripts/e2e.mjs"
   },
   "dependencies": {
     "@date-fns/tz": "1.5.0",
