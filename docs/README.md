@@ -8,6 +8,7 @@
 | [brd/BRD_v1_original.pdf](brd/BRD_v1_original.pdf), [.txt](brd/BRD_v1_original.txt) | BRD v1 original | Înlocuit |
 | [context/decisions_and_constraints.md](context/decisions_and_constraints.md) | Obiectivul demo-ului, deciziile de stack, momentele „wow” | Context |
 | [context/beneficiary_research.md](context/beneficiary_research.md) | Informații publice despre ADI Eco Buzău 2009, cu surse | Context |
+| [context/project-map.md](context/project-map.md) | Harta proiectului: structura și stadiul curent (pentru oameni și asistenți AI) | Actualizată la fiecare modul |
 | [context/brief_cerinte_tehnice.md](context/brief_cerinte_tehnice.md) | Brief-ul după care s-au scris cerințele tehnice | Context |
 
 Setul de date demo, generatorul și validatorul sunt în [`../seed/`](../seed/).
