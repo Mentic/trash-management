@@ -1,5 +1,5 @@
 // L1–L5 pe o bază proaspătă (conturi neînrolate): node tests/e2e/auth-smoke.cjs (BASE_URL implicit http://localhost:3000).
-// Necesită playwright instalat global sau în proiect. Va fi mutat în suita Playwright din sec. 11.
+// Rulat de scripts/e2e.sh (pnpm test:e2e).
 const { chromium } = require('playwright');
 const OTPAuth = require('otpauth');
 const B = process.env.BASE_URL ?? 'http://localhost:3000';
@@ -13,7 +13,7 @@ const login = async (p, u, pw) => { await p.goto(B + '/login'); await p.fill('#u
   await p.fill('#code', '000000'); await p.click('text=Activează'); await p.waitForSelector('text=Codul nu este valid'); console.log('L1 cod greșit refuzat');
   await p.fill('#code', code(secret)); await p.click('text=Activează'); await p.waitForSelector('#codes-title');
   const codes = await p.locator('ul.font-mono li').allTextContents(); console.log('L2 coduri de recuperare:', codes.length);
-  await p.click('text=Am salvat codurile'); await p.waitForURL('**/registry'); console.log('L2', (await p.textContent('main')).includes('Ana (fictiv)'));
+  await p.click('text=Am salvat codurile'); await p.waitForURL('**/registry'); console.log('L2', (await p.textContent('header')).includes('Ana (fictiv)'));
   await p.click('text=Deconectare'); await p.waitForURL('**/login');
   // L3: login din nou, fără QR
   await login(p, 'ana.registrator', 'Registru!2026'); await p.waitForURL('**/2fa'); console.log('L3 fără QR, pe /2fa');
