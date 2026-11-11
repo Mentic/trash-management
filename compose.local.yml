@@ -1,0 +1,8 @@
+# Rulare pe laptop (rezerva offline / demo prin ngrok): aplicația direct pe http://localhost:3000, fără Caddy.
+# docker compose -f compose.yml -f compose.local.yml up -d --build
+services:
+  app:
+    image: trash-management:local
+    ports: ["3000:3000"]
+  caddy:
+    profiles: ["server"]

@@ -12,14 +12,32 @@ documentul „Registratură și evidența deșeurilor — cerințe tehnice și s
 | Teste unitare pe setul demo (oracolul AFM, rezultatele importurilor) | Registratură R1–R8, deșeuri D1–D7, Playwright |
 | Docker Compose (app, Postgres 17, Caddy), CI, deploy manual | Ecranele din sec. 8 |
 
-## Rulare locală
+## Rulare pe laptop (Docker Desktop)
 
 ```bash
-cp .env.example .env   # completați parolele și cheile (openssl rand -base64 32)
-docker compose up -d --build
+git clone https://github.com/ionutvacariu/trash-management && cd trash-management
+git checkout claude/etapa1-schelet
+sh scripts/init-env.sh
+docker compose -f compose.yml -f compose.local.yml up -d --build
 docker compose exec app node migrator/migrate.mjs
-docker compose exec app node -e "fetch('http://localhost:3000/api/health').then(r=>r.json()).then(console.log)"
 ```
+
+Aplicația: http://localhost:3000 · verificare: http://localhost:3000/api/health
+
+Oprire: `docker compose -f compose.yml -f compose.local.yml down` (datele rămân în volume; `down -v` le șterge).
+
+## Acces din afară cu ngrok (opțional)
+
+Pentru întâlnire nu e nevoie: prezentarea rulează de pe laptop, iar telefonul doar scanează codul QR de pe ecran
+(aplicația TOTP nu are nevoie de rețea). ngrok ajută doar dacă clientul vrea să deschidă demo-ul de pe dispozitivele lui.
+
+```bash
+ngrok config add-authtoken <TOKEN>
+ngrok http 3000 --url <domeniul-static>.ngrok-free.app
+```
+
+- Pe planul gratuit, vizitatorii văd întâi o pagină de avertizare ngrok; planul plătit o elimină.
+- Traficul trece prin serverele ngrok (firmă din SUA); în demo sunt doar date fictive, dar pentru date reale nu.
 
 Fără Docker: `pnpm install`, un PostgreSQL local, `DATABASE_ADMIN_URL=... pnpm db:migrate`, apoi `pnpm dev`.
 
