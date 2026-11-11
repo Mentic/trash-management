@@ -31,6 +31,7 @@ jobs:
         env: { NEXT_TELEMETRY_DISABLED: "1" }
 
   e2e:
+    timeout-minutes: 20
     # Sec. 11 — scenariile de acceptare pe build-ul de producție, fiecare pe o bază proaspătă.
     runs-on: ubuntu-24.04
     services:
@@ -49,7 +50,9 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 24, cache: pnpm }
       - run: pnpm install --frozen-lockfile
-      - run: pnpm exec playwright install --with-deps chromium
+      # Imaginea ubuntu-24.04 are deja bibliotecile lui Chrome; fără --with-deps nu depindem de oglinda apt.
+      - run: pnpm exec playwright install chromium
+        timeout-minutes: 5
       - name: Rolul aplicației (app_rw)
         run: psql "$PG_ADMIN_BASE/adi" -c "CREATE ROLE app_rw LOGIN PASSWORD '$APP_RW_PASSWORD'"
       - run: pnpm build
