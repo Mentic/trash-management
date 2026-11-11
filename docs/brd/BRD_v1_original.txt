@@ -1,0 +1,237 @@
+ DOCUMENT DE CERINȚE DE BUSINESS / DEMO
+
+
+
+ Registratură și evidența
+ deșeurilor pentru ADI
+ Aplicația web ajută o asociație de dezvoltare intercomunitară (ADI) să urmărească atât
+ documentele primite și emise, cât și cantitățile de deșeuri raportate pentru fiecare unitate
+ administrativ-teritorială (UAT).
+
+
+   Componentă                    Ce poate face utilizatorul
+
+   Registratură                  Înregistrează o adresă, o repartizează, pregătește și aprobă răspunsul, apoi
+                                 înregistrează ieșirea și consemnează expedierea.
+
+
+   Evidența deșeurilor           Importă raportul operatorului, verifică tichetele și atribuirea cantităților pe UAT.
+                                 Consultă totalurile și o estimare explicată a contribuției la Fondul pentru mediu.
+
+
+
+ Utilizatorii demo-ului
+ Demo-ul are trei utilizatori fictivi, câte unul pentru fiecare rol. O singură persoană îi poate testa
+ din selector. Primăriile și operatorul apar ca surse sau destinatari ai documentelor și datelor.
+ Aprobarea, expedierea și schimbarea utilizatorului sunt simulate. Datele fictive se păstrează local
+ în browser.
+
+
+   Rol                           Ce vede                             Ce poate face
+
+   Ana                           Registrul complet, fișele,          Înregistrează, repartizează, corectează
+   Registrator                   anexele și istoricul.               motivat, înregistrează ieșirea și consemnează
+                                                                     expedierea.
+
+
+   Mihai                         Lucrările repartizate și            Redactează răspunsuri, verifică tichete,
+   Responsabil ADI               importurile de deșeuri pe care      corectează neconcordanțe și validează datele
+                                 le verifică.                        justificabile.
+
+
+   Elena                         Registrul în consultare,            Aprobă sau returnează răspunsuri, consultă
+   Director                      răspunsurile în aprobare și         datele validate și exportă situațiile.
+                                 situația deșeurilor pe UAT.
+
+
+
+ Cum citim statutul unei cerințe
+ Legală indică o obligație prevăzută de actul citat. Condiționată se aplică atunci când sunt
+ îndeplinite condițiile legale sau contractuale indicate. De produs este o funcție propusă de noi,
+ opțională din perspectiva legii, dar inclusă în demo când ajută scenariul.
+
+ Numerotarea anuală comună, cele trei roluri și împărțirea pe ecrane sunt decizii pentru demonstrație. Beneficiarul
+ confirmă procedura și permisiunile pentru utilizarea reală.
+
+
+
+
+ADI Demo / Cerințe de business                                                                                          1
+ REGISTRATURĂ
+
+
+
+ Circuitul documentelor
+ Obligația centrală este evidența documentelor intrate, întocmite pentru uz intern și ieșite.
+ Demo-ul arată circuitul folosind trei ecrane și documente fictive.
+
+
+   Cerință și statut               Ce implementăm și cum verificăm
+
+   R01 · Legală                    Înregistrăm intrări, ieșiri și documente interne. Verificăm că fiecare
+   Evidența documentelor [1]       categorie poate fi înregistrată și rămâne în evidență după reîncărcare.
+
+
+   R02 · Legală                    În exploatare se asigură integritatea, autenticitatea, accesul și
+   Documente electronice [1]       modificarea controlate, exportul conform sistemului aprobat și
+                                   managementul arhivistic. Demo-ul ilustrează originalul, anexele și
+                                   jurnalul cu autor, dată și motivul corectării.
+
+
+   R03 · Condiționată              Termenul legal se aplică după tipul cererii și instituție. Demo-ul folosește
+   Termene și date personale [2,   un termen intern etichetat. În exploatare, prelucrarea datelor personale
+   3]                              cere minimizare, securitate și acces adecvat.
+
+
+   R04 · De produs                 Atribuim număr la confirmare, o singură dată. Păstrăm distinct referința
+   Număr și circuit                expeditorului. Legăm intrarea de răspuns, afișăm starea și păstrăm data,
+                                   canalul și dovada simulată a expedierii.
+
+
+   R05 · De produs                 Registratorul repartizează, responsabilul redactează, iar directorul
+   Lucrul pe roluri                aprobă sau returnează motivat. O lucrare nerepartizată responsabilului
+                                   rămâne inaccesibilă din listă, căutare și link direct în demo.
+
+
+   R06 · De produs                 Căutăm după număr intern sau extern, obiect și corespondent. Exportul
+   Navigare și export              CSV reflectă lista filtrată. Fișa se poate imprima, iar resetarea
+                                   restaurează datele fictive.
+
+
+
+ Ecranele din demo
+
+   Ecran                           Conținut și acțiuni
+
+   Registrul documentelor          Căutare, filtre, stări și acces la fișe în funcție de rol.
+
+
+   Înregistrare document           Sens, dată, corespondent, număr extern, obiect, categorie, canal și
+                                   anexe. Salvare ciornă și confirmare.
+
+
+   Fișa documentului               Responsabil, termen, anexe, istoric, ciornă, aprobare, număr de ieșire și
+                                   expediere.
+
+
+
+ Scenariu de acceptare
+ Ana înregistrează adresa externă 438/2026 ca intrare 121/2026 și o repartizează lui Mihai. Mihai
+ redactează o cerere de clarificări. Elena aprobă, iar Ana înregistrează ieșirea 122/2026 și
+ consemnează expedierea. Căutarea după numărul extern găsește intrarea, răspunsul și istoricul.
+
+
+
+
+ADI Demo / Cerințe de business                                                                                 2
+ EVIDENȚA DEȘEURILOR
+
+
+
+ Cantități și documente pe UAT
+ Responsabilul ADI prelucrează raportul operatorului și documentele justificative. Directorul poate
+ urmări o cifră din centralizator până la înregistrările și tichetele care o susțin.
+
+
+   Cerință și statut                    Ce se aplică și ce demonstrăm
+
+   D01 · Legală                         UAT-urile sau ADI-urile, după caz, au obligații privind instrumentul
+   PAYT și ținte [4]                    „Plătește pentru cât arunci” și țintele de pregătire pentru reutilizare și
+                                        reciclare. Demo-ul prezintă cantitățile și indicatorii separat, cu baza de
+                                        calcul vizibilă.
+
+
+   D02 · Condiționată                   Dacă delegarea a fost încheiată de ADI și plata se face prin taxă, ADI-ul
+   Ajustarea taxei pe UAT [5]           calculează factorii de ajustare și taxa pe UAT pe baza cantităților
+                                        colectate anual din fiecare UAT membră. Demo-ul pregătește datele.
+                                        Calculul taxei se activează după validarea regulilor și a contractului.
+
+
+   D03 · Condiționată                   Când obiectivul anual de reducere a depozitării nu este îndeplinit,
+   Contribuția AFM [6]                  contribuția de 50 lei/t revine UAT-ului sau subdiviziunii, după caz. Se
+                                        aplică la diferența dintre cantitatea aferentă obiectivului din anexa 6 și
+                                        cantitatea efectiv încredințată spre reciclare sau alte forme de
+                                        valorificare. Demo-ul afișează o estimare anuală, distinctă de ținta de
+                                        reciclare și de ajustarea taxei PAYT.
+
+
+   D04 · Condiționată                   Formularul de încărcare-descărcare se aplică transporturilor
+   Transport și SIATD [7, 8]            nepericuloase din sfera HG 1061/2008. Art. 23 alin. (1) exceptează
+                                        transportul municipal efectuat de operatorii autorizați să presteze
+                                        salubrizare în localități. Verificăm rolul entității și fluxul pentru obligațiile
+                                        de raportare în SIATD.
+
+
+   D05 · De produs                      Importăm CSV cu perioadă, UAT, operator, fracție, destinație, cantitate și
+   Import și verificare                 referință la tichet sau document justificativ. Semnalăm duplicatele,
+                                        diferențele de cantitate și originea neconfirmată. Pentru o rută cu mai
+                                        multe UAT-uri, atribuirea folosește dovezi sau o regulă aprobată.
+
+
+   D06 · De produs                      Filtrăm pe UAT, perioadă, fracție și destinație. Totalurile valide duc la
+   Centralizator pe UAT                 înregistrările sursă. Cantitățile neatribuite sau nevalidate apar separat.
+                                        Exportul preia rezultatele filtrate.
+
+
+
+ Ecranele modulului
+ Import și verificare. Tabel cu cantități, documente, diferențe și starea validării. Mihai verifică și
+ atribuie cantitățile. Situație pe UAT. Elena consultă totalurile validate, sursele, formula estimării
+ și exportul. Ana poate înregistra raportul operatorului în registratură.
+
+ Tichetele de cântar se folosesc ca dovezi potrivit fluxului și documentelor acceptate. Verificarea setului de
+ documente se face pe contractul și raportul operatorului.
+
+
+
+
+ADI Demo / Cerințe de business                                                                                          3
+ VERIFICARE ȘI SURSE
+
+
+
+ Acceptarea demo-ului
+ Scenariu de acceptare pentru modulul de deșeuri
+ Mihai importă un raport fictiv cu două UAT-uri, un rând duplicat și o cursă cu origine neconfirmată.
+ Corectează duplicatul, iar cursa rămâne la verificare. Elena filtrează pe UAT, deschide
+ documentele sursă și exportă centralizatorul.
+
+
+   Control                                 Rezultat așteptat
+
+   Calitatea datelor                       Duplicatul este semnalat și exclus din totalurile validate. Cantitatea cu
+                                           origine incertă apare separat, până la justificarea atribuirii.
+
+
+   Estimare AFM                            Exemplu fictiv pentru o UAT și un an întreg. Cantitate aferentă
+                                           obiectivului 60 t, cantitate eligibilă documentată 45 t. Diferență 15 t ×
+                                           50 lei/t = 750 lei estimare. Valorile sunt ilustrative.
+
+
+   Date pentru PAYT                        Totalul anual colectat este disponibil pe fiecare UAT. Directorul vede
+                                           sursa cantității și starea validării regulii de ajustare a taxei.
+
+
+
+ De confirmat pentru ADI-ul din Buzău
+ Identitatea și mandatul ADI-ului, contractul de delegare și plata prin taxă sau tarif, un raport
+ anonimizat al operatorului și tichetele aferente, identificarea originii pe UAT și regulile pentru
+ rutele comune. Pentru exploatare se validează și regulile de registratură, calcul, arhivare și acces.
+ Estimarea și exporturile din demo sunt demonstrative.
+
+
+ Surse legislative
+ [1] Legea 16/1996, art. 7, 8 și 27¹
+ [2] OG 27/2002, art. 8-9 și Legea 544/2001, art. 7
+ [3] Regulamentul (UE) 2016/679, art. 5, 25 și 32
+ [4] OUG 92/2021, art. 17 alin. (5), în forma consolidată
+ [5] Legea 101/2006, art. 42 alin. (4), în forma republicată după modificările OUG 133/2022
+ [6] OUG 196/2005, art. 9 alin. (1) lit. p), art. 11 alin. (2) și anexa 6
+ [7] HG 1061/2008, art. 22-23 și anexa 3
+ [8] Ordinul 701/2024 și instrucțiunile de utilizare SIATD
+
+
+
+
+ADI Demo / Cerințe de business                                                                                         4
+
